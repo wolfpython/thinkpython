@@ -1,0 +1,1150 @@
+\begin{theindex}
+
+  \item abecedarian, 72, 83
+  \item abs function, 52
+  \item absolute path, 137, 143
+  \item access, 89
+  \item accumulator, 100
+    \subitem histogram, 127
+    \subitem list, 93
+    \subitem string, 173
+    \subitem sum, 93
+  \item Ackerman function, 61
+  \item add method, 163
+  \item addition with carrying, 68
+  \item algorithm, 3, 7, 67, 130
+    \subitem Euclid, 62
+    \subitem MD5, 143
+    \subitem RSA, 112
+    \subitem square root, 69
+  \item aliasing, 96, 100, 147, 149, 167
+    \subitem copying to avoid, 99
+  \item alphabet, 37
+  \item alternative execution, 41
+  \item ambiguity, 5
+  \item anagram, 100
+  \item anagram set, 123, 140
+  \item and operator, 40
+  \item anydbm module, 139
+  \item append method, 92, 98, 101, 172, 173
+  \item arc function, 31
+  \item argument, 17, 19, 21, 22, 26, 97
+    \subitem gather, 117
+    \subitem keyword, 33, 36, 121, 182
+    \subitem list, 97
+    \subitem optional, 76, 95, 107
+    \subitem variable-length tuple, 117
+  \item argument scatter, 117
+  \item arithmetic operator, 12
+  \item assert statement, 157
+  \item assignment, 15, 63, 89
+    \subitem augmented, 93, 100
+    \subitem item, 74, 90, 116
+    \subitem multiple, 68, 110
+    \subitem tuple, 116--118, 123
+  \item assignment statement, 10
+  \item attribute
+    \subitem \_\_dict\_\_, 166
+    \subitem class, 170, 177
+    \subitem initializing, 166
+    \subitem instance, 146, 151, 170, 177
+  \item AttributeError, 150, 199
+  \item augmented assignment, 93, 100
+  \item Austin, Jane, 127
+  \item available colors, 152, 168
+
+  \indexspace
+
+  \item Bacon, Kevin, 144
+  \item Bangladesh, national flag, 152
+  \item base case, 44, 47
+  \item benchmarking, 132, 134
+  \item big, hairy expression, 200
+  \item binary search, 101
+  \item binding, 188, 191
+  \item bingo, 124
+  \item birthday, 158
+  \item birthday paradox, 100
+  \item bisect module, 101
+  \item bisection search, 101
+  \item bisection, debugging by, 68
+  \item bitwise operator, 12
+  \item body, 19, 25, 47, 65
+  \item bool type, 39
+  \item boolean expression, 39, 46
+  \item boolean function, 54, 153
+  \item boolean operator, 76
+  \item borrowing, subtraction with, 68, 157
+  \item bound method, 186, 191
+  \item bounding box, 152, 184, 191
+  \item bracket
+    \subitem squiggly, 103
+  \item bracket operator, 71, 89, 116
+  \item branch, 41, 47
+  \item break statement, 65
+  \item bug, 3, 7
+    \subitem worst, 167
+    \subitem worst ever, 192
+  \item Button widget, 182
+
+  \indexspace
+
+  \item calculator, 8, 16
+  \item call graph, 109, 113
+  \item Callable object, 188
+  \item callback, 182, 186, 188, 190, 191
+  \item Canvas coordinate, 183, 190
+  \item Canvas item, 183
+  \item Canvas object, 151
+  \item Canvas widget, 183
+  \item Car Talk, 86, 113, 124
+  \item Card class, 170
+  \item card, playing, 169
+  \item carrying, addition with, 68, 154, 156
+  \item case-sensitivity, variable names, 15
+  \item catch, 143
+  \item chained conditional, 41, 47
+  \item character, 71
+  \item checksum, 143
+  \item child class, 174, 177
+  \item choice function, 126
+  \item circle function, 31
+  \item circular definition, 56
+  \item class, 145, 151
+    \subitem Card, 170
+    \subitem child, 174, 177
+    \subitem Date, 158
+    \subitem Deck, 172
+    \subitem Hand, 174
+    \subitem Kangaroo, 167
+    \subitem parent, 174
+    \subitem Point, 145, 163
+    \subitem Rectangle, 147
+    \subitem SimpleTurtleWorld, 186
+    \subitem Time, 153
+  \item class attribute, 170, 177
+  \item class definition, 145
+  \item class diagram, 176, 178
+  \item class object, 146, 151
+  \item close method, 136, 139, 141
+  \item cmp function, 172
+  \item \_\_cmp\_\_ method, 171
+  \item Collatz conjecture, 65
+  \item colon, 19, 196
+  \item color list, 152, 168
+  \item comment, 14, 16
+  \item commutativity, 14, 165
+  \item compare function, 52
+  \item comparison
+    \subitem string, 77
+    \subitem tuple, 121, 172
+  \item compile, 1, 7
+  \item composition, 19, 22, 26, 54, 172
+  \item compound statement, 40, 47
+  \item compression
+    \subitem file, 141
+  \item concatenation, 14, 16, 23, 72, 74, 95
+    \subitem list, 91, 98, 101
+  \item condition, 40, 47, 65, 197
+  \item conditional, 196
+    \subitem chained, 41, 47
+    \subitem nested, 42, 47
+  \item conditional execution, 40
+  \item conditional statement, 40, 47, 55
+  \item config method, 183
+  \item consistency check, 112, 156
+  \item contributors, vii
+  \item conversion
+    \subitem type, 17
+  \item coordinate
+    \subitem Canvas, 183, 190
+    \subitem pixel, 190
+  \item coordinate sequence, 184
+  \item copy
+    \subitem deep, 150
+    \subitem shallow, 150
+    \subitem slice, 74, 92
+    \subitem to avoid aliasing, 99
+  \item copy module, 149
+  \item copying objects, 149
+  \item count method, 76
+  \item counter, 75, 79, 104, 111
+  \item counting and looping, 75
+  \item crosswords, 81
+  \item cummings, e. e., 3
+  \item cumulative sum, 94
+  \item Czech Republic, national flag, 152
+
+  \indexspace
+
+  \item data structure, 122, 123, 131
+  \item database, 139, 143, 144
+  \item Date class, 158
+  \item datetime module, 158
+  \item dead code, 52, 60, 199
+  \item debugger (pdb), 199
+  \item debugging, 3, 6, 7, 15, 25, 35, 45, 59, 77, 85, 98, 112, 122, 
+		132, 142, 150, 157, 166, 176, 190, 195
+    \subitem by bisection, 68
+    \subitem emotional response, 6, 201
+    \subitem experimental, 4
+    \subitem superstition, 201
+  \item Deck class, 172
+  \item deck, playing cards, 172
+  \item declaration, 110, 113
+  \item decorate-sort-undecorate pattern, 121
+  \item decrement, 64, 69
+  \item deep copy, 150, 151
+  \item deepcopy function, 150
+  \item def keyword, 19
+  \item default value, 128, 133, 162
+    \subitem avoiding mutable, 167
+  \item definition
+    \subitem circular, 56
+    \subitem class, 145
+    \subitem function, 19
+    \subitem recursive, 124
+  \item del operator, 94
+  \item deletion, element of list, 94
+  \item delimiter, 95, 100
+  \item deterministic, 126, 133
+  \item development plan, 36
+    \subitem encapsulation and generalization, 35
+    \subitem incremental, 52, 195
+    \subitem planned, 156
+    \subitem problem recognition, 84, 85
+    \subitem prototype and patch, 154, 156
+    \subitem random walk programming, 133, 201
+  \item diagram
+    \subitem call graph, 113
+    \subitem class, 176, 178
+    \subitem object, 146, 148, 150, 151, 153, 171
+    \subitem stack, 23, 97
+    \subitem state, 10, 63, 78, 90, 96, 97, 108, 120, 146, 148, 150, 
+		153, 171
+  \item \_\_dict\_\_ attribute, 166
+  \item dict function, 103
+  \item dictionary, 103, 112, 119, 199
+    \subitem initialize, 119
+    \subitem invert, 107
+    \subitem lookup, 106
+    \subitem looping with, 106
+    \subitem reverse lookup, 106
+    \subitem subtraction, 129
+    \subitem traversal, 119, 166
+  \item dictionary methods
+    \subitem anydbm module, 139
+  \item Dijkstra, Edsger, 85
+  \item directory, 137, 143
+    \subitem walk, 138
+    \subitem working, 137
+  \item dispatch
+    \subitem type-based, 165
+  \item dispatch, type-based, 164
+  \item divisibility, 39
+  \item division
+    \subitem floating-point, 12
+    \subitem floor, 12, 46
+  \item divmod, 117, 156
+  \item docstring, 35, 36, 145
+  \item documentation, 8
+  \item dot notation, 18, 26, 75, 146, 160, 170
+  \item double letters, 86
+  \item Doyle, Arthur Conan, 4
+  \item drag-and-drop, 189
+  \item DSU pattern, 121, 123, 128
+  \item duplicate, 100, 101, 113, 143
+
+  \indexspace
+
+  \item Einstein, Albert, 33
+  \item element, 89, 99
+  \item element deletion, 94
+  \item elif keyword, 41
+  \item ellipses, 20
+  \item else keyword, 41
+  \item email address, 116
+  \item embedded object, 148, 151, 167
+    \subitem copying, 149
+  \item emotional debugging, 6, 201
+  \item empty list, 89
+  \item empty string, 79, 95
+  \item encapsulation, 32, 36, 54, 67, 75, 175
+  \item encode, 169, 177
+  \item encrypt, 169
+  \item encryption, 112
+  \item end of line character, 142
+  \item Entry widget, 184
+  \item enumerate function, 119
+  \item epsilon, 67
+  \item equality and assignment, 63
+  \item equivalence, 96
+  \item equivalent, 100
+  \item error
+    \subitem compile-time, 195
+    \subitem runtime, 3, 15, 44, 46, 195
+    \subitem semantic, 4, 10, 15, 78, 195, 199
+    \subitem shape, 122
+    \subitem syntax, 3, 15, 195
+  \item error checking, 58
+  \item error message, 3, 4, 6, 10, 15, 195
+  \item Euclid's algorithm, 62
+  \item eval function, 69
+  \item evaluate, 13
+  \item event, 191
+  \item event handler, 188
+  \item event loop, 181, 191
+  \item Event object, 188
+  \item event string, 188
+  \item event-driven programming, 182, 190, 191
+  \item exception, 3, 7, 15, 195, 198
+    \subitem AttributeError, 150, 199
+    \subitem IndexError, 72, 78, 90, 199
+    \subitem IOError, 138
+    \subitem KeyError, 104, 199
+    \subitem NameError, 23, 198
+    \subitem OverflowError, 46
+    \subitem RuntimeError, 44
+    \subitem SyntaxError, 19
+    \subitem TypeError, 71, 74, 108, 116, 117, 136, 161, 198
+    \subitem UnboundLocalError, 111
+    \subitem ValueError, 45, 107, 116
+  \item exception, catching, 138
+  \item executable, 2, 7
+  \item exercise, secret, 143
+  \item exists function, 137
+  \item experimental debugging, 4, 133
+  \item expression, 12, 13, 16
+    \subitem big and hairy, 200
+    \subitem boolean, 39, 46
+  \item extend method, 92
+
+  \indexspace
+
+  \item factorial function, 56, 58
+  \item False special value, 39
+  \item Fermat's Last Theorem, 47
+  \item fibonacci function, 57, 109
+  \item file, 135
+    \subitem compression, 141
+    \subitem permission, 138
+    \subitem reading and writing, 135
+  \item file object, 81, 86
+  \item filename, 137
+  \item filter pattern, 93, 100
+  \item find function, 74
+  \item flag, 110, 113
+  \item float function, 17
+  \item float type, 9
+  \item floating-point, 15, 67
+  \item floating-point division, 12
+  \item floor division, 12, 16, 46
+  \item flow of execution, 21, 26, 58, 59, 64, 177, 190, 198
+  \item flower, 37
+  \item folder, 137
+  \item for loop, 30, 72, 91, 119
+  \item formal language, 4, 8
+  \item format operator, 136, 143, 198
+  \item format sequence, 136, 143
+  \item format string, 136, 143
+  \item frabjous, 56
+  \item frame, 23, 26, 43, 57, 109
+  \item Frame widget, 186
+  \item Free Documentation License, GNU, v, vi
+  \item frequency, 105
+    \subitem letter, 123
+    \subitem word, 125, 134
+  \item fruitful function, 24, 26
+  \item frustration, 201
+  \item function, 19, 25, 159
+    \subitem abs, 52
+    \subitem ack, 61
+    \subitem arc, 31
+    \subitem choice, 126
+    \subitem circle, 31
+    \subitem cmp, 172
+    \subitem compare, 52
+    \subitem deepcopy, 150
+    \subitem dict, 103
+    \subitem enumerate, 119
+    \subitem eval, 69
+    \subitem exists, 137
+    \subitem factorial, 56
+    \subitem fibonacci, 57, 109
+    \subitem find, 74
+    \subitem float, 17
+    \subitem getattr, 166
+    \subitem getcwd, 137
+    \subitem hasattr, 150, 166
+    \subitem int, 17
+    \subitem isinstance, 58, 164
+    \subitem len, 26, 72, 104
+    \subitem list, 95
+    \subitem log, 18
+    \subitem max, 117, 118
+    \subitem min, 117, 118
+    \subitem open, 81, 82, 135, 138, 139
+    \subitem polygon, 31
+    \subitem popen, 140
+    \subitem randint, 100, 126
+    \subitem random, 121, 126
+    \subitem raw\_input, 45
+    \subitem recursive, 43
+    \subitem reload, 142, 196
+    \subitem repr, 142
+    \subitem reversed, 122
+    \subitem shuffle, 174
+    \subitem sorted, 122
+    \subitem sqrt, 18, 53
+    \subitem str, 18
+    \subitem sum, 118
+    \subitem tuple, 115
+    \subitem type, 150
+    \subitem zip, 118
+  \item function argument, 21
+  \item function call, 17, 26
+  \item function composition, 54
+  \item function definition, 19, 20, 25
+  \item function frame, 23, 26, 43, 109
+  \item function object, 20, 26
+  \item function parameter, 21
+  \item function syntax, 160
+  \item function type
+    \subitem modifier, 155
+    \subitem pure, 154
+  \item function, fruitful, 24
+  \item function, math, 18
+  \item function, reasons for, 25
+  \item function, trigonometric, 18
+  \item function, tuple as return value, 117
+  \item function, void, 24
+  \item functional programming style, 155, 158
+
+  \indexspace
+
+  \item gamma function, 58
+  \item gather, 117, 123
+  \item GCD (greatest common divisor), 61
+  \item generalization, 32, 36, 83, 157
+  \item geometry manager, 187, 191
+  \item get method, 105
+  \item getattr function, 166
+  \item getcwd function, 137
+  \item global statement, 110
+  \item global variable, 110, 113
+    \subitem update, 110
+  \item GNU Free Documentation License, v, vi
+  \item graphical user interface, 181
+  \item greatest common divisor (GCD), 61
+  \item grid, 27
+  \item guardian pattern, 59, 60, 77
+  \item GUI, 181, 191
+  \item Gui module, 181
+  \item gunzip (Unix command), 141
+
+  \indexspace
+
+  \item Hand class, 174
+  \item hanging, 197
+  \item HAS-A relationship, 176, 178
+  \item hasattr function, 150, 166
+  \item hash function, 108, 113
+  \item hashable, 108, 113, 120
+  \item hashtable, 104, 113
+  \item header, 19, 25, 196
+  \item Hello, World, 6
+  \item help utility, 8
+  \item hexadecimal, 146
+  \item high-level language, 1, 7
+  \item histogram, 105, 113
+    \subitem random choice, 126, 129
+    \subitem word frequencies, 127
+  \item Holmes, Sherlock, 4
+  \item homophone, 114
+  \item HTMLParser module, 193
+  \item hyperlink, 193
+  \item hypotenuse, 54
+
+  \indexspace
+
+  \item identical, 100
+  \item identity, 96
+  \item if statement, 40
+  \item Image module, 192
+  \item image viewer, 192
+  \item IMDb (Internet Movie Database), 144
+  \item immutability, 74, 79, 97, 108, 115, 122
+  \item implementation, 105, 113, 132
+  \item import statement, 26, 29, 142
+  \item in operator, 76, 90, 104
+  \item increment, 64, 68, 155, 161
+  \item incremental development, 60, 195
+  \item indentation, 19, 160, 196
+  \item index, 71, 77, 79, 89, 99, 103, 198
+    \subitem looping with, 84, 91
+    \subitem negative, 72
+    \subitem slice, 73, 92
+    \subitem starting at zero, 71, 90
+  \item IndexError, 72, 78, 90, 199
+  \item infinite loop, 65, 69, 181, 197
+  \item infinite recursion, 44, 47, 58, 197, 198
+  \item inheritance, 174, 177
+  \item init method, 162, 166, 170, 172, 174
+  \item initialization
+    \subitem variable, 68
+  \item initialization (before update), 64
+  \item instance, 29, 36, 146, 151
+    \subitem as argument, 147
+    \subitem as return value, 148
+  \item instance attribute, 146, 151, 170, 177
+  \item instantiation, 146
+  \item int function, 17
+  \item int type, 9
+  \item integer, 15
+    \subitem long, 111
+  \item interactive mode, 2, 7, 12, 24
+  \item interface, 33, 35, 36, 177
+  \item interlocking words, 101
+  \item Internet Movie Database (IMDb), 144
+  \item interpret, 1, 7
+  \item invariant, 157, 158, 191
+  \item invert dictionary, 107
+  \item invocation, 75, 79
+  \item IOError, 138
+  \item is operator, 96, 149
+  \item IS-A relationship, 176, 178
+  \item isinstance function, 58, 164
+  \item item, 79, 89
+    \subitem Canvas, 183, 191
+    \subitem dictionary, 112
+  \item item assignment, 74, 90, 116
+  \item item update, 91
+  \item items method, 119
+  \item iteration, 63, 64, 69
+
+  \indexspace
+
+  \item join method, 95, 173
+
+  \indexspace
+
+  \item Kangaroo class, 167
+  \item Kevin Bacon Game, 144
+  \item key, 103, 112
+  \item key-value pair, 103, 112, 119
+  \item keyboard input, 45
+  \item KeyError, 104, 199
+  \item keys method, 106
+  \item keyword, 11, 15, 196
+    \subitem def, 19
+    \subitem elif, 41
+    \subitem else, 41
+  \item keyword argument, 33, 36, 121, 182, 191
+  \item Koch curve, 48
+
+  \indexspace
+
+  \item Label widget, 182
+  \item language
+    \subitem formal, 4
+    \subitem high-level, 1
+    \subitem low-level, 1
+    \subitem natural, 4
+    \subitem programming, 1
+    \subitem safe, 3
+    \subitem Turing complete, 55
+  \item leap of faith, 57
+  \item len function, 26, 72, 104
+  \item letter frequency, 123
+  \item letter rotation, 80, 113
+  \item Linux, 4
+  \item lipogram, 82
+  \item list, 89, 95, 99, 122
+    \subitem as argument, 97
+    \subitem comprehension, 94
+    \subitem concatenation, 91, 98, 101
+    \subitem copy, 92
+    \subitem element, 89
+    \subitem empty, 89
+    \subitem function, 95
+    \subitem index, 90
+    \subitem membership, 90
+    \subitem method, 92
+    \subitem nested, 89, 91
+    \subitem of objects, 172
+    \subitem of tuples, 118
+    \subitem operation, 91
+    \subitem repetition, 91
+    \subitem slice, 92
+    \subitem traversal, 91, 100
+  \item literalness, 5
+  \item local variable, 22, 26
+  \item log function, 18
+  \item logarithm, 134
+  \item logical operator, 39, 40
+  \item long integer, 111
+  \item lookup, 113
+  \item lookup, dictionary, 106
+  \item loop, 31, 36, 65, 118
+    \subitem condition, 197
+    \subitem event, 181
+    \subitem for, 30, 72, 91
+    \subitem infinite, 65, 181, 197
+    \subitem nested, 172
+    \subitem traversal, 72
+    \subitem while, 64
+  \item looping
+    \subitem with dictionaries, 106
+    \subitem with indices, 84, 91
+    \subitem with strings, 75
+  \item looping and counting, 75
+  \item low-level language, 1, 7
+  \item ls (Unix command), 140
+
+  \indexspace
+
+  \item map pattern, 93, 100
+  \item map to, 169
+  \item mapping, 90, 100, 131
+  \item Markov analysis, 130
+  \item mash-up, 131
+  \item math function, 18
+  \item max function, 117, 118
+  \item McCloskey, Robert, 72
+  \item MD5 algorithm, 143
+  \item membership
+    \subitem binary search, 101
+    \subitem bisection search, 101
+    \subitem dictionary, 104
+    \subitem list, 90
+    \subitem set, 104
+  \item memo, 109, 113
+  \item mental model, 200
+  \item Menubutton widget, 187
+  \item metaphor, method invocation, 161
+  \item metathesis, 124
+  \item method, 75, 79, 159, 167
+    \subitem \_\_cmp\_\_, 171
+    \subitem \_\_str\_\_, 163, 172
+    \subitem add, 163
+    \subitem append, 92, 98, 172, 173
+    \subitem close, 136, 139, 141
+    \subitem config, 183
+    \subitem count, 76
+    \subitem extend, 92
+    \subitem get, 105
+    \subitem init, 162, 170, 172, 174
+    \subitem items, 119
+    \subitem join, 95, 173
+    \subitem keys, 106
+    \subitem mro, 177
+    \subitem pop, 94, 173
+    \subitem radd, 165
+    \subitem read, 141
+    \subitem readline, 81, 141
+    \subitem remove, 94
+    \subitem replace, 125
+    \subitem setdefault, 109
+    \subitem sort, 92, 99, 121, 174
+    \subitem split, 95, 116
+    \subitem string, 79
+    \subitem strip, 82, 125
+    \subitem translate, 125
+    \subitem update, 119
+    \subitem values, 104
+    \subitem void, 93
+  \item method append, 101
+  \item method resolution order, 177
+  \item method syntax, 160
+  \item method, bound, 186
+  \item method, list, 92
+  \item min function, 117, 118
+  \item model, mental, 200
+  \item modifier, 155, 158
+  \item module, 18, 26
+    \subitem anydbm, 139
+    \subitem bisect, 101
+    \subitem copy, 149
+    \subitem datetime, 158
+    \subitem Gui, 181
+    \subitem HTMLParser, 193
+    \subitem Image, 192
+    \subitem os, 137
+    \subitem pickle, 135, 139
+    \subitem pprint, 112
+    \subitem profile, 132
+    \subitem random, 100, 121, 126, 174
+    \subitem reload, 142, 196
+    \subitem shelve, 140, 144
+    \subitem string, 125
+    \subitem structshape, 122
+    \subitem urllib, 143, 193
+    \subitem Visual, 167
+    \subitem vpython, 167
+    \subitem World, 151
+  \item module object, 18, 141
+  \item module, writing, 141
+  \item modulus operator, 39, 46
+  \item Monty Python and the Holy Grail, 154
+  \item MP3, 143
+  \item mro method, 177
+  \item multiline string, 35, 196
+  \item multiple assignment, 63, 68, 110
+  \item multiplicity (in class diagram), 176, 178
+  \item mutability, 74, 90, 92, 97, 111, 115, 122, 148
+  \item mutable object, as default value, 167
+
+  \indexspace
+
+  \item NameError, 23, 198
+  \item natural language, 4, 8
+  \item negative index, 72
+  \item nested conditional, 42, 47
+  \item nested list, 89, 91, 100
+  \item newline, 45, 63, 173
+  \item Newton's method, 66
+  \item None special value, 24, 52, 60, 93, 94
+  \item not operator, 40
+  \item number, random, 126
+
+  \indexspace
+
+  \item object, 74, 79, 95, 96, 100, 145
+    \subitem Callable, 188
+    \subitem Canvas, 151
+    \subitem class, 146
+    \subitem copying, 149
+    \subitem embedded, 148, 151, 167
+    \subitem Event, 188
+    \subitem file, 81, 86
+    \subitem function, 20, 26
+    \subitem module, 141
+    \subitem mutable, 148
+    \subitem printing, 160
+  \item object code, 2, 7
+  \item object diagram, 146, 148, 150, 151, 153, 171
+  \item object-oriented language, 166
+  \item object-oriented programming, 159, 167, 174
+  \item octal, 11
+  \item odometer, 86
+  \item open function, 81, 82, 135, 138, 139
+  \item operand, 12, 16
+  \item operator, 16
+    \subitem and, 40
+    \subitem bitwise, 12
+    \subitem boolean, 76
+    \subitem bracket, 71, 89, 116
+    \subitem del, 94
+    \subitem format, 136, 143, 198
+    \subitem in, 76, 90, 104
+    \subitem is, 96, 149
+    \subitem logical, 39, 40
+    \subitem modulus, 39, 46
+    \subitem not, 40
+    \subitem or, 40
+    \subitem overloading, 167
+    \subitem relational, 40, 171
+    \subitem slice, 73, 79, 92, 98, 116
+    \subitem string, 14
+    \subitem update, 93
+  \item operator overloading, 164, 171
+  \item operator, arithmetic, 12
+  \item option, 182, 191
+  \item optional argument, 76, 95, 107
+  \item optional parameter, 128, 162
+  \item or operator, 40
+  \item order of operations, 13, 15, 201
+  \item os module, 137
+  \item other (parameter name), 162
+  \item OverflowError, 46
+  \item overloading, 167
+  \item override, 129, 134, 162, 171, 174, 177
+
+  \indexspace
+
+  \item packing widgets, 186, 191
+  \item palindrome, 61, 79, 84, 86
+  \item parameter, 21, 23, 25, 97
+    \subitem gather, 117
+    \subitem optional, 128, 162
+    \subitem other, 162
+    \subitem self, 161
+  \item parent class, 174, 177
+  \item parentheses
+    \subitem argument in, 17
+    \subitem empty, 19, 75
+    \subitem matching, 3
+    \subitem overriding precedence, 13
+    \subitem parameters in, 22
+    \subitem parent class in, 174
+    \subitem tuples in, 115
+  \item parse, 5, 8, 144
+  \item pass statement, 41
+  \item path, 137, 143
+    \subitem absolute, 137
+    \subitem relative, 137
+  \item pattern
+    \subitem decorate-sort-undecorate, 121
+    \subitem DSU, 121, 128
+    \subitem filter, 93, 100
+    \subitem guardian, 59, 60, 77
+    \subitem map, 93, 100
+    \subitem reduce, 93, 100
+    \subitem search, 75, 79, 83, 107
+    \subitem swap, 116
+  \item pdb (Python debugger), 199
+  \item PEMDAS, 13
+  \item permission, file, 138
+  \item persistence, 135, 143
+  \item pi, 18, 69
+  \item pickle module, 135, 139
+  \item pickling, 139
+  \item pie, 37
+  \item PIL (Python Imaging Library), 192
+  \item pipe, 140, 143
+  \item pixel coordinate, 190
+  \item plain text, 81, 125, 144, 193
+  \item planned development, 156, 158
+  \item playing card, Anglo-American, 169
+  \item poetry, 5
+  \item Point class, 145, 163
+  \item point, mathematical, 145
+  \item poker, 169, 178
+  \item polygon function, 31
+  \item polymorphism, 166, 167, 176
+  \item pop method, 94, 173
+  \item popen function, 140
+  \item portability, 1, 7
+  \item postcondition, 36, 59, 177
+  \item pprint module, 112
+  \item precedence, 16, 201
+  \item precondition, 36, 59, 100, 177
+  \item prefix, 131
+  \item pretty print, 112
+  \item print statement, 6, 8, 163, 199
+  \item problem recognition, 84--86
+  \item problem solving, 1, 7
+  \item profile module, 132
+  \item program, 2, 7
+  \item program testing, 85
+  \item programming language, 1
+  \item Project Gutenberg, 125
+  \item prompt, 2, 7, 45
+  \item prose, 5
+  \item prototype and patch, 154, 156, 158
+  \item pseudorandom, 126, 133
+  \item pure function, 154, 158
+  \item Puzzler, 86, 113, 124
+  \item Pythagorean theorem, 52
+  \item Python 3.0, 6, 12, 45, 111, 118
+  \item Python debugger (pdb), 199
+  \item Python Imaging Library (PIL), 192
+  \item python.org, 8
+
+  \indexspace
+
+  \item quotation mark, 6, 9, 35, 74, 196
+
+  \indexspace
+
+  \item radd method, 165
+  \item radian, 18
+  \item rage, 201
+  \item raise statement, 107, 157
+  \item Ramanujan, Srinivasa, 69
+  \item randint function, 100, 126
+  \item random function, 121, 126
+  \item random module, 100, 121, 126, 174
+  \item random number, 126
+  \item random text, 131
+  \item random walk programming, 133, 201
+  \item rank, 169
+  \item raw\_input function, 45
+  \item read method, 141
+  \item readline method, 81, 141
+  \item Rectangle class, 147
+  \item recursion, 42, 43, 47, 55, 57
+    \subitem base case, 44
+    \subitem infinite, 44, 58, 198
+  \item recursive definition, 56, 124
+  \item reduce pattern, 93, 100
+  \item reducible word, 114, 124
+  \item redundancy, 5
+  \item refactoring, 34
+  \item reference, 97, 100
+    \subitem aliasing, 96
+  \item relational operator, 40, 171
+  \item relative path, 137, 143
+  \item reload function, 142, 196
+  \item remove method, 94
+  \item repetition, 30
+    \subitem list, 91
+  \item replace method, 125
+  \item repr function, 142
+  \item representation, 145, 147, 169
+  \item return statement, 43, 51, 201
+  \item return value, 17, 26, 51, 148
+    \subitem tuple, 117
+  \item reverse lookup, dictionary, 106, 113
+  \item reverse word pair, 101
+  \item reversed function, 122
+  \item rotation
+    \subitem letters, 113
+  \item rotation, letter, 80
+  \item RSA algorithm, 112
+  \item rules of precedence, 13, 16
+  \item running pace, 8, 16, 158
+  \item runtime error, 3, 15, 44, 46, 195, 198
+  \item RuntimeError, 44, 58
+
+  \indexspace
+
+  \item safe language, 3
+  \item sanity check, 112
+  \item scaffolding, 53, 60, 112
+  \item scatter, 117, 123
+  \item Scrabble, 124
+  \item script, 2, 7
+  \item script mode, 2, 7, 12, 24
+  \item search, 107
+  \item search pattern, 75, 79, 83
+  \item search, binary, 101
+  \item search, bisection, 101
+  \item secret exercise, 143
+  \item self (parameter name), 161
+  \item semantic error, 4, 8, 10, 15, 78, 195, 199
+  \item semantics, 4, 8, 159
+  \item sequence, 71, 79, 89, 95, 115, 121
+    \subitem coordinate, 184
+  \item set, 129
+    \subitem anagram, 123, 140
+  \item set membership, 104
+  \item setdefault method, 109
+  \item sexagesimal, 156
+  \item shallow copy, 150, 151
+  \item shape, 123
+  \item shape error, 122
+  \item shell, 140
+  \item shelve module, 140, 144
+  \item shuffle function, 174
+  \item SimpleTurtleWorld class, 186
+  \item sine function, 18
+  \item singleton, 108, 113, 115
+  \item slice, 79
+    \subitem copy, 74, 92
+    \subitem list, 92
+    \subitem string, 73
+    \subitem tuple, 116
+    \subitem update, 92
+  \item slice operator, 73, 79, 92, 98, 116
+  \item sort method, 92, 99, 121, 174
+  \item sorted function, 122
+  \item source code, 2, 7
+  \item special case, 85, 86, 155
+  \item special value
+    \subitem False, 39
+    \subitem None, 24, 52, 60, 93, 94
+    \subitem True, 39
+  \item split method, 95, 116
+  \item sqrt, 53
+  \item sqrt function, 18
+  \item square root, 66
+  \item squiggly bracket, 103
+  \item stack diagram, 23, 26, 36, 43, 56, 60, 97
+  \item state diagram, 10, 15, 63, 78, 90, 96, 97, 108, 120, 146, 148, 
+		150, 153, 171
+  \item statement, 12, 15
+    \subitem assert, 157
+    \subitem assignment, 10, 63
+    \subitem break, 65
+    \subitem compound, 40
+    \subitem conditional, 40, 47, 55
+    \subitem for, 30, 72, 91
+    \subitem global, 110
+    \subitem if, 40
+    \subitem import, 26, 29, 142
+    \subitem pass, 41
+    \subitem print, 6, 8, 163, 199
+    \subitem raise, 107, 157
+    \subitem return, 43, 51, 201
+    \subitem try, 138
+    \subitem while, 64
+  \item step size, 79
+  \item str function, 18
+  \item \_\_str\_\_ method, 163, 172
+  \item string, 9, 15, 95, 122
+    \subitem accumulator, 173
+    \subitem comparison, 77
+    \subitem empty, 95
+    \subitem immutable, 74
+    \subitem method, 75
+    \subitem multiline, 35, 196
+    \subitem operation, 14
+    \subitem slice, 73
+    \subitem triple-quoted, 35
+  \item string method, 79
+  \item string module, 125
+  \item string representation, 142, 163
+  \item string type, 9
+  \item strip method, 82, 125
+  \item structshape module, 122
+  \item structure, 5
+  \item subclass, 174
+  \item subject, 160, 167, 186
+  \item subtraction
+    \subitem dictionary, 129
+    \subitem with borrowing, 68
+  \item subtraction with borrowing, 157
+  \item suffix, 131
+  \item suit, 169
+  \item sum function, 118
+  \item superclass, 174
+  \item superstitious debugging, 201
+  \item SVG, 193
+  \item Swampy, 29, 81, 151, 179, 181
+  \item swap pattern, 116
+  \item syntax, 3, 7, 159, 196
+  \item syntax error, 3, 7, 15, 195
+  \item SyntaxError, 19
+
+  \indexspace
+
+  \item Tagger, 179
+  \item temporary variable, 51, 60, 201
+  \item test case, minimal, 199
+  \item testing
+    \subitem and absence of bugs, 85
+    \subitem incremental development, 52
+    \subitem interactive mode, 2
+    \subitem is hard, 85
+    \subitem knowing the answer, 53
+    \subitem leap of faith, 57
+    \subitem minimal test case, 199
+  \item text
+    \subitem plain, 81, 125, 144, 193
+    \subitem random, 131
+  \item text file, 143
+  \item Text widget, 184
+  \item Time class, 153
+  \item Tkinter, 181
+  \item token, 5, 8
+  \item traceback, 24, 26, 44, 45, 107, 198
+  \item translate method, 125
+  \item traversal, 72, 75, 77, 79, 83, 93, 100, 105, 106, 118, 119, 121, 
+		127
+    \subitem dictionary, 166
+    \subitem list, 91
+  \item traverse
+    \subitem dictionary, 119
+  \item triangle, 47
+  \item trigonometric function, 18
+  \item triple-quoted string, 35
+  \item True special value, 39
+  \item try statement, 138
+  \item tuple, 115, 117, 122, 123
+    \subitem as key in dictionary, 120, 132
+    \subitem assignment, 116
+    \subitem comparison, 121, 172
+    \subitem in brackets, 120
+    \subitem singleton, 115
+    \subitem slice, 116
+  \item tuple assignment, 117, 118, 123
+  \item tuple function, 115
+  \item Turing complete language, 55
+  \item Turing Thesis, 55
+  \item Turing, Alan, 55
+  \item turtle typewriter, 37
+  \item TurtleWorld, 29, 48, 179
+  \item type, 9, 15
+    \subitem bool, 39
+    \subitem dict, 103
+    \subitem file, 135
+    \subitem float, 9
+    \subitem int, 9
+    \subitem list, 89
+    \subitem long, 111
+    \subitem set, 129
+    \subitem str, 9
+    \subitem tuple, 115
+    \subitem user-defined, 145, 153
+  \item type checking, 58
+  \item type conversion, 17
+  \item type function, 150
+  \item type-based dispatch, 164, 165, 167
+  \item TypeError, 71, 74, 108, 116, 117, 136, 161, 198
+  \item typewriter, turtle, 37
+  \item typographical error, 133
+
+  \indexspace
+
+  \item UML, 176
+  \item UnboundLocalError, 111
+  \item underscore character, 11
+  \item uniqueness, 101
+  \item Unix command
+    \subitem gunzip, 141
+    \subitem ls, 140
+  \item update, 64, 66, 68
+    \subitem coordinate, 189
+    \subitem database, 139
+    \subitem global variable, 110
+    \subitem histogram, 127
+    \subitem item, 91
+    \subitem slice, 92
+  \item update method, 119
+  \item update operator, 93
+  \item URL, 143, 193
+  \item urllib module, 143, 193
+  \item use before def, 15, 21
+  \item user-defined type, 145, 153
+
+  \indexspace
+
+  \item value, 9, 15, 95, 96, 112
+    \subitem default, 128
+    \subitem tuple, 117
+  \item ValueError, 45, 107, 116
+  \item values method, 104
+  \item variable, 10, 15
+    \subitem global, 110
+    \subitem local, 22
+    \subitem temporary, 51, 60, 201
+    \subitem updating, 64
+  \item variable-length argument tuple, 117
+  \item vector graphics, 193
+  \item veneer, 173, 177
+  \item Visual module, 167
+  \item void function, 24, 26
+  \item void method, 93
+  \item vpython module, 167
+
+  \indexspace
+
+  \item walk, directory, 138
+  \item while loop, 64
+  \item whitespace, 25, 46, 82, 142, 196
+  \item widget, 181, 191
+    \subitem Button, 182
+    \subitem Canvas, 183
+    \subitem Entry, 184
+    \subitem Frame, 186
+    \subitem Label, 182
+    \subitem Menubutton, 187
+    \subitem Text, 184
+  \item widget, packing, 186
+  \item word count, 141
+  \item word frequency, 125, 134
+  \item word, reducible, 114, 124
+  \item working directory, 137
+  \item World module, 151
+  \item worst bug, 167
+    \subitem ever, 192
+
+  \indexspace
+
+  \item zero, index starting at, 71, 90
+  \item zip function, 118
+    \subitem use with dict, 119
+  \item Zipf's law, 134
+
+\end{theindex}
