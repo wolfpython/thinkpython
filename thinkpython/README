@@ -6,5 +6,17 @@ Think python :How to Think Like a Computer Scientist.是一本优秀的计算机
 国内开源的弊端在于沽名钓誉，希望国内的大学，科研机构能够少一些浮躁，少一些
 对名利的追求，真正的为开源做贡献。
 
+原书的源码是以LaTeX排版的。LaTex也有相应的中文宏包cjk系列的（确切的
+说不只是为了支持中文），但是小弟一直形成的观点是CJK对中文的支持比较
+麻烦，配置也比较麻烦（我是TeX初学着),所以一直用的是后来出现的XeTeX。
+翻译此本书，准备用XeTeX来排版，到时制成相应的HTML版本。如果时间充裕
+的话，我也愿意花些时间研究一下LaTeX的cjk，然后改编XeTeX的版本成LaTeX版本，但这些只能在翻译完成后进行。
+
+如果那位爱好者希望协助我，或者和我一起翻译，那将甚好。
+
+我的联系方式：wolfpythonlondon@gmail.com
+
+
+
                                   walter lewis (刘宇辉)
 	                    Oct , 11, 2010 于南邮
