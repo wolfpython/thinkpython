@@ -29,5 +29,165 @@
 \usepackage{setspace}
 \usepackage{hevea}
 \usepackage{upquote}
+%这些是对中文的支持
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setmainfont{AR PL SungtiL GB:style=Regular}
+\xeTeXlinebreaklocale "zh"
+\xeTeXlinebreakskip=0pt plus 1pt minus 0.1pt
+
+\title{思考Python}
+\newcommand{\thetitle}{思考Python:像计算机科学家一样思考}
+\newcommand{\theversion}{1.1.22}
+
+%以下的这些风格被转换成html的css
+\newstyle{a:link}{color:black;}
+\newstyle{p+p}{margin-top:lem;margin-bottom:lem}
+\newstyle{img}{border:opx}
+
+%改变箭头（方向)
+\setlinkstext
+{\imgsrc[ALT="Previous"]{back.png}}
+{\imgsrc[ALT="Previous"]{up.png}}
+{\imgsrc[ALT="Previous"]{next.png}}
+
+\makeindex
+
+\begin{document}
+\fontmatter
+%LaTeXOnly
+
+\input{latexonly}
+
+\newtheorem{ex}{Exercise}[chapter]
+\begin{latexonly}
+
+\renewcommand{\blankpage}{\thispagestyle{empty} \qud \newpage}
+
+%blankpage
+%blankpage
+
+%-half title----------------------------------------------
+\thispagestyle{empty}
+\begin{flushright}
+\vspace*{2.0in}
+
+\begin{spacing}{3}
+{\huge 思考Python}\\
+{\Large 像计算机科学家一样思考}
+\end{spacing}
+
+\vspace{0.25in}
+
+Version \theversion
+
+\vfill
+\end{flushright}
+
+%---------------------------
+\blankpage
+\blankpage
+
+%---title page---------
+\pagebreak
+\thispagestyle{empty}
+
+\begin{flushright}
+\vspace*{2.0in}
+
+\begin{spacing}{3}
+{\huge 思考Python}\\
+{\Large 像计算机科学家一样思考}
+\end{spacing}
+
+\vspace{0.25in}
+Version \theversion
+
+{\Large
+	Allen Downey\\
+}
+{\Large 
+	Walter Lewis\\
+}
+
+
+
+\vspace{0.5in}
+
+{\Large Green Tea Press}
+{\small Needham, Massachusetts}
+
+\vfill
+\end{flushright}
+
+%---copyright------------------
+\pagebreak
+\thispagestyle{empty}
+
+{\small
+	Copyright \copyright ~2008 Allen Downey.
+
+Printing history:
+
+\begin{description}
+
+\item[2002四月:] 第一版 {\em 像计算机科学家一样思考}.
+\item[2007八月:] 大幅改动，把标题改为{\em 像(Python)程序员一样思考}.
+\item[2008六月:] 大幅改动，把标题改为{\em 思考Python：像计算机科学家一样思考}.
+\end{description}
+
+\vspace{0.2in}
+
+\begin{flushleft}  %左对齐，类似的有flushright,centre
+Green Tea Press \\
+9 Washburn Ave\\
+Needham MA 02492
+\end{flushleft}
+
+
+Permission is granted to copy, distribute, and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and with no Back-Cover Texts.
+
+The GNU Free Documentation License is available from {\tt www.gnu.org}
+or by writing to the Free Software Foundation, Inc., 59 Temple Place,
+Suite 330, Boston, MA 02111-1307, USA.
+
+The original form of this book is \LaTeX\ source code.  Compiling this
+\LaTeX\ source has the effect of generating a device-independent
+representation of a textbook, which can be converted to other formats
+and printed.
+
+The \LaTeX\ source for this book is available from
+\url{http://www.thinkpython.com}
+\vspace{0.2in}
+}
+
+\end{latexonly}
+
+
+%htmlonly
+192
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
