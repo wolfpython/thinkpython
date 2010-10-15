@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  15 OCT 2010 22:27
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  15 OCT 2010 23:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -743,16 +743,76 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7] (./book.aux)
+[7]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.12543pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[8]
+LaTeX Font Info:    Try loading font information for OT1+TeXGyrePagella:style=R
+egular(0) on input line 482.
+LaTeX Font Info:    No file OT1TeXGyrePagella:style=Regular(0).fd. on input lin
+e 482.
+LaTeX Font Info:    Font shape `OT1/TeXGyrePagella:style=Regular(0)/m/n' undefi
+ned
+(Font)              using `OT1/cmr/m/n' instead on input line 482.
+
+
+LaTeX Warning: Reference `exrotatepairs' on page ix undefined on input line 505
+.
+
+
+LaTeX Warning: Reference `checksum' on page ix undefined on input line 519.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.14496pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[9]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.12543pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10] (./book.toc)
+\tf@toc=\write5
+\openout5 = `book.toc'.
+
+ [11
+
+
+] [12
+
+]
+Chapter 1.
+Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
+
+Underfull \hbox (badness 10000) in paragraph at lines 604--605
+
+ []
+
+[1
+
+
+] (./book.aux)
 LaTeX Font Info:    Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 5758 strings out of 494665
- 95480 string characters out of 1166476
+ 5775 strings out of 494665
+ 95876 string characters out of 1166476
  179155 words of memory out of 3000000
- 8840 multiletter control sequences out of 15000+50000
- 21128 words of font info for 97 fonts, out of 3000000 for 9000
+ 8851 multiletter control sequences out of 15000+50000
+ 21136 words of font info for 98 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
- 34i,10n,43p,458b,247s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,10n,43p,458b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on book.pdf (7 pages).
+Output written on book.pdf (13 pages).
