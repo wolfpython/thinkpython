@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  14 OCT 2010 16:56
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  15 OCT 2010 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -416,7 +416,20 @@ Package fontspec Info: Defining font family for 'AR PL SungtiL GB:style=Regular
 Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
 Unknown feature `style=Regular/I/ICU' in font `AR PL SungtiL GB'.
 Unknown feature `style=Regular/BI/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+LaTeX Info: Redefining \xeCJK@font@rm on input line 35.
+Unknown feature `style=Regular' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+\c@zf@famc@TeXGyrePagella:style=Regular=\count135
+Package fontspec Info: Defining font family for 'TeXGyrePagella:style=Regular'w
+ith options [] on input line 36.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/BI/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
 \@indexfile=\write4
 \openout4 = `book.idx'.
 
@@ -425,32 +438,32 @@ Writing index file book.idx
 (./book.aux)
 \openout1 = `book.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 56.
-LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 56
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 57.
+LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 57
 .
  (/usr/share/texmf-texlive/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 56.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 57.
 
 (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 *geometry detected driver: pdftex*
 -------------------- Geometry parameters
@@ -493,142 +506,150 @@ driver: pdftex
 (1in=72.27pt, 1cm=28.45pt)
 -----------------------
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid this).
- on input line 56.
+ on input line 57.
 \symlegacymaths=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 56.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 56.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 56.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 56.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 56.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 56.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 56.
-LaTeX Font Info:    Redeclaring math accent \check on input line 56.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 56.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 56.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 56.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 56.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 56.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 57.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 57.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 57.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 57.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 57.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 57.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 57.
+LaTeX Font Info:    Redeclaring math accent \check on input line 57.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 57.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 57.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 57.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 57.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 57.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `normal' on input line 56.
+(Font)              `operators' in the math version `normal' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/ptmcm/m/n --> EU1/ARPLSungtiLGB:style=Regular(0)/m/
-n on input line 56.
+(Font)                  OT1/ptmcm/m/n --> EU1/TeXGyrePagella:style=Regular(0)/m
+/n on input line 57.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
-(Font)              `operators' in the math version `bold' on input line 56.
+(Font)              `operators' in the math version `bold' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/ptmcm/m/n --> EU1/ARPLSungtiLGB:style=Regular(0)/m/
-n on input line 56.
+(Font)                  OT1/ptmcm/m/n --> EU1/TeXGyrePagella:style=Regular(0)/m
+/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  EU1/ARPLSungtiLGB:style=Regular(0)/m/n --> EU1/ARPLSung
-tiLGB:style=Regular(0)/m/n on input line 56.
+(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
+Pagella:style=Regular(0)/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  EU1/ARPLSungtiLGB:style=Regular(0)/m/n --> EU1/ARPLSung
-tiLGB:style=Regular(0)/m/n on input line 56.
+(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
+Pagella:style=Regular(0)/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/ptm/m/it --> EU1/ARPLSungtiLGB:style=Regular(0)/m/i
-t on input line 56.
+(Font)                  OT1/ptm/m/it --> EU1/TeXGyrePagella:style=Regular(0)/m/
+it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/ptm/bx/n --> EU1/ARPLSungtiLGB:style=Regular(0)/bx/
-n on input line 56.
+(Font)                  OT1/ptm/bx/n --> EU1/TeXGyrePagella:style=Regular(0)/bx
+/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 56.
+(Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 56.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  EU1/ARPLSungtiLGB:style=Regular(0)/m/n --> EU1/ARPLSung
-tiLGB:style=Regular(0)/bx/n on input line 56.
+(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
+Pagella:style=Regular(0)/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  EU1/ARPLSungtiLGB:style=Regular(0)/m/n --> EU1/ARPLSung
-tiLGB:style=Regular(0)/bx/n on input line 56.
+(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
+Pagella:style=Regular(0)/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/ptm/m/it --> EU1/ARPLSungtiLGB:style=Regular(0)/bx/
-it on input line 56.
+(Font)                  OT1/ptm/m/it --> EU1/TeXGyrePagella:style=Regular(0)/bx
+/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 56.
+(Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 56.
+(Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 57.
 (./latexonly)
-\c@ex=\count135
+\c@ex=\count136
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
 Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
 Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
  [1
 
 
 ] [2]
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
  [3]
-LaTeX Font Info:    Try loading font information for TS1+ARPLSungtiLGB:style=Re
-gular(0) on input line 128.
-LaTeX Font Info:    No file TS1ARPLSungtiLGB:style=Regular(0).fd. on input line
- 128.
-LaTeX Font Info:    Font shape `TS1/ARPLSungtiLGB:style=Regular(0)/m/n' undefin
-ed
+LaTeX Font Info:    Try loading font information for TS1+TeXGyrePagella:style=R
+egular(0) on input line 129.
+LaTeX Font Info:    No file TS1TeXGyrePagella:style=Regular(0).fd. on input lin
+e 129.
+LaTeX Font Info:    Font shape `TS1/TeXGyrePagella:style=Regular(0)/m/n' undefi
+ned
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textcopyright' on input line 128.
+(Font)              for symbol `textcopyright' on input line 129.
+Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
 Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
 Unknown feature `style=Regular/I/ICU' in font `AR PL SungtiL GB'.
 
 
 Package xeCJK Warning: Unknown CJK family `tt' is ignored.
-Use \setCJKfamilyfont to define a CJK family. on input line 153.
+Use \setCJKfamilyfont to define a CJK family. on input line 154.
 
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 153
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 154
 .
 (/usr/share/texmf-texlive/tex/xelatex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2007/01/14 v1.3 Font defs for Latin Modern
 )
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
 LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 15
-7.
+8.
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
 LaTeX Font Info:    Try loading font information for OMX+psycm on input line 15
-7.
+8.
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 157.
-LaTeX Font Info:    Try loading font information for U+msa on input line 157.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
+LaTeX Font Info:    Try loading font information for U+msa on input line 158.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 157.
+LaTeX Font Info:    Try loading font information for U+msb on input line 158.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [4]
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
 Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 188--191
+Underfull \hbox (badness 10000) in paragraph at lines 189--192
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 192--194
+Underfull \hbox (badness 10000) in paragraph at lines 193--195
 
  []
 
@@ -638,11 +659,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--194
 LaTeX Font Info:    Some font shapes were not available, defaults substituted.
  ) 
 Here is how much of TeX's memory you used:
- 5648 strings out of 494665
- 92307 string characters out of 1166476
+ 5697 strings out of 494665
+ 94255 string characters out of 1166476
  172155 words of memory out of 3000000
- 8755 multiletter control sequences out of 15000+50000
- 12972 words of font info for 57 fonts, out of 3000000 for 9000
+ 8786 multiletter control sequences out of 15000+50000
+ 13076 words of font info for 70 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
  34i,10n,43p,458b,220s stack positions out of 5000i,500n,10000p,200000b,50000s
 
