@@ -33,8 +33,8 @@
 \usepackage{xeCJK}
 \usepackage{fontspec}
 \setmainfont{AR PL SungtiL GB:style=Regular}
-\xeTeXlinebreaklocale "zh"
-\xeTeXlinebreakskip=0pt plus 1pt minus 0.1pt
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip=0pt plus 1pt minus 0.1pt
 
 \title{思考Python}
 \newcommand{\thetitle}{思考Python:像计算机科学家一样思考}
@@ -54,7 +54,7 @@
 \makeindex
 
 \begin{document}
-\fontmatter
+\frontmatter
 %LaTeXOnly
 
 \input{latexonly}
@@ -62,7 +62,7 @@
 \newtheorem{ex}{Exercise}[chapter]
 \begin{latexonly}
 
-\renewcommand{\blankpage}{\thispagestyle{empty} \qud \newpage}
+\renewcommand{\blankpage}{\thispagestyle{empty} \quad \newpage}
 
 %blankpage
 %blankpage
@@ -168,7 +168,42 @@ The \LaTeX\ source for this book is available from
 
 
 %htmlonly
-192
+\begin{htmlonly}
+
+%Title page for html version
+
+{\Large \thetitle}
+\{\Large  Allen B.Downet}
+\{\Large  翻译:Walter Lewis}
+
+Version \theversion
+
+\setcounter{chapter}{-1}
+\end{htmlonly}
+
+\chapter{前言}
+
+\section{本书的奇怪历史}
+
+1999年一月份的时候，我准备用Java教一门介绍性的编程课。在那之前，我已经
+教了三次，而且每次我都很失望。这门课的挂课率非常之高，尽管对那些通过的学
+生来说，整体的水平也是很低的。\\
+
+我认为问题的根源之一是教科书。教科书太厚了，掺杂着大量不必要的Java细节
+内容，并且没有足够高水平的引导去指导学生如何编程。学生们深陷“陷阱门“:他们起步很轻松，逐步的学习，突然，大约在第五章的某个位置，困难出现了。学生必须快速的学习大量的新内容。结果，我不得不把剩下的学期花在挑选一些片段来教学。\\
+
+课程开始的前两周，我决定自力更生--自己编写书。我的目标是:
+\begin{itemize}
+
+\item 尽量简短.对学生来说，阅读十页比阅读无十页要好。
+
+\item 注意词汇量。我尽量减少使用术语，而且在使用前必须先定义。
+
+\item 逐步学习。为了避免陷阱门，我把最难的部分分解成一系列的小步骤。
+
+\item 把重心房子编程，而不是编程语言。我采用最少的有用的Java语言的语法，
+忽略其他的。
+\end{itemize}
 
 
 
@@ -191,3 +226,5 @@ The \LaTeX\ source for this book is available from
 
 
 
+
+\end{document}
