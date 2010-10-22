@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  15 OCT 2010 23:07
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  23 OCT 2010 06:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -796,23 +796,181 @@ Underfull \hbox (badness 10000) in paragraph at lines 604--605
 
  []
 
-[1
+
+Underfull \hbox (badness 10000) in paragraph at lines 612--614
+
+ []
 
 
-] (./book.aux)
+Underfull \hbox (badness 10000) in paragraph at lines 615--618
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 625--629
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 636--637
+
+ []
+
+File: figs/interpret.eps Graphic file (type eps)
+<figs/interpret.eps> [1
+
+
+]
+File: figs/compile.eps Graphic file (type eps)
+ <figs/compile.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 666--668
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.12543pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[2]
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
+
+Underfull \hbox (badness 10000) in paragraph at lines 739--740
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 753--754
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 758--759
+
+ []
+
+Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
+
+Underfull \hbox (badness 10000) in paragraph at lines 760--761
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.09613pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 765--766
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 779--780
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 787--788
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 804--805
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.12543pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4]
+Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 818.
+Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 849
+.
+ (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+Underfull \hbox (badness 10000) in paragraph at lines 874--877
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.18402pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 878--879
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 882--883
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 884--885
+
+ []
+
+Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
+
+Underfull \hbox (badness 10000) in paragraph at lines 886--887
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 891--892
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 893--894
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.12543pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.0766pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[7] (./book.aux)
 LaTeX Font Info:    Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 5775 strings out of 494665
- 95876 string characters out of 1166476
- 179155 words of memory out of 3000000
- 8851 multiletter control sequences out of 15000+50000
- 21136 words of font info for 98 fonts, out of 3000000 for 9000
+ 5899 strings out of 494665
+ 98294 string characters out of 1166476
+ 183155 words of memory out of 3000000
+ 8956 multiletter control sequences out of 15000+50000
+ 24367 words of font info for 115 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
  34i,10n,43p,458b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on book.pdf (13 pages).
+Output written on book.pdf (19 pages).

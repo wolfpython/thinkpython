@@ -4,3 +4,87 @@
 \indexentry{Free Documentation License,GNU}{vi}
 \indexentry{贡献者}{vii}
 \indexentry{解决问题}{1}
+\indexentry{编程语言}{1}
+\indexentry{语言!编程}{1}
+\indexentry{移植性}{1}
+\indexentry{高级语言}{1}
+\indexentry{低级语言}{1}
+\indexentry{语言!高级}{1}
+\indexentry{语言!低级}{1}
+\indexentry{complie}{1}
+\indexentry{interpret}{1}
+\indexentry{源码}{2}
+\indexentry{目标}{2}
+\indexentry{可执行代码}{2}
+\indexentry{交互模式}{2}
+\indexentry{脚本模式}{2}
+\indexentry{提示符}{2}
+\indexentry{脚本}{2}
+\indexentry{测试!交互模式}{2}
+\indexentry{程序}{2}
+\indexentry{算法}{3}
+\indexentry{调试}{3}
+\indexentry{臭虫}{3}
+\indexentry{语法错误}{3}
+\indexentry{错误!语法}{3}
+\indexentry{错误信息}{3}
+\indexentry{syntax 语法}{3}
+\indexentry{parentheses!matching  括号!匹配}{3}
+\indexentry{syntax 语法}{3}
+\indexentry{cummings, e. e. 康明思}{3}
+\indexentry{runtime error 运行时错误}{3}
+\indexentry{error!runtime 错误!运行时}{3}
+\indexentry{exception 异常}{3}
+\indexentry{safe language 安全语言}{3}
+\indexentry{language!safe 语言!安全}{3}
+\indexentry{semantics 语义}{3}
+\indexentry{semantics errors 语义错误}{3}
+\indexentry{error!semantic 错误!语义}{3}
+\indexentry{error message 错误信息}{3}
+\indexentry{experimental debugging 实验性的调试}{3}
+\indexentry{debugging!experimental 调试!实验}{3}
+\indexentry{Holems, Sherlock}{4}
+\indexentry{Doyle, Arthur Conan}{4}
+\indexentry{Linux}{4}
+\indexentry{formal language 正式语言}{4}
+\indexentry{natural language 自然语言}{4}
+\indexentry{language!formal 语言!正式}{4}
+\indexentry{language!natural 语言!自然}{4}
+\indexentry{token 标记}{4}
+\indexentry{structure 结构}{4}
+\indexentry{parse 句法分析}{4}
+\indexentry{ambiguity 二义性}{5}
+\indexentry{redundancy 冗余性}{5}
+\indexentry{literalness 无修饰性}{5}
+\indexentry{poetry 诗歌}{5}
+\indexentry{prose 散文}{5}
+\indexentry{Hello, World}{5}
+\indexentry{Python 3.0}{5}
+\indexentry{quotation mark 引号}{5}
+\indexentry{print statement print 语句}{5}
+\indexentry{statement!print 语句!打印}{5}
+\indexentry{debugging 调试}{6}
+\indexentry{error message 错误信息}{6}
+\indexentry{debugging!emotional response 调试!情绪反应}{6}
+\indexentry{emotional debugging 情绪调试}{6}
+\indexentry{compile 编译}{6}
+\indexentry{object code 目标代码}{7}
+\indexentry{prompt 提示符}{7}
+\indexentry{script 脚本}{7}
+\indexentry{interactive mode 交互模式}{7}
+\indexentry{script mode 脚本模式}{7}
+\indexentry{program 程序}{7}
+\indexentry{algorithm}{7}
+\indexentry{bug}{7}
+\indexentry{debugging 调试}{7}
+\indexentry{syntax 语法}{7}
+\indexentry{syntax error}{7}
+\indexentry{exception 异常}{7}
+\indexentry{semantics 语义}{7}
+\indexentry{semantics error 语义错误}{7}
+\indexentry{natural language 自然语言}{7}
+\indexentry{formal language 正式语言}{7}
+\indexentry{token 标记}{7}
+\indexentry{parse 句法分析}{7}
+\indexentry{print statement print 语句}{7}
+\indexentry{statement!print 语句!打印}{7}
