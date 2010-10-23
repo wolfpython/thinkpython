@@ -12,3 +12,4 @@
 \contentsline {section}{\numberline {1.6}第一个程序}{5}
 \contentsline {section}{\numberline {1.7}调试}{6}
 \contentsline {section}{\numberline {1.8}术语表}{6}
+\contentsline {section}{\numberline {1.9}练习}{7}

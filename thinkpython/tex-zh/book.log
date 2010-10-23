@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  23 OCT 2010 06:42
+This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  23 OCT 2010 13:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -948,29 +948,41 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 983--984
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 992--993
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+
+ []
+
+[7]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.0766pt.
+ Make it at least 12.12543pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7] (./book.aux)
+[8] (./book.aux)
 LaTeX Font Info:    Some font shapes were not available, defaults substituted.
 
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 5899 strings out of 494665
- 98294 string characters out of 1166476
+ 5900 strings out of 494665
+ 98313 string characters out of 1166476
  183155 words of memory out of 3000000
- 8956 multiletter control sequences out of 15000+50000
+ 8957 multiletter control sequences out of 15000+50000
  24367 words of font info for 115 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
  34i,10n,43p,458b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on book.pdf (19 pages).
+Output written on book.pdf (20 pages).
