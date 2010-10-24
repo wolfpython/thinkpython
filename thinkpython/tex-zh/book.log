@@ -1,21 +1,11 @@
-This is XeTeX, Version 3.1415926-2.2-0.9995.2 (TeX Live 2009/Debian) (format=xelatex 2010.10.11)  23 OCT 2010 13:59
+This is XeTeX, Version 3.1415926-2.2-0.9997.4 (TeX Live 2010/Arch Linux) (format=xelatex 2010.10.13)  25 OCT 2010 00:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**book.tex
-(./book.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/book.cls
+**\input book.tex
+(./book.tex (/usr/share/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/bk10.clo
+(/usr/share/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -31,20 +21,23 @@ File: bk10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
-Package: geometry 2008/12/21 v4.2 Page Geometry
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2010/01/28 v2.1 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in pdf mode not detected.
 )
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count89
 \Gm@cntv=\count90
@@ -53,10 +46,13 @@ Package ifvtex Info: VTeX not detected.
 \Gm@wd@mp=\dimen104
 \Gm@odd@mp=\dimen105
 \Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-
-(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
-(/usr/share/texmf-texlive/tex/latex/pslatex/pslatex.sty
+)
+(/usr/share/texmf-dist/tex/latex/pslatex/pslatex.sty
 Package: pslatex 1996/07/24 v1.2 pslatex emulation (DPC)
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 65.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -91,11 +87,11 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 75.
 )
-(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+(/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -106,45 +102,45 @@ Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/etc/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+(/usr/share/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: xetex.def on input line 91.
 
-(/usr/share/texmf-texlive/tex/xelatex/xetex-def/xetex.def
+(/usr/share/texmf-dist/tex/xelatex/xetex-def/xetex.def
 File: xetex.def 2009/11/22 v0.94 LaTeX color/graphics driver for XeTeX (RRM/JK)
 
 ))
-\Gin@req@height=\dimen107
-\Gin@req@width=\dimen108
+\Gin@req@height=\dimen111
+\Gin@req@width=\dimen112
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
-\ex@=\dimen109
+\ex@=\dimen113
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen110
+\pmbraise@=\dimen114
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count92
@@ -159,7 +155,7 @@ LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen111
+\big@size=\dimen115
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count97
@@ -172,12 +168,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \column@=\count102
 \maxfields@=\count103
 \andhelp@=\toks18
-\eqnshift@=\dimen112
-\alignsep@=\dimen113
-\tagshift@=\dimen114
-\tagwidth@=\dimen115
-\totwidth@=\dimen116
-\lineht@=\dimen117
+\eqnshift@=\dimen116
+\alignsep@=\dimen117
+\tagshift@=\dimen118
+\tagwidth@=\dimen119
+\totwidth@=\dimen120
+\lineht@=\dimen121
 \@envbody=\toks19
 \multlinegap=\skip53
 \multlinetaggap=\skip54
@@ -185,7 +181,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texmf-texlive/tex/latex/amscls/amsthm.sty
+(/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks21
 \thm@bodyfont=\toks22
@@ -197,20 +193,20 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip57
 \dth@everypar=\toks26
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup6
 \symAMSb=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(/usr/share/texmf-texlive/tex/latex/exercise/exercise.sty
-Package: exercise 2009/03/26 v1.3 Exercise package (P.Pichaureau)
+(/usr/share/texmf-dist/tex/latex/exercise/exercise.sty
+Package: exercise 2010/08/27 v1.4 Exercise package (P.Pichaureau)
 
-(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+(/usr/share/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \Exesep=\skip58
@@ -253,17 +249,17 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 \tempskipb=\skip74
 \@savedmathindent=\skip75
 )
-(/usr/share/texmf-texlive/tex/latex/base/makeidx.sty
+(/usr/share/texmf-dist/tex/latex/base/makeidx.sty
 Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
 )
-(/usr/share/texmf-texlive/tex/latex/setspace/setspace.sty
+(/usr/share/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2000/12/01 6.7 Contributed and Supported LaTeX2e package
 
 Package: `setspace' 6.7 <2000/12/01>
-) (/usr/share/texmf/tex/latex/misc/hevea.sty
+) (/usr/share/texmf/tex/latex/hevea.sty
 Package: hevea 2002/01/11
 
-(/usr/share/texmf-texlive/tex/latex/comment/comment.sty
+(/usr/share/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
 
 Excluding comment 'comment')
@@ -272,11 +268,11 @@ Excluding comment 'comment')
 Excluding comment 'htmlonly'
 \@bgcolorbin=\box34
 )
-(/usr/share/texmf-texlive/tex/latex/upquote/upquote.sty
+(/usr/share/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2003/08/11 v1.1 Covington's upright-quote modification to verb
 atim and verb
 
-(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+(/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -291,7 +287,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+(/usr/share/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -343,99 +339,374 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
 ))
-(/usr/share/texmf-texlive/tex/xelatex/xecjk/xeCJK.sty
-Package: xeCJK 2009/09/30 2.3.10
+(/usr/share/texmf/tex/xelatex/xecjk/xeCJK.sty
+Package: xeCJK 2010/05/31 2.3.15 package for typesetting CJK scripts with XeLaT
+eX
 
-(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.sty
+Package: fontspec 2010/09/19 v2.1 Advanced font selection for XeLaTeX/LuaLaTeX
+
+(/usr/share/texmf-dist/tex/latex/expl3/expl3.sty
+(/usr/share/texmf-dist/tex/latex/expl3/l3names.sty
+Package: l3names 2010/07/25 v1987 L3 Experimental Naming Scheme for TeX Primiti
+ves
 )
-(/usr/share/texmf-texlive/tex/xelatex/fontspec/fontspec.sty
-Package: fontspec 2008/08/09 v1.18 Advanced font selection for XeLaTeX
-\c@zf@newff=\count120
-\c@zf@index=\count121
-\c@zf@script=\count122
-\c@zf@language=\count123
+Package: expl3 2010/09/14 v2020 L3 Experimental code bundle wrapper
 
-(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+(/usr/share/texmf-dist/tex/latex/etex-pkg/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count120
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3basics.sty
+Package: l3basics 2010/08/04 v1992 L3 Experimental basic definitions
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3expan.sty
+Package: l3expan 2010/08/04 v1991 L3 Experimental Argument Expansion module
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3tl.sty
+Package: l3tl 2010/05/22 v1919 L3 Experimental Token Lists
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3intexpr.sty
+Package: l3intexpr 2010/06/15 v1957 L3 Integer Expressions
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3quark.sty
+Package: l3quark 2010/03/21 v1853 L3 Experimental Quark Commands
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3seq.sty
+Package: l3seq 2010/03/29 v1879 L3 Experimental sequences and stacks
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3toks.sty
+Package: l3toks 2010/05/25 v1933 L3 Experimental Token Registers
+\l_tmpb_toks=\toks27
+\l_tmpc_toks=\toks28
+\g_tmpa_toks=\toks29
+\g_tmpb_toks=\toks30
+\g_tmpc_toks=\toks31
+\c_empty_toks=\toks32
+\l_tl_replace_toks=\toks33
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3int.sty
+Package: l3int 2010/05/25 v1933 L3 Experimental Integer module
+\l_tmpa_int=\count121
+\l_tmpb_int=\count122
+\l_tmpc_int=\count123
+\g_tmpa_int=\count124
+\g_tmpb_int=\count125
+\c_max_int=\count126
+\g_tl_inline_level_int=\count127
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3prg.sty
+Package: l3prg 2010/08/04 v1992 L3 Experimental control structures
+\g_prg_inline_level_int=\count128
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3clist.sty
+Package: l3clist 2010/08/04 v1992 L3 Experimental comma separated lists
+\g_clist_map_inline_int=\count129
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3token.sty
+Package: l3token 2010/04/11 v1890 L3 Experimental token investigation and manip
+ulation
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3prop.sty
+Package: l3prop 2010/03/21 v1857 L3 Experimental Property Lists
+\g_prop_inline_level_int=\count130
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3msg.sty
+Package: l3msg 2010/03/23 v1866 L3 Experimental LaTeX Messages module
+\l_msg_redirect_classes_prop=\toks34
+\l_msg_redirect_names_prop=\toks35
+\l_msg_redirect_fatal_prop=\toks36
+\l_msg_redirect_error_prop=\toks37
+\l_msg_redirect_warning_prop=\toks38
+\l_msg_redirect_info_prop=\toks39
+\l_msg_redirect_log_prop=\toks40
+\l_msg_redirect_trace_prop=\toks41
+\l_msg_redirect_none_prop=\toks42
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3io.sty
+Package: l3io 2010/05/22 v1923 L3 Experimental i/o module
+\g_iow_streams_prop=\toks43
+\g_ior_streams_prop=\toks44
+\l_iow_stream_int=\count131
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3skip.sty
+Package: l3skip 2010/05/25 v1933 L3 Experimental skip registers
+\l_tmpa_skip=\skip76
+\l_tmpb_skip=\skip77
+\l_tmpc_skip=\skip78
+\g_tmpa_skip=\skip79
+\g_tmpb_skip=\skip80
+\l_tmpa_dim=\dimen122
+\l_tmpb_dim=\dimen123
+\l_tmpc_dim=\dimen124
+\l_tmpd_dim=\dimen125
+\g_tmpa_dim=\dimen126
+\g_tmpb_dim=\dimen127
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3box.sty
+Package: l3box 2010/09/03 v2015 L3 Experimental Box module
+\l_tmpb_box=\box35
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3keyval.sty
+Package: l3keyval 2010/04/11 v1890 L3 Experimental keyval processing
+\l_KV_level_int=\count132
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3keys.sty
+Package: l3keys 2010/05/24 v1931 L3 Experimental key-value support
+\l_keys_choice_int=\count133
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3precom.sty
+Package: l3precom 2010/02/09 v1793 L3 Experimental precompilation module
+\g_gen_sym_int=\count134
+\g_ggen_sym_int=\count135
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3xref.sty
+Package: l3xref 2010/02/09 v1786 L3 Experimental cross referencing
+\g_xref_all_curr_immediate_fields_prop=\toks45
+\g_xref_all_curr_deferred_fields_prop=\toks46
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3file.sty
+Package: l3file 2010/03/21 v1853 L3 Experimental file loading
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3fp.sty
+Package: l3fp 2010/09/14 v2021 L3 Experimental floating-point operations
+\c_forty_four=\count136
+\c_one_hundred=\count137
+\c_one_thousand=\count138
+\c_one_million=\count139
+\c_one_hundred_million=\count140
+\c_five_hundred_million=\count141
+\c_one_thousand_million=\count142
+\c_fp_pi_by_four_decimal_int=\count143
+\c_fp_pi_by_four_extended_int=\count144
+\c_fp_pi_decimal_int=\count145
+\c_fp_pi_extended_int=\count146
+\c_fp_two_pi_decimal_int=\count147
+\c_fp_two_pi_extended_int=\count148
+\l_fp_count_int=\count149
+\l_fp_div_offset_int=\count150
+\l_fp_input_a_sign_int=\count151
+\l_fp_input_a_integer_int=\count152
+\l_fp_input_a_decimal_int=\count153
+\l_fp_input_a_exponent_int=\count154
+\l_fp_input_b_sign_int=\count155
+\l_fp_input_b_integer_int=\count156
+\l_fp_input_b_decimal_int=\count157
+\l_fp_input_b_exponent_int=\count158
+\l_fp_input_a_extended_int=\count159
+\l_fp_input_b_extended_int=\count160
+\l_fp_mul_a_i_int=\count161
+\l_fp_mul_a_ii_int=\count162
+\l_fp_mul_a_iii_int=\count163
+\l_fp_mul_a_iv_int=\count164
+\l_fp_mul_a_v_int=\count165
+\l_fp_mul_a_vi_int=\count166
+\l_fp_mul_b_i_int=\count167
+\l_fp_mul_b_ii_int=\count168
+\l_fp_mul_b_iii_int=\count169
+\l_fp_mul_b_iv_int=\count170
+\l_fp_mul_b_v_int=\count171
+\l_fp_mul_b_vi_int=\count172
+\l_fp_mul_output_int=\count173
+\l_fp_output_sign_int=\count174
+\l_fp_output_integer_int=\count175
+\l_fp_output_decimal_int=\count176
+\l_fp_output_exponent_int=\count177
+\l_fp_output_extended_int=\count178
+\l_fp_round_position_int=\count179
+\l_fp_round_target_int=\count180
+\l_fp_split_sign_int=\count181
+\l_fp_tmp_int=\count182
+\l_fp_trig_octant_int=\count183
+\l_fp_trig_sign_int=\count184
+\l_fp_trig_decimal_int=\count185
+\l_fp_trig_extended_int=\count186
+\l_fp_tmp_dim=\dimen128
+\l_fp_tmp_skip=\skip81
+)
+(/usr/share/texmf-dist/tex/latex/expl3/l3luatex.sty
+Package: l3luatex 2010/07/18 v1985 L3 Experimental LuaTeX functions
+\g_cctab_allocate_int=\count187
+\g_cctab_stack_int=\count188
+)
+(/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count124
-\calc@Bcount=\count125
-\calc@Adimen=\dimen118
-\calc@Bdimen=\dimen119
-\calc@Askip=\skip76
-\calc@Bskip=\skip77
+\calc@Acount=\count189
+\calc@Bcount=\count190
+\calc@Adimen=\dimen129
+\calc@Bdimen=\dimen130
+\calc@Askip=\skip82
+\calc@Bskip=\skip83
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count126
-\calc@Cskip=\skip78
+\calc@Ccount=\count191
+\calc@Cskip=\skip84
+))
+(/usr/share/texmf-dist/tex/latex/xpackages/xbase/xparse.sty
+Package: xparse 2010/05/23 v1927 Generic document command parser
+\c_xparse_shorthands_prop=\toks47
+\l_xparse_m_args_int=\count192
+\l_xparse_mandatory_args_int=\count193
+\l_xparse_processor_int=\count194
+\l_xparse_total_args_int=\count195
 )
-(/usr/share/texmf-texlive/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texmf-dist/tex/generic/kastrup/binhex.tex)
+\c@zf@newff=\count196
+\c@zf@index=\count197
+\c@zf@script=\count198
+\c@zf@language=\count199
+\l_fontspec_strnum_int=\count200
+
+(/usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
 
-(/usr/share/texmf-texlive/tex/generic/xkeyval/xkeyval.tex
-\XKV@toks=\toks27
-\XKV@tempa@toks=\toks28
-\XKV@depth=\count127
+(/usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks48
+\XKV@tempa@toks=\toks49
+\XKV@depth=\count201
 File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
 ))
-(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec-patches.sty
+Package: fontspec-patches 2010/09/19 v2.1 Advanced font selection for XeLaTeX/L
+uaLaTeX
+
+(/usr/share/texmf-dist/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2006/09/13 v1.1m fixes to LaTeX
+LaTeX Info: Redefining \em on input line 420.
+LaTeX Info: The control sequence `\[' is already robust on input line 471.
+LaTeX Info: The control sequence `\]' is already robust on input line 472.
+)
+LaTeX Info: Redefining \em on input line 22.
+LaTeX Info: Redefining \emph on input line 29.
+LaTeX Info: Redefining \- on input line 32.
+)
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/share/texmf-texlive/tex/xelatex/euenc/eu1enc.def
-File: eu1enc.def 2008/03/08 v0.1d Experimental unicode font encoding
+(/usr/share/texmf-dist/tex/latex/euenc/eu1enc.def
+File: eu1enc.def 2010/05/27 v0.1h Experimental Unicode font encodings
 )
 LaTeX Font Info:    Try loading font information for EU1+lmr on input line 100.
 
 
-(/usr/share/texmf-texlive/tex/xelatex/euenc/eu1lmr.fd
-File: eu1lmr.fd 2007/01/14 v1.3 Font defs for Latin Modern
+(/usr/share/texmf-dist/tex/latex/euenc/eu1lmr.fd
+File: eu1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ))
-LaTeX Info: Redefining \itshape on input line 1163.
-LaTeX Info: Redefining \slshape on input line 1166.
-LaTeX Info: Redefining \scshape on input line 1169.
-LaTeX Info: Redefining \upshape on input line 1172.
+(/usr/share/texmf-dist/tex/xelatex/xunicode/xunicode.sty
+File: xunicode.sty 2010/05/18 v0.95 provides access to latin accents and many o
+ther characters in Unicode lower plane
+)
+ LaTeX Info: Defining document command \fontspec
+(LaTeX)  with arg. spec. 'O{}m' on line 292.
+
+ LaTeX Info: Defining document command \setmainfont
+(LaTeX)  with arg. spec. 'O{}m' on line 296.
+
+ LaTeX Info: Defining document command \setsansfont
+(LaTeX)  with arg. spec. 'O{}m' on line 300.
+
+ LaTeX Info: Defining document command \setmonofont
+(LaTeX)  with arg. spec. 'O{}m' on line 304.
+
+ LaTeX Info: Defining document command \setmathrm
+(LaTeX)  with arg. spec. 'O{}m' on line 308.
+
+ LaTeX Info: Defining document command \setboldmathrm
+(LaTeX)  with arg. spec. 'O{}m' on line 311.
+
+ LaTeX Info: Defining document command \setmathsf
+(LaTeX)  with arg. spec. 'O{}m' on line 314.
+
+ LaTeX Info: Defining document command \setmathtt
+(LaTeX)  with arg. spec. 'O{}m' on line 317.
+
+ LaTeX Info: Defining document command \newfontfamily
+(LaTeX)  with arg. spec. 'mO{}m' on line 333.
+
+ LaTeX Info: Defining document command \newfontface
+(LaTeX)  with arg. spec. 'mO{}m' on line 336.
+
+ LaTeX Info: Defining document command \defaultfontfeatures
+(LaTeX)  with arg. spec. 'm' on line 337.
+
+ LaTeX Info: Defining document command \addfontfeatures
+(LaTeX)  with arg. spec. 'm' on line 354.
+
+ LaTeX Info: Defining document command \newfontfeature
+(LaTeX)  with arg. spec. 'mm' on line 363.
+
+ LaTeX Info: Defining document command \newAATfeature
+(LaTeX)  with arg. spec. 'mmmm' on line 372.
+
+ LaTeX Info: Defining document command \newICUfeature
+(LaTeX)  with arg. spec. 'mmm' on line 381.
+
+ LaTeX Info: Defining document command \aliasfontfeature
+(LaTeX)  with arg. spec. 'mm' on line 383.
+
+ LaTeX Info: Defining document command \aliasfontfeatureoption
+(LaTeX)  with arg. spec. 'mmm' on line 386.
+
+ LaTeX Info: Defining document command \newfontscript
+(LaTeX)  with arg. spec. 'mm' on line 391.
+
+ LaTeX Info: Defining document command \newfontlanguage
+(LaTeX)  with arg. spec. 'mm' on line 408.
+
+ LaTeX Info: Defining document command \DeclareFontsExtensions
+(LaTeX)  with arg. spec. 'm' on line 424.
+
+\c@fontspec_tmp_int=\count202
+LaTeX Info: Redefining \itshape on input line 1969.
+LaTeX Info: Redefining \slshape on input line 1973.
+LaTeX Info: Redefining \scshape on input line 1977.
+LaTeX Info: Redefining \upshape on input line 1981.
 
 fontspec.cfg loaded.
-(/usr/share/texmf-texlive/tex/xelatex/fontspec/fontspec.cfg))
-\xeCJK@cnta=\count128
-\xeCJK@cntb=\count129
-\xeCJK@cntc=\count130
-\xeCJK@cntd=\count131
-\xeCJK@cnte=\count132
-\xeCJK@dima=\dimen120
-LaTeX Info: Redefining \rmfamily on input line 762.
-LaTeX Info: Redefining \sffamily on input line 766.
-LaTeX Info: Redefining \ttfamily on input line 770.
-\xeCJK@featureadded=\count133
+(/usr/share/texmf-dist/tex/latex/fontspec/fontspec.cfg))
+\xeCJK@cnta=\count203
+\xeCJK@cntb=\count204
+\xeCJK@cntc=\count205
+\xeCJK@cntd=\count206
+\xeCJK@cnte=\count207
+\xeCJK@dima=\dimen131
+LaTeX Info: Redefining \normalfont on input line 779.
+LaTeX Info: Redefining \rmfamily on input line 788.
+LaTeX Info: Redefining \sffamily on input line 792.
+LaTeX Info: Redefining \ttfamily on input line 796.
+\xeCJK@featureadded=\count208
 )
-Unknown feature `style=Regular' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
-\c@zf@famc@AR PL SungtiL GB:style=Regular=\count134
-Package fontspec Info: Defining font family for 'AR PL SungtiL GB:style=Regular
-'with options [] on input line 35.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/I/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/BI/ICU' in font `AR PL SungtiL GB'.
-LaTeX Info: Redefining \xeCJK@font@rm on input line 35.
-Unknown feature `style=Regular' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-\c@zf@famc@TeXGyrePagella:style=Regular=\count135
-Package fontspec Info: Defining font family for 'TeXGyrePagella:style=Regular'w
-ith options [] on input line 36.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/BI/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
+\g_fontspec_family_FangSong_GB2312:style=Regular_int=\count209
+ fontspec Info: Defining font family for 'FangSong_GB2312:style=Regular' with o
+ptions [].
+
+Package fontspec Info: Defining shape m/n with raw font features:
+(fontspec)             color=000000FF ;.
+Unknown feature `style=Regular/B/ICU' in font `FangSong_GB2312'.
+Package fontspec Info: Defining shape bx/n with raw font features:
+(fontspec)             color=000000FF ;.
+Unknown feature `style=Regular/I/ICU' in font `FangSong_GB2312'.
+Package fontspec Info: Defining shape m/it with raw font features:
+(fontspec)             color=000000FF ;.
+Unknown feature `style=Regular/BI/ICU' in font `FangSong_GB2312'.
+Package fontspec Info: Defining shape bx/it with raw font features:
+(fontspec)             color=000000FF ;.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
 \@indexfile=\write4
 \openout4 = `book.idx'.
 
 
 Writing index file book.idx
-(./book.aux)
+(./book.aux (./chapter1.aux) (./chapter2.aux) (./chapter3.aux) (./chapter4.aux)
+(./chapter5.aux) (./chapter6.aux) (./chapter7.aux) (./chapter8.aux)
+(./chapter9.aux) (./chapter10.aux) (./chapter11.aux) (./chapter12.aux)
+(./chapter13.aux) (./chapter14.aux) (./chapter15.aux) (./chapter16.aux)
+(./chapter17.aux) (./chapter18.aux) (./chapter19.aux) (./appendix.aux))
 \openout1 = `book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
@@ -447,7 +718,8 @@ LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 57.
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 57
 .
- (/usr/share/texmf-texlive/tex/latex/psnfss/omspzccm.fd
+
+(/usr/share/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
 LaTeX Font Info:    ... okay on input line 57.
@@ -458,55 +730,51 @@ LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 57.
 
-(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
 
-*geometry detected driver: pdftex*
--------------------- Geometry parameters
-paper: class default
-landscape: --
-twocolumn: --
-twoside: true
-asymmetric: --
-h-parts: 130.086pt, 397.48499pt, 86.72401pt
-v-parts: 90.3375pt, 614.295pt, 90.3375pt
-hmarginratio: 3:2
-vmarginratio: 1:1
-lines: --
-heightrounded: --
-bindingoffset: 0.0pt
-truedimen: --
-includehead: --
-includefoot: --
-includemp: --
-driver: pdftex
--------------------- Page layout dimensions and switches
-\paperwidth  614.295pt
-\paperheight 794.96999pt
-\textwidth  397.48499pt
-\textheight 614.295pt
-\oddsidemargin  57.81601pt
-\evensidemargin 14.45403pt
-\topmargin  -11.99998pt
-\headheight 12.0pt
-\headsep    18.06749pt
-\footskip   25.29494pt
-\marginparwidth 125.0pt
-\marginparsep   7.0pt
-\columnsep  10.0pt
-\skip\footins  9.0pt plus 4.0pt minus 2.0pt
-\hoffset 0.0pt
-\voffset 0.0pt
-\mag 1000
-\@twosidetrue \@mparswitchtrue 
-(1in=72.27pt, 1cm=28.45pt)
------------------------
-Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid this).
- on input line 57.
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* hratio: 3:2
+* vratio: 1:1
+* modes: twoside 
+* h-part:(L,W,R)=(130.086pt, 397.48499pt, 86.72401pt)
+* v-part:(T,H,B)=(90.3375pt, 614.295pt, 90.3375pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=397.48499pt
+* \textheight=614.295pt
+* \oddsidemargin=57.81601pt
+* \evensidemargin=14.45403pt
+* \topmargin=-11.99998pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=125.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ fontspec Info: Adjusting the maths setup (use [no-math] to avoid this).
+
 \symlegacymaths=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
 (Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 57.
@@ -536,67 +804,77 @@ LaTeX Font Info:    Redeclaring symbol font `operators' on input line 57.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
 (Font)              `operators' in the math version `normal' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/ptmcm/m/n --> EU1/TeXGyrePagella:style=Regular(0)/m
-/n on input line 57.
+(Font)                  OT1/ptmcm/m/n --> EU1/FangSong_GB2312:style=Regular(0)/
+m/n on input line 57.
 LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
 (Font)              `operators' in the math version `bold' on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/ptmcm/m/n --> EU1/TeXGyrePagella:style=Regular(0)/m
-/n on input line 57.
+(Font)                  OT1/ptmcm/m/n --> EU1/FangSong_GB2312:style=Regular(0)/
+m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
-Pagella:style=Regular(0)/m/n on input line 57.
+(Font)                  EU1/FangSong_GB2312:style=Regular(0)/m/n --> EU1/FangSo
+ng_GB2312:style=Regular(0)/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
-Pagella:style=Regular(0)/m/n on input line 57.
+(Font)                  EU1/FangSong_GB2312:style=Regular(0)/m/n --> EU1/FangSo
+ng_GB2312:style=Regular(0)/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/ptm/m/it --> EU1/TeXGyrePagella:style=Regular(0)/m/
-it on input line 57.
+(Font)                  OT1/ptm/m/it --> EU1/FangSong_GB2312:style=Regular(0)/m
+/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/ptm/bx/n --> EU1/TeXGyrePagella:style=Regular(0)/bx
-/n on input line 57.
+(Font)                  OT1/ptm/bx/n --> EU1/FangSong_GB2312:style=Regular(0)/b
+x/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
 (Font)                  OT1/cmss/m/n --> EU1/lmss/m/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> EU1/lmtt/m/n on input line 57.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
-Pagella:style=Regular(0)/bx/n on input line 57.
+(Font)                  EU1/FangSong_GB2312:style=Regular(0)/m/n --> EU1/FangSo
+ng_GB2312:style=Regular(0)/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  EU1/TeXGyrePagella:style=Regular(0)/m/n --> EU1/TeXGyre
-Pagella:style=Regular(0)/bx/n on input line 57.
+(Font)                  EU1/FangSong_GB2312:style=Regular(0)/m/n --> EU1/FangSo
+ng_GB2312:style=Regular(0)/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/ptm/m/it --> EU1/TeXGyrePagella:style=Regular(0)/bx
-/it on input line 57.
+(Font)                  OT1/ptm/m/it --> EU1/FangSong_GB2312:style=Regular(0)/b
+x/it on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> EU1/lmss/bx/n on input line 57.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> EU1/lmtt/bx/n on input line 57.
 (./latexonly)
-\c@ex=\count136
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+\c@ex=\count210
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
  [1
 
 
 ] [2]
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
  [3]
-LaTeX Font Info:    Try loading font information for TS1+TeXGyrePagella:style=R
-egular(0) on input line 129.
-LaTeX Font Info:    No file TS1TeXGyrePagella:style=Regular(0).fd. on input lin
-e 129.
-LaTeX Font Info:    Font shape `TS1/TeXGyrePagella:style=Regular(0)/m/n' undefi
-ned
-(Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textcopyright' on input line 129.
-Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/I/ICU' in font `AR PL SungtiL GB'.
+Missing character: There is no © in font FangSong_GB2312:style=Regular/ICU:col
+or=000000FF ;!
+Unknown feature `style=Regular/B/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
+Unknown feature `style=Regular/I/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
 
 
 Package xeCJK Warning: Unknown CJK family `tt' is ignored.
@@ -604,21 +882,21 @@ Use \setCJKfamilyfont to define a CJK family. on input line 154.
 
 LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 154
 .
-(/usr/share/texmf-texlive/tex/xelatex/euenc/eu1lmtt.fd
-File: eu1lmtt.fd 2007/01/14 v1.3 Font defs for Latin Modern
+(/usr/share/texmf-dist/tex/latex/euenc/eu1lmtt.fd
+File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
 LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 15
 8.
 
-(/usr/share/texmf-texlive/tex/latex/psnfss/omlptmcm.fd
+(/usr/share/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
 LaTeX Font Info:    Try loading font information for OMX+psycm on input line 15
 8.
 
-(/usr/share/texmf-texlive/tex/latex/psnfss/omxpsycm.fd
+(/usr/share/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
@@ -629,20 +907,28 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 158.
 LaTeX Font Info:    Try loading font information for U+msa on input line 158.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 158.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [4]
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/B/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
+Unknown feature `style=Regular/B/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 189--192
 
@@ -653,6 +939,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 193--195
 
  []
 
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
 
 Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
@@ -673,8 +967,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 218--219
 
  []
 
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 220.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
@@ -698,6 +992,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
 
 Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
@@ -728,261 +1032,690 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--263
 
  []
 
-Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
+Unknown feature `style=Regular/B/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.12543pt.
+ Make it at least 12.0766pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [6]
+Underfull \hbox (badness 5490) in paragraph at lines 275--279
+[]\rm/m/n/10 If you have a suggestion or correction, please send email to
+ []
+
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.14496pt.
+ Make it at least 12.11566pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [7]
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.12543pt.
+ Make it at least 12.0766pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [8]
-LaTeX Font Info:    Try loading font information for OT1+TeXGyrePagella:style=R
-egular(0) on input line 482.
-LaTeX Font Info:    No file OT1TeXGyrePagella:style=Regular(0).fd. on input lin
-e 482.
-LaTeX Font Info:    Font shape `OT1/TeXGyrePagella:style=Regular(0)/m/n' undefi
-ned
-(Font)              using `OT1/cmr/m/n' instead on input line 482.
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
 
 
 LaTeX Warning: Reference `exrotatepairs' on page ix undefined on input line 505
 .
 
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
 
 LaTeX Warning: Reference `checksum' on page ix undefined on input line 519.
 
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.14496pt.
+ Make it at least 12.11566pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [9]
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+Missing character: There is no • in font FangSong_GB2312:style=Regular/ICU:co
+lor=000000FF ;!
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.12543pt.
+ Make it at least 12.0766pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10] (./book.toc)
+[10] (./book.toc [11
+
+
+])
 \tf@toc=\write5
 \openout5 = `book.toc'.
 
- [11
+ [12]
+Chapter 1.
+Unknown feature `style=Regular/B/ICU' in font `FangSong_GB2312'.
+[1
 
 
-] [12
 
 ]
-Chapter 1.
-Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
+\openout2 = `chapter1.aux'.
 
-Underfull \hbox (badness 10000) in paragraph at lines 604--605
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 612--614
+ (./chapter1.tex
+Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 615--618
+Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 625--629
+Underfull \hbox (badness 10000) in paragraph at lines 19--22
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 636--637
+Underfull \hbox (badness 10000) in paragraph at lines 29--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
 File: figs/interpret.eps Graphic file (type eps)
-<figs/interpret.eps> [1
-
-
-]
+<figs/interpret.eps>
 File: figs/compile.eps Graphic file (type eps)
  <figs/compile.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 666--668
-
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.12543pt.
+ Make it at least 12.03754pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2]
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `TeXGyrePagella Regular'.
-Unknown feature `style=Regular/B/ICU' in font `AR PL SungtiL GB'.
+[2
 
-Underfull \hbox (badness 10000) in paragraph at lines 739--740
+]
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 753--754
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 758--759
-
- []
-
-Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
-
-Underfull \hbox (badness 10000) in paragraph at lines 760--761
-
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.09613pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/B/ICU' in font `FangSong_GB2312'.
+Unknown feature `style=Regular' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 765--766
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 779--780
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 787--788
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+Unknown feature `style=Regular/I/ICU' in font `FangSong_GB2312'.
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 804--805
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
 
  []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.12543pt.
+ Make it at least 12.03754pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [4]
-Unknown feature `style=Regular/ICU' in font `TeXGyrePagella Regular'.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 818.
-Unknown feature `style=Regular/ICU' in font `AR PL SungtiL GB'.
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 849
-.
- (/usr/share/texmf/tex/latex/lm/ts1lmtt.fd
-File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 874--877
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
 
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 191--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
+
+ []
+
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 222.
+Unknown feature `style=Regular' in font `FangSong_GB2312'.
+Unknown feature `style=Regular/ICU' in font `FangSong_GB2312'.
+ fontspec Info: Font FangSong_GB2312:style=Regular does not contain any OpenTyp
+e `Script' information.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.18402pt.
+ Make it at least 12.03754pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 878--879
+Underfull \hbox (badness 10000) in paragraph at lines 278--281
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 882--883
+Underfull \hbox (badness 10000) in paragraph at lines 282--283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 884--885
-
- []
-
-Unknown feature `style=Regular/I/ICU' in font `TeXGyrePagella Regular'.
-
-Underfull \hbox (badness 10000) in paragraph at lines 886--887
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 891--892
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 893--894
+Underfull \hbox (badness 10000) in paragraph at lines 286--287
 
  []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.12543pt.
+ Make it at least 12.03754pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 983--984
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
+
+ []
+
+Unknown feature `style=Regular/I/ICU' in font `FangSong_GB2312'.
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 295--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 297--298
 
  []
 
 [7]
+Underfull \hbox (badness 10000) in paragraph at lines 387--388
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--397
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 405--406
+
+ []
+
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 12.12543pt.
+ Make it at least 12.03754pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[8] (./book.aux)
-LaTeX Font Info:    Some font shapes were not available, defaults substituted.
+[8]
+Chapter 2.
+[9
 
+
+]
+\openout2 = `chapter2.aux'.
+
+ (./chapter2.tex)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.11566pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10
+
+
+
+]
+Chapter 3.
+[11]
+\openout2 = `chapter3.aux'.
+
+ (./chapter3.tex) [12
+
+
+
+]
+Chapter 4.
+[13]
+\openout2 = `chapter4.aux'.
+
+ (./chapter4.tex) [14
+
+
+
+]
+Chapter 5.
+[15]
+\openout2 = `chapter5.aux'.
+
+ (./chapter5.tex)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.03754pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16
+
+
+
+]
+Chapter 6.
+[17]
+\openout2 = `chapter6.aux'.
+
+ (./chapter6.tex)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.11566pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[18
+
+
+
+]
+Chapter 7.
+[19]
+\openout2 = `chapter7.aux'.
+
+ (./chapter7.tex) [20
+
+
+
+]
+Chapter 8.
+[21]
+\openout2 = `chapter8.aux'.
+
+ (./chapter8.tex)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.11566pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22
+
+
+
+]
+Chapter 9.
+[23]
+\openout2 = `chapter9.aux'.
+
+ (./chapter9.tex) [24
+
+
+
+]
+Chapter 10.
+[25]
+\openout2 = `chapter10.aux'.
+
+ (./chapter10.tex) [26
+
+
+
+]
+Chapter 11.
+[27]
+\openout2 = `chapter11.aux'.
+
+ (./chapter11.tex)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.0766pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28
+
+
+
+]
+Chapter 12.
+[29]
+\openout2 = `chapter12.aux'.
+
+ (./chapter12.tex) [30
+
+
+
+]
+Chapter 13.
+[31]
+\openout2 = `chapter13.aux'.
+
+ (./chapter13.tex)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 12.03754pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32
+
+
+
+]
+Chapter 14.
+[33]
+\openout2 = `chapter14.aux'.
+
+ (./chapter14.tex) [34
+
+
+
+]
+Chapter 15.
+[35]
+\openout2 = `chapter15.aux'.
+
+ (./chapter15.tex) [36
+
+
+
+]
+Chapter 16.
+[37]
+\openout2 = `chapter16.aux'.
+
+ (./chapter16.tex) [38
+
+
+
+]
+Chapter 17.
+[39]
+\openout2 = `chapter17.aux'.
+
+ (./chapter17.tex) [40
+
+
+
+]
+Chapter 18.
+[41]
+\openout2 = `chapter18.aux'.
+
+ (./chapter18.tex) [42
+
+
+
+]
+Chapter 19.
+[43]
+\openout2 = `chapter19.aux'.
+
+ (./chapter19.tex) [44
+
+
+
+]
+Appendix A.
+[45]
+\openout2 = `appendix.aux'.
+
+ (./appendix.tex) (./book.aux (./chapter1.aux) (./chapter2.aux)
+(./chapter3.aux) (./chapter4.aux) (./chapter5.aux) (./chapter6.aux)
+(./chapter7.aux) (./chapter8.aux) (./chapter9.aux) (./chapter10.aux)
+(./chapter11.aux) (./chapter12.aux) (./chapter13.aux) (./chapter14.aux)
+(./chapter15.aux) (./chapter16.aux) (./chapter17.aux) (./chapter18.aux)
+(./chapter19.aux) (./appendix.aux))
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5900 strings out of 494665
- 98313 string characters out of 1166476
- 183155 words of memory out of 3000000
- 8957 multiletter control sequences out of 15000+50000
- 24367 words of font info for 115 fonts, out of 3000000 for 9000
+ 13712 strings out of 494535
+ 226793 string characters out of 3161609
+ 290512 words of memory out of 3000000
+ 16577 multiletter control sequences out of 15000+200000
+ 23358 words of font info for 108 fonts, out of 3000000 for 9000
  669 hyphenation exceptions out of 8191
- 34i,10n,43p,458b,283s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,11n,43p,508b,323s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on book.pdf (20 pages).
+Output written on book.pdf (57 pages).
