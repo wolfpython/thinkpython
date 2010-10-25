@@ -14,50 +14,94 @@
 % Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 %
 
-\input{preamble}
+\documentclass[10pt]{book}
+\usepackage[width=5.5in,height=8.5in,
+	hmarginratio=3:2,vmarginratio=1:1]{geometry} %指定了{h,v}marginratio,width和height被忽略了，可以不用指定(参考geometry.pdf, $texdoc geometry.pdf)。
+
+%下面的这些包，你可能需要安装texlive-latex-extra（in Debian/Ubuntu)
+\usepackage{pslatex}  %
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{exercise}
+\usepackage{makeidx}
+\usepackage{setspace}
+\usepackage{hevea}
+\usepackage{upquote}
+%这些是对中文的支持
+\usepackage{xeCJK}
+\usepackage{fontspec}
+\setCJKmainfont{FangSong_GB2312:style=Regular}
+\setmainfont{FangSong_GB2312:style=Regular}
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip=0pt plus 1pt minus 0.1pt
+
+\title{思考Python}
+\newcommand{\thetitle}{思考Python:像计算机科学家一样思考}
+\newcommand{\theversion}{1.1.22}
+
+%以下的这些风格被转换成html的css
+\newstyle{a:link}{color:black;}
+\newstyle{p+p}{margin-top:lem;margin-bottom:lem}
+\newstyle{img}{border:opx}
+
+%改变箭头（方向)
+\setlinkstext
+{\imgsrc[ALT="Previous"]{back.png}}
+{\imgsrc[ALT="Previous"]{up.png}}
+{\imgsrc[ALT="Previous"]{next.png}}
+
+\makeindex
+
+\begin{document}
+
+\frontmatter
+
+\input{part/chapter00}
 
 \mainmatter
 
-\input{chapter01}
+\input{part/chapter01}
 
-\input{chapter02}
+\input{part/chapter02}
 
-\input{chapter03}
+\input{part/chapter03}
 
-\input{chapter04}
+\input{part/chapter04}
 
-\input{chapter05}
+\input{part/chapter05}
 
-\input{chapter06}
+\input{part/chapter06}
 
-\input{chapter07}
+\input{part/chapter07}
 
-\input{chapter08}
+\input{part/chapter08}
 
-\input{chapter09}
+\input{part/chapter09}
 
-\input{chapter10}
+\input{part/chapter10}
 
-\input{chapter11}
+\input{part/chapter11}
 
-\input{chapter12}
+\input{part/chapter12}
 
-\input{chapter13}
+\input{part/chapter13}
 
-\input{chapter14}
+\input{part/chapter14}
 
-\input{chapter15}
+\input{part/chapter15}
 
-\input{chapter16}
+\input{part/chapter16}
 
-\input{chapter17}
+\input{part/chapter17}
 
-\input{chapter18}
+\input{part/chapter18}
 
-\input{chapter19}
+\input{part/chapter19}
 
 \appendix
 
-\input{appendix}
+\input{part/appendix}
 
 \end{document}
