@@ -1,1 +1,598 @@
 \chapter{变量、表达式和语句}
+
+\section{变量和数据类型}
+\index{变量}
+\index{类型数据}
+\index{字符串}
+
+{\bf 变量}是程序处理的最基本的事物，就像一个字母或者一个数字。至今为止我们见过的变量有{\tt 1}，{\tt 2}以及
+\verb"'Hello, World!'"。
+
+这些变量属于不同{\bf 数据类型}：{\tt 2}是一个整数，而\verb"'Hello, World!'"是一个{\bf 字符串}，之所以这么称呼是因为它包含一“串”字母。因为被引号包围，读者（以及解释器）可以将它们识别为字符串。
+
+\index{引号标记}
+
+print命令同样适用于整数。
+
+\beforeverb
+\begin{verbatim}
+>>> print 4
+4
+\end{verbatim}
+\afterverb
+%
+如果你不确定一个变量的数据类型，解释器会告诉你。
+
+\beforeverb
+\begin{verbatim}
+>>> type('Hello, World!')
+<type 'str'>
+>>> type(17)
+<type 'int'>
+\end{verbatim}
+\afterverb
+%
+显然，字符串属于类型{\tt str}，整数属于类型{\tt int}。同样，带小数点的数字属于{\tt float}类型，因为这些数字通过一种叫做{\bf floating-point}的数据类型来表示。
+
+\index{数据类型}
+\index{字符串类型}
+\index{数据类型!字符串}
+\index{整数类型}
+\index{数据类型!整数}
+\index{浮点数类型}
+\index{数据类型!浮点数类型}
+
+\beforeverb
+\begin{verbatim}
+>>> type(3.2)
+<type 'float'>
+\end{verbatim}
+\afterverb
+%
+那么对于像\verb"'17'"和\verb"'3.2'"呢？
+它们虽然看起来想数字，实际上由于它们在引号中，所以是字符串。
+
+\index{引号标记}
+
+\beforeverb
+\begin{verbatim}
+>>> type('17')
+<type 'str'>
+>>> type('3.2')
+<type 'str'>
+\end{verbatim}
+\afterverb
+%
+它们是数字。
+
+当你输入一个大整数时，你会习惯性地在3个数子中间加上逗号，如{\tt 1,000,000}。对于Python来说这不是一个有效的数字，但是这样的表示是合法的：
+
+\beforeverb
+\begin{verbatim}
+>>> print 1,000,000
+1 0 0
+\end{verbatim}
+\afterverb
+%
+当然，这不是我们所期待的。Python将{\tt 1,000,000}解释为一个用逗号划分的数字序列，在输出时用空格区分。
+
+\index{语义错误}
+\index{错误!语义错误}
+\index{错误信息}
+
+这是我们见到的第一个语义错误的例子：代码可以运行，没有报出错信息，但是没有做“正确”的事情。
+
+\section{变量}
+\index{变量}
+\index{赋值语句}
+\index{语句!赋值语句}
+
+对{\bf 变量}的操作是编程语言最强大的特征之一。一个变量是一个对应值的名称。
+
+通过{\bf 赋值语句}创建新的变量，并对它们赋值：
+
+\beforeverb
+\begin{verbatim}
+>>> message = 'And now for something completely different'
+>>> n = 17
+>>> pi = 3.1415926535897931
+\end{verbatim}
+\afterverb
+%
+这个例子包含三条赋值语句。第一条将一个字符串赋值给一个叫做{\tt message}的变量；第二条将整数{\tt 17}赋值给变量{\tt n}；第三条将$\pi$的近似值赋值给变量{\tt pi}。
+
+\index{状态图表}
+\index{图表!状态}
+
+变量通常用表示为变量名用一个肩头指向变量的值。这样的图称作{\bf 状态图表}，因为它给出了每个变量所处的状态（想象各个变量处在各自的状态）。以下的图表给出了之前例子中的结果：
+
+\beforefig
+\centerline{\includegraphics{figs/state2.eps}}
+\afterfig
+
+你可以使用一个print语句来显示变量的值：
+
+\beforeverb
+\begin{verbatim}
+>>> print n
+17
+>>> print pi
+3.14159265359
+\end{verbatim}
+\afterverb
+%
+一个变量的数据类型是这个变量对应值的数据类型。
+
+\beforeverb
+\begin{verbatim}
+>>> type(message)
+<type 'str'>
+>>> type(n)
+<type 'int'>
+>>> type(pi)
+<type 'float'>
+\end{verbatim}
+\afterverb
+%
+\begin{ex}
+如果你在输入一个整数时以$0$开头，你会得到一个奇怪的错误：
+
+\beforeverb
+\begin{verbatim}
+>>> zipcode = 02492
+                  ^
+SyntaxError: invalid token
+\end{verbatim}
+\afterverb
+
+其他的数字也许可以工作，但是结果是诡异的：
+
+\beforeverb
+\begin{verbatim}
+>>> zipcode = 02132
+>>> print zipcode
+1114
+\end{verbatim}
+\afterverb
+
+你能指出这是为什么吗？提示：打印数值{\tt 01}，{\tt 010}，{\tt 0100}和{\tt 01000}。
+
+\index{八进制}
+
+\end{ex}
+
+\section{变量命名和关键字}
+\index{关键字}
+
+程序员通常选取有意义的名字作为变量明——变量名说明了变量的作用。
+
+变量名可以任意长。它们可以同时包含字母和数字，但必须以一个字母开头。大写字母的使用是合法的，但是一个好的习惯是使用小写字母作为变量的首字母（后面会说明原因）。
+
+下划线符号(\verb"_")可以出现在一个变量名中，通常使用在有多个单词的名字中，如\verb"my_name"或者\verb"airspeed_of_unladen_swallow"。
+
+\index{下划线字符}
+
+如果你赋予了一个变量非法的名字，你会得到这样的一个语法错误：
+
+\beforeverb
+\begin{verbatim}
+>>> 76trombones = 'big parade'
+SyntaxError: invalid syntax
+>>> more@ = 1000000
+SyntaxError: invalid syntax
+>>> class = 'Advanced Theoretical Zymurgy'
+SyntaxError: invalid syntax
+\end{verbatim}
+\afterverb
+%
+{\tt 76trombones}是非法的，因为它不是有字母开始。{\tt more@}是非法的，因为它包含了非法字符{\tt @}。但是{\tt class}哪里错了呢？
+
+事实上{\tt class}属于Python的一个{\bf 关键字}。解释器使用这些关键字来识别程序的结构，因此它们不能被用做变量名。
+
+\index{关键字}
+
+Python共有31个关键字\footnote{在Python 3.0中,{\tt exec}不再是一个关键字，但{\tt nonlocal}是。}:
+
+\beforeverb
+\begin{verbatim}
+and       del       from      not       while    
+as        elif      global    or        with     
+assert    else      if        pass      yield    
+break     except    import    print              
+class     exec      in        raise              
+continue  finally   is        return             
+def       for       lambda    try
+\end{verbatim}
+\afterverb
+%
+你可以放一份关键字列表在手边。如果解释器报错说变量名有误，而你有不知道原因，看看这个变量名是否在关键字列表上。
+
+\section{程序语句}
+
+程序语句是一组Python解释器可以执行的代码。我们已经遇到过两种程序语句：print和assignment。
+
+\index{程序语句}
+\index{交互模式}
+\index{脚本模式}
+
+当你在交互模式下输入一条程序语句，解释器会执行该条语句，并显示结果，如果有结果的话。
+
+一个脚本通常包含一系列程序语句。如果有多于一条程序语句，每执行一条语句将会显示对应的结果。
+
+例如，脚本
+
+\beforeverb
+\begin{verbatim}
+print 1
+x = 2
+print x
+\end{verbatim}
+\afterverb
+%
+会产生输出
+
+\beforeverb
+\begin{verbatim}
+1
+2
+\end{verbatim}
+\afterverb
+%
+赋值语句不产生输出。
+
+\section{运算符和运算数}
+\index{运算符，数学}
+\index{数学运算符}
+\index{运算数}
+\index{表达式}
+
+{\bf 运算符}是表示计算的特殊符号，如加法和乘法。运算符作用的数据被称为{\bf 运算数}。
+
+运算符{\tt +}、{\tt -}、{\tt *}、{\tt /}和{\tt **}实现加法、减法、乘法、除法和指数运算，如下面的示例：
+
+\beforeverb
+\begin{verbatim}
+20+32   hour-1   hour*60+minute   minute/60   5**2   (5+9)*(15-7)
+\end{verbatim}
+\afterverb
+%
+在一些其他的编程语言中，\verb"^"被用做指数运算，但是在Python中这是一个位操作，称为XOR。在本书中将不会涉及位操作的知识，你可以在\url{wiki.python.org/moin/BitwiseOperators}中阅读相关知识。
+
+\index{位操作}
+\index{运算符!按位}
+
+%When a variable name appears in the place of an operand, it
+%is replaced with its value before the operation is
+%performed.
+
+除法运算符有可能不按照你期望的运行：
+
+\beforeverb
+\begin{verbatim}
+>>> minute = 59
+>>> minute/60
+0
+\end{verbatim}
+\afterverb
+%
+{\tt minute}的值是59，在传统的算术中，59除以60的结果是0.98333，而不是0。产生偏差的原因是因为Python执行了{\bf 下取整除法}\footnote{在Python 3.0中，这个除法的结果是一个{\tt 浮点数}。新的运算符{\tt //}执行取整除法。}。
+
+\index{Python 3.0}
+\index{下取整除法}
+\index{浮点除法}
+\index{除法!下取整}
+\index{除法!浮点}
+
+当两个运算数都是整数，结果同样是整数；下取整除法舍去了小数部分，因此在这个例子中结果为0。
+
+如果任意一个运算数是一个浮点数，Python执行浮点除法，此时结果为{\tt 浮点数}：
+
+\beforeverb
+\begin{verbatim}
+>>> minute/60.0
+0.98333333333333328
+\end{verbatim}
+\afterverb
+
+
+\section{表达式}
+
+{\bf 表达式}是数值、变量和运算符的组合。一个数值是一个表达式，一个变量也是一个表达式，因此一下都是合法的表达式（假设变量{\tt x}已经被赋值）：
+
+\index{表达式}
+\index{赋值}
+
+\beforeverb
+\begin{verbatim}
+17
+x
+x + 17
+\end{verbatim}
+\afterverb
+%
+如果你在交互模式下输入一个表达式，解释器立即对它{\bf 赋值}并显示结果：
+
+\beforeverb
+\begin{verbatim}
+>>> 1 + 1
+2
+\end{verbatim}
+\afterverb
+%
+但在脚本中，一个表达式本身不做任何事情！初学者通常对此会产生困惑。
+
+\begin{ex}
+在交互模式下输入一下表达式，观察结果：
+
+\beforeverb
+\begin{verbatim}
+5
+x = 5
+x + 1
+\end{verbatim}
+\afterverb
+%
+现在将这些表达式放在一个脚本文件里并运行。此时输出是什么？修改脚本，在每个表达式前添加print语句，然后观察输出。
+\end{ex}
+
+
+\section{运算符的优先级}
+\index{运算符的优先级}
+\index{优先级规则}
+\index{PEMDAS}
+
+当一个表达式中出现多于一个运算符时，求值的顺序由{\bf 优先级规则}决定。Python遵从数学运算符的约定。{\bf PEMDAS}是一个有效的方法来记忆这些规则：
+
+\index{括号!压倒优先级}
+
+\begin{itemize}
+
+\item {\bf P}arentheses（括号）具有最高的优先级，可以强迫表达式按照指定的顺序求值。由于在括号中的表达式先被求值，{\tt 2 * (3-1)}的结果是4，{\tt (1+1)**(5-2)}的结果是8。你可以用括号来使得表达式更容易阅读，如{\tt (minute * 100) / 60}，即便这并不改变最终的结果。
+
+\item {\bf E}xponentiation（指数运算）有次高的优先级，因此{\tt 2**1+1}的结果是3，而不是4，{\tt 3*1**3}的结果是3，而不是27。
+
+\item {\bf M}ultiplication（乘法）和{\bf D}ivision（除法）具有相同的优先级，并优于{\bf A}ddition（加法）和{\bf S}ubtraction（减法），它们同样具有相同的优先级。因此{\tt 6+4/2}的结果是8，而不是5。
+
+\item 具有相同优先级的运算符是从左到右进行求值的。因此在表达式{\tt degrees / 2 * pi}中，首先计算除法，然后在结果上乘以{\tt pi}。如果要除以$2 \pi$，你需要使用括号，或者使用{\tt degrees / 2 / pi}。
+
+\end{itemize}
+
+
+\section{字符串操作}
+\index{字符串!操作}
+\index{运算符!字符串}
+
+一般情况下，你不能使用算术运算符作用于字符串，即使字符串看起来像数字，因此以下是非法的：
+
+\beforeverb
+\begin{verbatim}
+'2'-'1'    'eggs'/'easy'    'third'*'a charm'
+\end{verbatim}
+\afterverb
+%
+运算符{\tt +}可以作用于字符串，但未必按照你期望的方式工作：它执行的是{\bf 级联}，即将字符串首尾相连。例如：
+
+\index{级联}
+
+\beforeverb
+\begin{verbatim}
+first = 'throat'
+second = 'warbler'
+print first + second
+\end{verbatim}
+\afterverb
+%
+程序的输出是{\tt throatwarbler}。
+
+运算符{\tt *}同样可以作用于字符串，它的功能是重复字符串。如\verb"'Spam'*3"的结果是\verb"'SpamSpamSpam'"。如果一个运算符是字符串，那么另一个必须是一个整数。
+
+运算符{\tt +}和{\tt *}在字符串的的使用类似加法和乘法，如{\tt 4*3}相当于{\tt 4+4+4}，因此我们期望\verb"'Spam'*3"相当于\verb"'Spam'+'Spam'+'Spam'"，事实如此。当然，字符串的级联和重复相比整数的加法和乘法还是有很大的区别的。你可以找出一个加法有而字符串级联没有的性质吗？
+
+
+\index{交换性}
+
+
+\section{注释}
+\index{注释}
+
+当程序变得越来越长，越来越复杂，它们变得更难读懂。正是的变成语言是密集的，通常很难通过阅读一小段代码来指出它是做什么的，或者为这么这么写。
+
+由于这个理由，在程序旁添加标记，使用自然语言来说明这段程序是做什么的是一个良好的想法。这些标记被称为{\bf 注释}，它们由\verb"#"符号开头：
+
+\beforeverb
+\begin{verbatim}
+# compute the percentage of the hour that has elapsed
+percentage = (minute * 100) / 60
+\end{verbatim}
+\afterverb
+%
+在这个例子中，注释以整行的方式出现。你也可以在一行的末尾添加注释：
+
+\beforeverb
+\begin{verbatim}
+percentage = (minute * 100) / 60     # percentage of an hour
+\end{verbatim}
+\afterverb
+%
+{\tt \#}符号后到一行结束中的任何内容都被忽略---它们将不影响程序的运行。
+
+当说明代码中不明显的特点时，注释非常有效。我们可以假设阅读代码的人可以指出代码{\em 做了什么}；更有必要的是解释{\em 为什么这么做}。
+
+以下的注释是冗余而无用的：
+
+\beforeverb
+\begin{verbatim}
+v = 5     # assign 5 to v
+\end{verbatim}
+\afterverb
+%
+以下的注释包含了代码中没有的有用信息：
+
+\beforeverb
+\begin{verbatim}
+v = 5     # velocity in meters/second. 
+\end{verbatim}
+\afterverb
+%
+好的变量明可以减少对注释的依赖，但长的变量名会使得表达式难以阅读，因此这是一个折衷。
+
+\section{调试}
+\index{调试}
+
+目前位置你遇到的语法错误大多为非法变量明，如关键字{\tt class}和{\tt yield}，或者包含非法字符，如\verb"odd~job"和\verb"US$"。
+
+\index{语法错误}
+\index{错误!语法}
+
+如果你在一个变量名中加入一个空格，Python会认为这是两个没有运算符的运算数：
+
+\beforeverb
+\begin{verbatim}
+>>> bad name = 5
+SyntaxError: invalid syntax
+\end{verbatim}
+\afterverb
+%
+对于语法错误，错误消息没有很大的帮助。通常的消息是{\tt SyntaxError: invalid syntax}和{\tt SyntaxError: invalid token}，它们都不包含很多信息量。
+
+\index{错误消息}
+\index{未定义而使用}
+\index{异常}
+\index{运行时错误}
+\index{错误!运行时}
+
+运行时错误通常由于“未定义而使用”，即试图使用一个没有赋值的变量。这会在你拼写变量名错误时发生：
+
+\beforeverb
+\begin{verbatim}
+>>> principal = 327.68
+>>> interest = principle * rate
+NameError: name 'principle' is not defined
+\end{verbatim}
+\afterverb
+%
+变量名是大小写敏感的，因此{\tt LaTeX}和{\tt latex}是不同的。
+
+\index{大小写敏感，变量名}
+\index{语义错误}
+\index{错误!语义}
+
+语义错误通常发生在运算符的顺序上。例如，求值$\frac{1}{2 \pi}$，你也许会写成：
+
+\beforeverb
+\begin{verbatim}
+>>> 1.0 / 2.0 * pi
+\end{verbatim}
+\afterverb
+%
+但是首先执行了除法，因此你会得到$\pi / 2$，并不是想要的结果！Python没有办法知道你写的是什么含义，因此这种情况下你不会得到一个错误消息；你得到的只是错误的结果。
+
+\index{运算符优先级}
+
+\section{术语表}
+
+\begin{description}
+
+\item[数值：] 程序操作的基本数据单元，如一个数字或字符串。
+\index{数值}
+
+\item[类型：] 数据的分类。目前为止我们见过的类型有整数（{\tt int}），浮点数（{\tt float}），和字符串（{\tt str}）。
+\index{类型}
+
+\item[整数：] 表示所有整数的类型。
+\index{整数}
+
+\item[浮点数：] 表示具有小数部分的数的类型。
+\index{浮点数}
+
+\item[字符串：] 表示一串字符的数据类型。
+\index{字符串}
+
+\item[变量：] 指向一个数值的名称。
+\index{变量}
+
+\item[语句：] 一段代表命令或行为的代码。目前为止我们见过的语句有赋值语句和打印语句。
+\index{语句}
+
+\item[赋值：] 将数值赋值给变量的语句。
+\index{赋值}
+
+\item[状态图：] 表示变量和对应数值的图。
+\index{状态图}
+
+\item[关键字：] 一些编译器用来对程序进行语法分析的保留单词，你不能使用例如{\tt if}，{\tt  def}和{\tt while}作为变量名。
+\index{关键字}
+
+\item[运算符：] 表示一种简单运算的特殊符号，如加法，乘法，或者字符串级联。
+\index{运算符}
+
+\item[运算数：] 运算符作用的数值。
+\index{运算数}
+
+\item[下取整除法：] 两数相除并舍去小数部分的运算。
+\index{下取整除法}
+
+\item[表达式：] 表示单一结果的变量、运算符和数值的组合。
+\index{表达式}
+
+\item[求值] 通过执行运算符化简表达式得到一个单一结果。
+
+\item[优先级规则] 定义运算符和运算数求值顺规的规则。
+\index{优先级规则}
+\index{优先级}
+
+\item[级联：] 将两个运算数首尾现连。
+\index{级联}
+
+\item[注释：] 程序中提供给程序员（或者任何阅读程序的人）信息，但不影响程序执行的内容。
+\index{注释}
+
+\end{description}
+
+
+\section{练习}
+
+\begin{ex}
+假设我们执行了如下的赋值语句：
+
+\begin{verbatim}
+width = 17
+height = 12.0
+delimiter = '.'
+\end{verbatim}
+
+对于下列表达式，写出表达式的数值和数据类型（表达式的数值）。
+
+\begin{enumerate}
+
+\item {\tt width/2}
+
+\item {\tt width/2.0}
+
+\item {\tt height/3}
+
+\item {\tt 1 + 2 * 5}
+
+\item {\tt delimiter * 5}
+
+\end{enumerate}
+
+使用Python解释器来验证你的结果。
+\end{ex}
+
+\begin{ex}
+练习使用Python解释器作为计算器。
+\index{calculator}
+
+\begin{enumerate}
+
+\item 一个半径为$r$的球的体积为$\frac{4}{3} \pi r^3$。一个半径为5的球体的体积是多少？提示：392.6是错误的！
+
+\item 假设一本书的封面价格是\$24.95，书店提供40\%的折扣，对第一本书的运输费用为\$3，往后每增加一本需要75每分，如果购买60本书总共需要多少？
+
+\item 如果我在6:52离开我家，用轻松的步伐跑了1英里（8:15每英里），然后保持节奏跑了3英里（7:12每英里），最后用轻松的步伐跑了1英里，我什么时候回到家吃早饭？
+
+\index{跑步比赛}
+
+\end{enumerate}
+\end{ex}
