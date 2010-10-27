@@ -1,1 +1,87 @@
 \chapter{函数}
+\label{funcchap}
+\index{function call 函数调用}
+
+在程序设计中，函数是带有函数名的一系列执行计算的语句,当定义一个函数，我们指
+定一个函数名和一系列的语句。然后，就可以通过函数名调用函数。我们其实已经看到
+一个函数调用的例子。
+
+\beforeverb
+\begin{verbatim}
+>>>type(32)
+<type 'int'>
+\end{verbatim}
+\afterverb
+
+函数名是类型，小括号里的表达式称作函数的形式参数(argument).结果是形参的类型。
+
+\index{parenthess!argument in}
+
+通常我们这么说：函数接受一个参数，返回一个结果（叫做返回值）。
+
+\index{argument 形式参数}
+\index{return value 返回值}
+
+\section{类型转换函数}
+\index{conversion!type 转换!类型}
+\index{type conversion 类型转换}
+
+Python提供一些内置函数用来把一种类型的值转换成另一类型。{\\t int}函数接受一
+个值，如果可以，就把它转换成整数，否则就会“抱怨”。
+
+\index{int function int 函数}
+\index{function!int 函数!int}
+
+\beforeverb
+\begin{verbatim}
+>>> int('32')
+32
+>>> int('Hello')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: 'Hello'
+\end{verbatim}
+\afterverb
+
+{\tt int}函数可以把浮点数转换为整数，但是不能向上取整，只能截掉小数部分:
+
+\beforeverb
+\begin{verbatim}
+>>> int(3.99999)
+3
+>>> int(-2.3)
+-2
+\end{verbatim}
+\afterverb
+
+{\tt float}函数把整数和字符串转换成浮点数:
+
+\index{float function float函数}
+\index{function!float 函数!float}
+
+\beforeverb
+\begin{verbatim}
+>>>float(32)
+32.0
+>>>float('3.14159')
+3.14159
+\end{verbatim}
+\afterverb \footnote{在译者的机器上float('3.14159')的输出为:3.1415899999999999(解释器Python2.5和2.6)；3.14159（解释器Python3.1）。}
+
+最后，{\tt str}把参数转换为字符串：
+
+\index{str function str函数}
+\index{function!str 函数!str}
+
+\beforeverb
+\begin{verbatim}
+>>>str(32)
+'32'
+>>>str(3.14159)
+'3.14159'
+\end{verbatim}
+\afterverb
+
+2236
+
+
