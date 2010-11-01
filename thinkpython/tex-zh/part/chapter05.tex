@@ -1,1 +1,108 @@
 \chapter{条件语句和递归}
+
+\section{ 模操作符}
+
+\index{modulus operator 模操作符}
+\index{operator!modulus 操作符!模}
+
+模操作符用于两个整数，第一个操作数除以第二个操作数产生余数。在Python
+中，模操作符是一个百分号（\verb"%"）。语法的格式和其他的操作符相同。
+
+\beforeverb
+\begin{verbatim}
+>>>quotient = 7 / 3
+>>>print quotient
+2
+>>>remainder = 7 % 3
+>>>print remainder
+1
+\end{verbatim}
+\afterverb
+
+7除以3等于2余1。\\
+
+模操作符是非常有用的，比如，你可以查看一个数是否可以被另一个数整除---
+如果{\tt x \% y}是0，{\tt x}就可以被{\tt y}整除。\\
+
+\index{divisibility 整除}
+
+你也可以用模运算来提取整数的最右边的数字。比如，{\tt x \% 10 }得到{\tt x}的最右面的一个数字\footnote{译注：个位数}（以十为底）。类似地，
+{\tt x \% 100}得到最后的两位数字\footnote{十位和个位的数字}。
+
+\section{布尔表达式}
+\index{boolean expression 布尔表达式}
+\index{expression!boolean}
+\index{logical operator 逻辑运算符}
+\index{operator!logical}
+
+布尔表达式的结果要么是真(true），要么为假（false）。下面的例子是使用
+{\tt ==}运算符，比较两个操作数，如果相等则结果为{\tt True},否则为{\tt False}:
+
+\beforeverb
+\begin{verbatim}
+>>> 5 == 5
+True
+>>> 5 == 6
+False
+\end{verbatim}
+\afterverb
+
+{\tt True}和{\tt False}是两个特殊的值，属于{\tt bool}类型；他们不是
+字符串：
+
+\index{True special value True特殊值}
+\index{False special value False特殊值}
+\index{specail value!True}
+\index{special value!False}
+\index{bool type bool类型}
+\index{type!bool}
+
+\beforeverb
+\begin{verbatim}
+>>> type(True)
+<type 'bool'>
+>>> type(False)
+<type 'bool'>
+\end{verbatim}
+\afterverb
+
+{\tt ==}运算符是关系运算符中的一个，其他的还有:
+
+\beforeverb
+\begin{verbatim}
+      x != y               # x is not equal to y
+      x > y                # x is greater than y
+      x < y                # x is less than y
+      x >= y               # x is greater than or equal to y
+      x <= y               # x is less than or equal to y
+\end{verbatim}
+\afterverb
+
+
+尽管你可能很熟悉这些运算符，他们在Python中的表示方法和数学中的有很大
+的不同。一个常见的错误是只使用一个{\tt =}号，而不是两个{\tt ==}号。
+记住{\tt =}是赋值操作符，{\tt ==}是关系运算符。而且，Python中没有这样
+的符号{\tt =<}或者{\tt =>}\footnote{在FP(functional programming中可能
+会遇到这个符号}。
+
+\index{relational operator 关系运算符}
+\index{operator!relational}
+
+\section{逻辑运算符}
+\index{logical operator 逻辑运算符}
+\index{operator!logical}
+
+有三个逻辑运算符：{\tt and},{\tt or}和{\tt not}。这些操作符的意思和
+在英语中的意思差不多。比如，{\tt x > 0 and x < 10}为真，仅当{\tt x}
+大于0小于10\footnote{译注：在Python中，更pythonic的写法是 0 < x < 10
+。  这样的符号对于c/c++背景的程序员来说，有点陌生，在c/c++等值的分别
+是\&\&, || ,!}。
+
+\index{and operator and运算符}
+\index{or operator or运算符}
+\index{not operator not运算符}
+\index{operator!and}
+\index{operator!or}
+\index{operator!not}
+
+
