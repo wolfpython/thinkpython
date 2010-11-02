@@ -105,4 +105,138 @@ False
 \index{operator!or}
 \index{operator!not}
 
+如果{\tt n \% 2 == 0 or n \% 3 == 0}有一个条件语句为真，则表达式的值就为真，亦即n可以被2或3整除。\\
+
+最后，{\tt not}运算符对一个布尔表达式取反，所以如果{\tt (
+x > y)为假，则{\tt not (x > y)}为真，亦即，{\tt x}小于或等于{\tt y}。\\
+
+严格来说，逻辑运算符的操作数只能是布尔表达式，但是Python
+对此可没什么严格要求。任何不为0的整数也被解释成{\tt True}
+\footnote{这个也可扩展到任何其他的类型，比如后面要涉及到的
+list,tuple,dict,set还有str。}
+
+\beforeverb
+\begin{verbatim}
+>>> 17 and True
+True
+\end{verbatim}
+\afterverb
+
+这个灵活性是很有用处的，但是可能会产生一些微妙的问题。我们
+要尽可能的避免他们（除非知道自己在做什么）。
+
+\section{条件执行}
+\label{conditional execution}
+
+\index{conditional statement 条件语句}
+\index{statement!conditional}
+\index{if statement if语句}
+\index{statement!if}
+\index{conditional execution 条件执行}
+
+考虑到要写一些有用的程序，我们几乎总是需要检查条件，并改变相应的改变程序的行为。条件语句给了我们这个能力。最简单的要属{\tt if}语句了：
+
+
+
+\beforeverb
+\begin{verbatim}
+if x > 0:
+    print 'x is positive'
+\end{verbatim}
+\afterverb
+{\tt if}语句后面的布尔表达式叫做条件。如果条件为真，则下面
+缩进的语句就被执行。反之，则什么也不发生。\footnote{这是
+针对本例而言，因为本例只有一条语句。在其他的情况下，可能
+会有诸如{\tt else}之类的语句。}
+
+\index{condition 条件}
+\index{compound statment}
+\index{statment!compound}
+
+{\tt if}语句和函数定义有着相同的结构：
+一个头，后面跟着一个缩进的语句块。这样的语句叫做复合语句。\\
+
+虽然对复合语句里面可以含有的语句数量不限，但是必须至少有一
+条\footnote{c/c++中没有这样的限制}。偶然地，可能在语句体里
+暂时不需要语句(通常作为一个占位符)。在这种情况下，我们可以
+使用{\tt pass}语句，它什么也不做。
+
+
+
+\index{pass statement}
+\index{statement!pass}
+
+\beforeverb
+\begin{verbatim}
+if x < 0:
+    pass          # need to handle negative values!
+\end{verbatim}
+\afterverb
+
+\section{选择执行}
+\label {alternative execution}
+
+\index{alternative executive 选择执行}
+\index{else keyword else关键字}
+\index{keyword!else}
+
+{\tt if}语句的第二种形式是选择执行，此时，有两种可能性，
+条件决定了哪一个可能性被执行。语法是这样:
+
+\beforeverb
+\begin{verbatim}
+if x%2 == 0:
+    print 'x is even'
+else:
+    print 'x is odd'
+\end{verbatim}
+\afterverb
+
+如果{\tt x}除以2的余数是0，我们可以判定{\tt x}是偶数，程序
+就输出这个效果。如果条件为假，第二个语句就被执行。因为条件
+必须为真或假，其中一个必定会被执行。选择项叫做分支，因为
+它们是执行流的分支。
+
+\index{branch 分支}
+
+
+\section{链式条件}
+\index{chained conditional 链式条件}
+\index{conditional!chained}
+
+有时，可能会有不止两种可能性，我们就需要更多的分支。一种方式是使用链式条件语句。
+
+\beforeverb
+\begin{verbatim}
+if x < y:
+    print 'x is less than y'
+elif x > y:
+    print 'x is greater than y'
+else:
+    print 'x and y are equal'
+\end{verbatim}
+\afterverb
+
+{\tt elif}是"else if"的缩写形式。再次说明一下，只有一条
+语句被执行。{\tt elif}语句的数目也是没有限制的。如果要写
+{\tt else}语句，必须是在链式条件的最后，但是如果没有，也是
+允许的。
+
+\index{elif keyword elif关键字}
+\index{keyword!elif}
+
+\beforeverb
+\begin{verbatim}
+if choice == 'a':
+    draw_a()
+elif choice == 'b':
+    draw_b()
+elif choice == 'c':
+    draw_c()
+\end{verbatim}
+\afterverb
+
+每个条件按顺序被检查。如果第一个为假，下一个就被检查，如此
+如此。如果有一个为真，相应的分支就被执行，链式语句也就终止
+。尽管可能有多个条件为真，也只有第一个为真的分支被执行。\\
 
