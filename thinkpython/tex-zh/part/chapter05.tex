@@ -240,3 +240,152 @@ elif choice == 'c':
 如此。如果有一个为真，相应的分支就被执行，链式语句也就终止
 。尽管可能有多个条件为真，也只有第一个为真的分支被执行。\\
 
+
+\section{嵌套的条件语句}
+\index{nested conditional 嵌套的条件语句}
+\index{conditional!nested}
+
+一条条件语句也可以嵌套在另一个语句之中。我们写一个典型的例子：
+
+\beforeverb
+\begin{verbatim}
+if x == y:
+    print 'x and y are equal'
+else:
+    if x < y:
+        print 'x is less than y'
+    else:
+        print 'x is greater than y'
+\end{verbatim}
+\afterverb
+外层的条件包两个分支。第一个分支包含一个简单语句。第二个分支包含例外一个
+{\tt if}语句，同时，这个{\tt if}语句也有两个分支。这两个简单的分之都是简
+单语句，尽管他们本也可能是条件语句。\\
+
+尽管缩进使得代码结构清晰，嵌套语句还是难以快速的理解。一般来说，尽可能的
+避免使用嵌套条件语句。\\
+
+逻辑运算符可以简化嵌套条件语句。比如，下面的代码可以只用一条条件语句：
+
+\beforeverb
+\begin{verbatim}
+if 0 < x:
+    if x < 10:
+        print 'x is a positive single-digit number.'
+\end{verbatim}
+\afterverb
+
+只有当我们“通过”了两个条件时，{\tt print}语句才会被执行，所以，我们可以用{\tt and}运算符达到同样的效果。
+
+\beforeverb
+\begin{verbatim}
+if 0 < x and x < 10:
+    print 'x is a positive single-digit number.'
+\end{verbatim}
+\afterverb
+ 
+
+
+\section{递归}
+\label{recusion}
+\index{recursion 递归}
+
+
+函数调用\footnote{译注：台湾的书籍一般翻译为呼叫，这个很形象}另外一个函数是合法的;函数调用他自身也是合法的。很难一眼看出这样做有什么好处\footnote{译者注：我猜，这种情况就像是自己把自己提起来一样～～}，但实践证明，
+这是程序能做的最具有魔力的事情之一。比如，看下面的函数：
+
+\beforeverb
+\begin{verbatim}
+def countdown(n):
+    if n <= 0:
+        print 'Blastoff!'
+    else:
+        print n
+        countdown(n-1)
+\end{verbatim}
+\afterverb
+
+如果{\tt n}是非正数，程序输出，“Blastoff!“，否则，输出{\tt n},然后调用
+{\tt countdown}函数---也就是它自己---同时把{\tt n-1}当作参数传递给它。
+
+如果我们调用这个函数，究竟发生了什么？
+
+\beforeverb
+\begin{verbatim}
+>>> countdown(3)
+\end{verbatim}
+\afterverb
+%
+{\tt countdown}从{\tt n=3}开始执行，{\tt n}此时大于0，于是输出3，接着
+调用自身。。。。。。
+
+\begin{quote}
+{\tt countdown}从{\tt n=2}开始执行，{\tt n}此时大于0，于是输出2，接着调用自身。。。。。。
+
+\begin{quote}
+{\tt countdown}从{\tt n=1}开始执行，{\tt n}此时大于0，于是输出1，接着调用自身。。。。。。
+
+\begin{quote}
+{\tt countdown}从{\tt n=0}开始执行，{\tt n}此时不大于0，输出“Blastoff!"
+然后返回。
+\end{quote}
+
+接受{\tt n=1}的{\tt countdown}返回。
+\edn{quote}
+
+接受{\tt n=2}的{\tt countdown}返回。
+\end{quote}
+
+接受{\tt n=2}的{\tt countdown}返回。
+\end{quote}
+
+{\tt countdown}接受{\tt n=3}的函数返回。
+
+然后，我们就会到\verb"__main__"里了。整个输出如下：
+
+\beforeverb
+\begin{verbatim}
+3
+2
+1
+Blastoff!
+\end{verbatim}
+\afterverb
+
+ 调用自身的函数称作递归函数；调用的过程叫做递归。
+
+ \index{recursion 递归}
+ \index{function!recursive}
+
+另外一个例子，我们写一个打印一个字符串{\tt n}次的函数。
+
+\beforeverb
+\begin{verbatim}
+def print_n(s, n):
+    if n <= 0:
+        return
+    print s
+    print_n(s, n-1)
+\end{verbatim}
+\afterverb
+
+如果{\tt n <= 0}，{\tt return}语句退出函数。执行流立刻返回到调用者，
+剩余的部分就不再被执行了。
+
+\index{return statement return语句}
+\index{statement!return}
+
+函数的剩余部分和{\tt countdown}还书相似：如果{\tt n}大于0，输出{\tt s},然后调用自身显示{\tt s} $n-1$次。所以，输出的行数是{\tt 1 ＋ (n-1)}，
+也就是{\tt n}次。\\
+
+这样简单的例子，其实可以很容易用一个{\tt for}循环来实现。但我们以后将会看
+到很难写成{\tt for}循环形式，但是很容易用递归实现的例子，我们现在就
+开始认识递归是有好处的。
+
+{\section{递归函数的堆栈图}
+\index{stack diagram 堆栈图}
+\index{function frame 函数图}
+\index{frame 图}
+
+
+
