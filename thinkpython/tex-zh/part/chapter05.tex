@@ -331,13 +331,13 @@ def countdown(n):
 \end{quote}
 
 接受{\tt n=1}的{\tt countdown}返回。
-\edn{quote}
-
-接受{\tt n=2}的{\tt countdown}返回。
 \end{quote}
 
 接受{\tt n=2}的{\tt countdown}返回。
 \end{quote}
+
+%接受{\tt n=3}的{\tt countdown}返回。
+%\end{quote}
 
 {\tt countdown}接受{\tt n=3}的函数返回。
 
@@ -386,6 +386,374 @@ def print_n(s, n):
 \index{stack diagram 堆栈图}
 \index{function frame 函数图}
 \index{frame 图}
+ 
+在\ref{堆栈图}部分，我们使用堆栈图代表程序在函数调用过程中的状态。
+同样的方法也可以帮助我们理解递归函数。\\
+
+每次函数调用的时候，Python创建一个新的函数框图，里面包含了函数的局部
+变量和参数。对于递归函数来说，可能会有不止一个框图同时出现在堆栈图里
+。\\
+
+下图显示了{\tt n = 3}时{\tt countdown}函数的堆栈图。
+
+\beforefig
+\centerline{\includegraphics{figs/stack2.eps}}
+\afterfig
+
+像通常的一样，栈顶是\verb"__main__"的卡框图。由于我们没有在\verb"__main__"里创建任何的变量或传递任何的参数给它，所以它是空的。
+
+\index{base case 终止条件}
+\index{recursion!base case}
+
+四个{\tt countdown}框图拥有不同的{\tt n}值。栈底，{\tt n = 0}，叫做
+终止条件(base case)。不执行任何的递归调用，所以就没有更多的框图了。
+
+\begin{quote}
+画\verb"print_n"的堆栈图，其中，\verb"s = 'Hello'" {\tt n = 2}。
+\end{quote}
+
+\begin{quote}
+编写\verb"do_n"函数，接受一个函数对象，和一个数字，{\tt n}作为参数，调用传递过来的函数{\tt n}次。
+\end{quote}
+
+\section{无穷递归}
+\index{infinite recursion 无穷递归}
+\index{recursion!infinite}
+\index{runtime error 运行时错误}
+\index{error!runtime}
+\index{traceback 跟踪}
+
+如果递归函数没有终止条件，就会无止境的递归\footnote{译者：直到消耗完资源，或者操作系统终止它}。当达到最大递归深度时，Python就会报告错误
+信息。
+
+\index{exception!RuntimeError}
+\index{RuntimeError}
+
+\beforeverb
+\begin{verbatim}
+  File "<stdin>", line 2, in recurse
+  File "<stdin>", line 2, in recurse
+  File "<stdin>", line 2, in recurse
+                  .   
+                  .
+                  .
+  File "<stdin>", line 2, in recurse
+RuntimeError: Maximum recursion depth exceeded
+\end{verbatim}
+\afterverb
+
+这个追踪比我们上一章看到的要大很多。当错误产生时，在栈中有1000张{\tt recurse}框图！
+
+\section{键盘输如}
+\index{keyboard input 键盘输入}
+
+迄今为止，我们编写的程序对用户来说有点“不礼貌”---不接受来自用户的输入。每次只是做同样的事。\\
+
+Python提供了一个内置的函数\verb"raw_input"获取用户的输入\footnote{在
+Python3.0中，这个函数叫做{\tt input}。  译注：在Python3.x中都是如此}
+当\verb"raw_input"函数被调用时，程序停下来等待用户输入些东西。当用户敲击{\sf Return}或者{\sf Enter}，程序恢复运行，\verb"raw_input"把用户输入的东西作为字符串返回。
+
+\index{Python 3.0}
+\index{raw\_input function raw\_input函数}
+\index{function!raw\_input}
+
+
+\beforeverb
+\begin{verbatim}
+>>> input = raw_input()
+What are you waiting for?
+>>> print input
+What are you waiting for?
+\end{verbatim}
+\afterverb
+
+ 在用户输入之前，最好能够输出一个提示，告诉用户输入什么。\verb"raw_input"可以接受一个提示作为参数。
+
+\index{prompt 提示}
+
+\beforeverb
+\begin{verbatim}
+>>> name = raw_input('What...is your name?\n')
+What...is your name?
+Arthur, King of the Britons!
+>>> print name
+Arthur, King of the Britons!
+\end{verbatim}
+\afterverb
+
+提示后面的\verb"n"代表一个换行，这是一个特殊字符，产生一个断行。
+这也是为什么用户的输入出现在提示下面的原因。
+
+\index{newline 换行}
+
+如果希望用户输入一个整数，可以尝试把返回值转换为{\tt int}。
+
+\beforeverb
+\begin{verbatim}
+>>> prompt = 'What...is the airspeed velocity of an unladen swallow?\n'
+>>> speed = raw_input(prompt)
+What...is the airspeed velocity of an unladen swallow?
+17
+>>> int(speed)
+17
+\end{verbatim}
+\afterverb
+
+但是，如果用户输入的不是数字组成的字符串，就会得到一个错误：
+
+\beforeverb
+\begin{verbatim}
+>>> speed = raw_input(prompt)
+What...is the airspeed velocity of an unladen swallow?
+What do you mean, an African or a European swallow?
+>>> int(speed)
+ValueError: invalid literal for int()
+\end{verbatim}
+\afterverb
+
+我们以后将会看到如何处理这样的错误。
+
+\index{ValueError }
+\index{exception!ValueError}
+
+
+\section{Debugging 调试}
+\label{whitespace}
+\index{debugging 调试}
+\index{traceback 跟踪}
+
+当错误发生，Python 输出的跟踪信息，包含大量的信息，但是也很容易让人
+“眼花缭乱”，特别是栈中有很多框图的时候。最有用的部分通常是：
+
+\begin{itemize}
+
+\item 什么类型的错误
+
+\item 在什么地方发生的
+
+\end{itemize}
+
+ 通常，语法错误很容易发现，但是也有些微妙的东西\footnote{原文是:but 
+there are a few gotchas}。“空格”错误可能很微妙，因为空格和制表是不可见的，而且我们习惯上忽略它们\footnote{特别是在不同的机器上，或者不同
+的工具上大开源码的时候}。
+
+\index{whitespace 空格}
+
+ 
+\beforeverb
+\begin{verbatim}
+>>> x = 5
+>>>  y = 6
+  File "<stdin>", line 1
+    y = 6
+    ^
+SyntaxError: invalid syntax
+\end{verbatim}
+\afterverb
+
+这个例子中，问题发生在第二行有了一个空格缩进。但是错误指向了{\tt y},
+这个是一个误导。一般，错误信息提示问题发生的地方，当时实际的错误可能
+在提示的前面一点，有时在前一行。
+
+\index{error!runtime}
+\index{runtime error 运行时错误}
+
+对于运行时错误，也是如此。假设，你想用分贝计算信噪比。公式是$SNR_{db} = 10 \log_{10} (P_{signal} / P_{noise})$。你可能写出如下的Python代码：
+
+\beforeverb
+\begin{verbatim}
+import math
+signal_power = 9
+noise_power = 10
+ratio = signal_power / noise_power
+decibels = 10 * math.log10(ratio)
+print decibels
+\end{verbatim}
+\afterverb
+但是，当你运行时，你会得到一个错误信息\footnote{在Python3.0中，不会
+得到错误信息；除法运算符执行浮点除，尽管操作数是整数，这个和实际
+很贴近}。
+
+\index{exception!OverflowError}
+\index{OverflowError}
+
+\beforeverb
+\begin{verbatim}
+Traceback (most recent call last):
+  File "snr.py", line 5, in ?
+    decibels = 10 * math.log10(ratio)
+OverflowError: math range error
+\end{verbatim}
+\afterverb
+
+错误信息提示错误发生在第五行，但是那行根本没有错误。为了发掘出真正的错误，打印{\tt ratio}的值可能会有帮助，结果显示是0。问题出现在第四行，因为两个整数的除法实施的是地板除(floor division)\footnote{译注：
+Python核心编程的中译本中，把它翻译成地板除}。解决方案是用浮点数来表示
+信号功率和噪声功率。
+
+\index{floor division 地板除}
+\index{division!floor}
+
+总的来书，错误信息告诉我们出现问题的地方，但通常不是问题发生的根本所在。
+
+\section{术语表}
+
+\begin{description}
+
+\item [modulus operator 模运算符：] 一个操作符，记法为百分号({\tt \%})。作用在两个整数之间，产生余数。
+\index{modulus operator 模运算符}
+\index{operator!modulus}
+
+\item [boolean expression 布尔表达式：]值要么为{\tt True}要么为{\tt False}的表达式。
+\index{boolean expression 布尔表达式}
+\index{expression!boolean}
+
+\item [relational operator 关系运算符：] 比较操作数的的运算符：
+{\tt ==},{\\t !=},{\tt >},{\tt <},{\tt >=}和{\tt <=}。
+
+\item [logical operator 逻辑运算符：]连接布尔表达式的运算符：
+{\tt and},{\tt or}和{\tt not}。
+
+\item [conditional statement 条件语句：]依靠一些条件控制执行流的语句。
+\index{conditional statement 条件语句}
+\index{statement!conditional}
+
+\item [condition 条件:] 条件语句中的布尔表达式，决定分支的执行。
+\index{condition 条件}
+
+\item [compound statement 复合语句：]包含头和体的语句。头一(:)结尾，体依据头，缩进。
+\index{compound statement}
+
+\item [body 体：] 符合语句中的一系列语句。
+\index{body}
+
+\item [branch 分支：]条件语句中的可选择执行的语句（序列）。
+\index{branch}
+
+\item [chained conditional 链式条件语句：] 拥有一系列的选择分之的条件语句。
+\index{chained conditional 链式条件语句}
+\index{conditional!chained}
+
+\item [nested conditional 嵌套条件语句：]出现在条件语句中分分支中的条件语句。
+\idex{nested conditional 嵌套条件语句}
+\index{conditional!nested}
+
+\item[recursion 递归：]调用函数自身的过程。
+\index{recursion 递归}
+
+\item[base case 终止条件：] 递归函数里的一个条件分支，终止递归调用。
+\index{base case}
+
+\item[infinite recursion 无穷递归：]没有终止条件的递归，最终无穷递归产生一个运行时错误。
+\index{infinite recursion 无穷递归}
+
+\end{description}
+
+\section{练习}
+
+\begin{费马最后定理}
+
+
+费马最后定理这么表述：不存在这样的整数$a$,$b$和$c$使得对于$n$大于2，\[ a^n + b^n = c^n \]。
+\begin{enumerate}
+
+\item 编写\verb"check_fermat"函数，接受4个参数---{\tt a},{\tt b},{\tt c}和{\tt n}---验证费马定理是否正确。如果$n$大于2，\[a^n + b^n = c^n \]是成立的，程序输出，``Holy smokes, Fermat was wrong!'',否则，输出，``No, that doesn't work.''
+
+\item 编写一个函数提示用户输入 {\tt a}, {\tt b}, {\tt c} and {\tt n}的值，把他们转换成整数，使用\verb"check_fermat"验证是否违背费马定理。
+
+\end{enumerate}
+\end{ex}
+
+
+\begin{ex}
+\index{triangle 三角形}
+
+给你三根木棒，你也许能，也许不能组成一个三角形。比如，其中一根木棒12英尺长，其他的两根是1英尺长，很明显，不能使短木棒在长木棒的中间相遇。
+对于三个任意长度，可以用一个简单的测试在检测是否能够构成一个三角形。
+
+\begin{quotation}
+“如果三个长度的任意一个大于其他两个之和，就不能构成一个三角形。否则，就可以\footnote{如果两个长度之和等于第三个，他们形成退化的三角形。}“
+\end{quotation}
+
+
+\begin{enumerate}
+
+\item 编写\verb"is_triangle"函数，接受3个整数作为参数， 依据能不能构成三角形，输出要么是“Yes“，要么是“or“。
+
+\item 编写一个函数提示用户输入木棒的长度，转换成整数，然后调用\verb"is_triangle"检测是否可以构成一个三角形。
+
+\end{enumerate}
+
+\end{ex}
+
+接下来的练习使用\ref{turtlechap}章节的TurtleWorld。
+
+\index{TurtleWorld}
+\begin{ex}
+
+阅读下面的函数，看看它的功能是什么。然后运行它（查看\ref{turtlechap}章节的例子)。
+
+\beforeverb
+\begin{verbatim}
+def draw(t, length, n):
+    if n == 0:
+        return
+    angle = 50
+    fd(t, length*n)
+    lt(t, angle)
+    draw(t, length, n-1)
+    rt(t, 2*angle)
+    draw(t, length, n-1)
+    lt(t, angle)
+    bk(t, length*n)
+\end{verbatim}
+\afterverb
+
+\end{ex}
+
+\begin{ex}
+\index{koch curve 柯霍曲线}
+
+柯霍曲线是一个分形体，看起来像这样：
+
+\beforefig
+\centerline{\includegraphics[height=1in]{figs/koch.eps}}
+\afterfig
+
+画长度为$x$的柯霍曲线，你所需要做得就是
+\begin{enumerate}
+
+\item 画一个长度为$x/3$的柯霍曲线
+
+\item 左转60度。
+
+\item 画一个长度为$x/3$的柯霍曲线
+
+\item 右转120度
+
+\item 画一个长度为$x/3$的柯霍曲线
+
+\item 左转60度。
+
+\item 画一个长度为$x/3$的柯霍曲线
+
+\end{enumerate}
+
+唯一的例外是如果$x$小于3，此时，就直接画一个长度为$x$的直线。
+
+\begin{enumerate}
+
+\item 编写{\tt koch}函数，接受一个turtle和长度作为参数，使用turtle画
+一个给定长度的柯霍曲线。
+
+\item 编写{\tt snowflake}函数，画3个柯霍曲线，形成雪花的轮廓。
+
+可以查看我的答案\url{thinkpython.com/code/koch.py}。
+
+\item 柯霍曲线可以用多种方式一般化。查看\url{wikipedia.org/wiki/Koch_snowflake}例子，并实现自己喜欢的雪花。
+
+\end{enumerate}
+\end{ex}
+
 
 
 
