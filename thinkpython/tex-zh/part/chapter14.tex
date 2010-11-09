@@ -1,1 +1,798 @@
 \chapter{文件}
+
+\index{文件}
+\index{类型!文件}
+
+
+\section{持久性}
+
+\index{持久性}
+
+目前我们所见到的大多数的程序都是瞬态的，即它们在短时间内运行并输出一些结果，当它们结束时，数据也就消失了。如果你再次运行程序，它将从一个初始的状态开始。
+
+另一类程序被称为是{\bf 持久的}，它们长时间运行（或者时刻运行），至少将一部分数据记录在永久储存设备（如硬盘）上，当程序关闭并重新启动时，它们可以恢复结束前的状态以便继续运行。
+
+一个持久的程序的例子是操作系统，当一台电脑开机后操作系统在绝大多数时间都在运行，对于一个接受网络请求的web服务器，操作系统时刻在运行。
+
+程序维护数据最简单的方法是读写文本文件。我们已经接触过读取文本文件的程序，在本章中我们将接触写入文本文件的程序。
+
+记录程序状态的另一个方式是使用数据库。在本章节中我给出一个简单的数据库和模块{\tt pickle}，该模块简化了存储数据的过程。
+
+\index{pickle模块}
+\index{模块!pickle}
+
+
+\section{读取和写入}
+
+\index{文件!读取和写入}
+
+文本文件是储存在类似硬盘、闪存、CD-ROM等永久介质上的字符序列。我们在章节~\ref{单词表}中接触了文件的打开和读取。
+
+\index{open函数}
+\index{函数!open}
+
+要写入一个文件，你需要在打开文件时添加第二个参数\verb"'w'"：
+
+\beforeverb
+\begin{verbatim}
+>>> fout = open('output.txt', 'w')
+>>> print fout
+<open file 'output.txt', mode 'w' at 0xb7eb2410>
+\end{verbatim}
+\afterverb
+%
+如果文件已经存在，以写的模式打开该文件将会清空原来的数据并从新的开始，所以要小心！如果文件不存在，那么将创建一个新的文件。
+
+{\tt write}方法将数据写入文件。
+
+\beforeverb
+\begin{verbatim}
+>>> line1 = "This here's the wattle,\n"
+>>> fout.write(line1)
+\end{verbatim}
+\afterverb
+%
+文件对象将跟踪位置，如果你再次调用{\tt write}，它将在尾部写入新的数据。
+
+\beforeverb
+\begin{verbatim}
+>>> line2 = "the emblem of our land.\n"
+>>> fout.write(line2)
+\end{verbatim}
+\afterverb
+%
+当你完成写入，你可以关闭文件。
+
+\beforeverb
+\begin{verbatim}
+>>> fout.close()
+\end{verbatim}
+\afterverb
+%
+
+\index{close方法}
+\index{方法!close}
+
+
+\section{格式运算符}
+
+\index{格式运算符}
+\index{运算符!格式}
+
+{\tt write}的参数必须是字符串，如果我们要将其他值写入文件，我们需要将它们转换为字符串。最简单的方法是使用{\tt str}：
+
+\beforeverb
+\begin{verbatim}
+>>> x = 52
+>>> f.write(str(x))
+\end{verbatim}
+\afterverb
+%
+另一个方法是使用{\bf 格式运算符}{\tt \%}。当作用于整数，{\tt \%}是取模运算符，而当第一个运算数是字符串时，{\tt \%}是格式运算符。
+
+\index{格式字符串}
+
+第一个运算数是{\bf 格式字符串}，它包含一个或多个{\bf 格式序列}，它们指定了第二个运算数是如何格式化的。结果为一个字符串。
+
+\index{格式序列}
+
+例如，格式序列\verb"'%d'"意味着第二个运算数应该被格式化为一个整数（{\tt d}代表“decimal”)：
+
+\beforeverb
+\begin{verbatim}
+>>> camels = 42
+>>> '%d' % camels
+'42'
+\end{verbatim}
+\afterverb
+%
+结果是字符串\verb"'42'"，需要和整数值{\tt 42}区分开来。
+
+格式序列可以出现在字符串中的任何位置，所以你可以将值嵌入到语句中：
+
+\beforeverb
+\begin{verbatim}
+>>> camels = 42
+>>> 'I have spotted %d camels.' % camels
+'I have spotted 42 camels.'
+\end{verbatim}
+\afterverb
+%
+如果字符串中有多于一个格式序列，第二个参数必须为一个元组。每个格式序列按次序和元组中的元素对应。
+
+下面的例子中使用\verb"'%d'"来格式化一个整数。
+\verb"'%g'" to format
+a floating-point number (don't ask why), and \verb"'%s'" to format
+a string:
+
+\beforeverb
+\begin{verbatim}
+>>> 'In %d years I have spotted %g %s.' % (3, 0.1, 'camels')
+'In 3 years I have spotted 0.1 camels.'
+\end{verbatim}
+\afterverb
+%
+元组中元素的个数必须等于字符串中格式序列的个数。同时，元素的类型必须符合对应的格式序列。
+
+\index{异常!类型错误}
+\index{类型错误}
+
+\beforeverb
+\begin{verbatim}
+>>> '%d %d %d' % (1, 2)
+TypeError: not enough arguments for format string
+>>> '%d' % 'dollars'
+TypeError: illegal argument type for built-in operation
+\end{verbatim}
+\afterverb
+%
+在第一个例子中，元组中没有足够的元素，在第二个例子中，元素的类型错误。
+
+格式运算符十分强大，但它很难使用。你可以在\url{docs.python.org/lib/typesseq-strings.html}阅读更多有关的内容。
+
+
+\section{文件名和路径}
+\label{路径}
+
+\index{文件名}
+\index{路径}
+\index{目录}
+\index{文件夹}
+
+文件以{\bf 目录} （也称为“文件夹”）的形式管理。每个运行的程序有一个“当前目录”，它是许多操作的默认目录。例如，当你打开一个文件来读取数据，Python在当前目录下寻找这个文件。
+
+\index{os模块}
+\index{模块!os}
+
+{\tt os}模块提供了操作文件和目录的函数（“os”代表“operating system”）。{\tt os.getcwd}返回当前目录的名称：
+
+\index{getcwd函数}
+\index{函数!getcwd}
+
+\beforeverb
+\begin{verbatim}
+>>> import os
+>>> cwd = os.getcwd()
+>>> print cwd
+/home/dinsdale
+\end{verbatim}
+\afterverb
+%
+{\tt cwd}代表“current working directory”，即当前工作陌路。在本例中结果是{\tt /home/dinsdale}，它是用户名为{\tt dinsdale}的主目录。
+
+\index{工作目录}
+\index{目录!工作}
+类似{\tt cwd}能够确定一个文件的字符串称为{\bf 路径}。{\bf 相对路径}从当前目录开始，{\bf 绝对路径}从文件系统的根目录开始。
+
+\index{相对路径}
+\index{路径!相对}
+\index{绝对路径}
+\index{路径!绝对}
+
+我们现在看到的路径都是简单的文件名，因此它们是相对当前目录的。要得到一个文件的绝对目录，你可以使用{\tt os.path.abspath}：
+
+\beforeverb
+\begin{verbatim}
+>>> os.path.abspath('memo.txt')
+'/home/dinsdale/memo.txt'
+\end{verbatim}
+\afterverb
+%
+{\tt os.path.exists}检查一个文件或者目录是否存在：
+
+\index{exists函数}
+\index{函数!exists}
+
+\beforeverb
+\begin{verbatim}
+>>> os.path.exists('memo.txt')
+True
+\end{verbatim}
+\afterverb
+%
+如果存在，{\tt os.path.isdir}检查它是否是一个目录：
+
+\beforeverb
+\begin{verbatim}
+>>> os.path.isdir('memo.txt')
+False
+>>> os.path.isdir('music')
+True
+\end{verbatim}
+\afterverb
+%
+类似的，{\tt os.path.isfile}检查是否是一个文件。
+
+{\tt os.listdir}返回给定目录下的文件（以及其他目录）：
+
+\beforeverb
+\begin{verbatim}
+>>> os.listdir(cwd)
+['music', 'photos', 'memo.txt']
+\end{verbatim}
+\afterverb
+%
+为了演示这些函数，下面的例子“遍历”一个目录，打印所有文件的名字，并对所有目录递归地调用自身。
+
+\index{遍历，目录}
+\index{目录!遍历}
+
+\beforeverb
+\begin{verbatim}
+def walk(dir):
+    for name in os.listdir(dir):
+        path = os.path.join(dir, name)
+
+        if os.path.isfile(path):
+            print path
+        else:
+            walk(path)
+\end{verbatim}
+\afterverb
+%
+{\tt os.path.join}读取一个目录名和一个文件名，并将两者合并为一个完整路径。 
+\begin{ex}
+修改{\tt walk}函数，使之返回文件名列表，而不是打印这些信息。
+\end{ex}
+
+\begin{ex}
+{\tt os}模块提供了与我们的{\tt walk}函数类似的函数，但功能更丰富。阅读文档，使用该函数打印给定目录下的文件和子目录。
+\end{ex}
+
+
+\section{捕获异常}
+\label{捕获}
+当你尝试读写文件时，很多地方会发生错误。如果你试图打开一个不存在的文件，你会得到一个{\tt 输入输出错误}：
+
+\index{open海曙}
+\index{函数!open}
+\index{异常!输入输出错误}
+\index{输入输出错误}
+
+\beforeverb
+\begin{verbatim}
+>>> fin = open('bad_file')
+IOError: [Errno 2] No such file or directory: 'bad_file'
+\end{verbatim}
+\afterverb
+%
+如果你没有权限访问一个文件：
+
+\index{文件!权限}
+\index{权限，文件}
+
+\beforeverb
+\begin{verbatim}
+>>> fout = open('/etc/passwd', 'w')
+IOError: [Errno 13] Permission denied: '/etc/passwd'
+\end{verbatim}
+\afterverb
+%
+如果你试图读取一个目录，你会得到：
+
+\beforeverb
+\begin{verbatim}
+>>> fin = open('/home')
+IOError: [Errno 21] Is a directory
+\end{verbatim}
+\afterverb
+%
+为了避免这些错误，你可以使用类似{\tt os.path.exists}和{\tt os.path.isfile}的检查函数，但是检查所有可能的错误会占用很多时间和代码（如果“{\tt Errno 21}”是一个错误信息，那么至少有21种出错情况）。
+
+\index{异常，捕获}
+\index{try语句}
+\index{语句!try}
+
+更好的方法是当问题出现了才去处理，即{\tt try}语句所做的。它的语法类似{\tt if}语句：
+
+\beforeverb
+\begin{verbatim}
+try:    
+    fin = open('bad_file')
+    for line in fin:
+        print line
+    fin.close()
+except:
+    print 'Something went wrong.'
+\end{verbatim}
+\afterverb
+%
+Python从{\tt try}语句开始执行，如果一切正常，那么{\tt except}将被跳过。如果发生异常，则跳出{\tt try}语句块，执行{\tt except}中的代码。
+
+使用{\tt try}语句处理异常被称为{\bf 捕获}异常。在本例中，{\tt except}语句块中的代码仅仅打印了错误信息。通常，捕获异常给了你修补问题的机会，你可以继续尝试，或者至少可以优雅的结束程序。
+
+
+\section{数据库}
+
+\index{数据库}
+
+{\bf 数据库}是用于存储数据的文件。大多数的数据库以字典的形式组织，即将键映射为值。数据库是保存在磁盘（或其他永久存储设备）上，因此即使程序结束它们仍然存在。
+
+
+\index{anydbm模块}
+\index{模块!anydbm}
+
+模块{\tt anydbm}提供了创建和跟新数据库文件的接口。作为一个例子，我将创建一个包含图片文件标题的数据库。
+
+\index{open函数}
+\index{函数!open}
+
+打开数据库和其他文件类似：
+
+\beforeverb
+\begin{verbatim}
+>>> import anydbm
+>>> db = anydbm.open('captions.db', 'c')
+\end{verbatim}
+\afterverb
+%
+模式\verb"'c'"代表如果文件不存在则创建文件。返回结果是一个数据库对象，它可以像字典一样被使用（对于大多数的操作）。如果你创建一个新的项目， {\tt anydbm}将更新数据库文件。
+
+\index{更新!数据库}
+
+
+\beforeverb
+\begin{verbatim}
+>>> db['cleese.png'] = 'Photo of John Cleese.'
+\end{verbatim}
+\afterverb
+%
+当你访问某个项目是，{\tt anydbm}将读取文件：
+
+\beforeverb
+\begin{verbatim}
+>>> print db['cleese.png']
+Photo of John Cleese.
+\end{verbatim}
+\afterverb
+%
+如果你对已有的键再次进行赋值，{\tt anydbm}将替代旧的值：
+
+\beforeverb
+\begin{verbatim}
+>>> db['cleese.png'] = 'Photo of John Cleese doing a silly walk.'
+>>> print db['cleese.png']
+Photo of John Cleese doing a silly walk.
+\end{verbatim}
+\afterverb
+%
+许多字典的方法，如{\tt keys}和{\tt items}，同样适用于数据库对象，包括使用{\tt for}语句实现的迭代：
+
+\index{字典方法!anydbm模块}
+
+\beforeverb
+\begin{verbatim}
+for key in db:
+    print key
+\end{verbatim}
+\afterverb
+%
+和其他文件一样，当你完成操作后你需要关闭文件：
+
+\beforeverb
+\begin{verbatim}
+>>> db.close()
+\end{verbatim}
+\afterverb
+%
+
+\index{close方法}
+\index{方法!close}
+
+
+\section{Pickling}
+
+\index{pickling}
+
+{\tt anydbm}模块的一个限制在于键和值必须是字符串。如果你尝试使用其他数据类型，你会得到一个错误。
+
+\index{pickle模块}
+\index{模块!pickle}
+
+{\tt pickle}模块可以解决这个问题。它能将任何类型的对象翻译成适合在数据库中储存的字符窜，同时能将字符串还原成对象。
+
+{\tt pickle.dumps}读取一个对象作为参数，并返回一个表征字符串（{\tt dumps}是“dump string”（转储字符串）的缩写）：
+
+\beforeverb
+\begin{verbatim}
+>>> import pickle
+>>> t = [1, 2, 3]
+>>> pickle.dumps(t)
+'(lp0\nI1\naI2\naI3\na.'
+\end{verbatim}
+\afterverb
+%
+这个格式对人类读者来说不是很好理解，但是对{\tt pickle}来说很好解释。{\tt pickle.loads}（“载入字符串”）可以重建对象：
+
+\beforeverb
+\begin{verbatim}
+>>> t1 = [1, 2, 3]
+>>> s = pickle.dumps(t1)
+>>> t2 = pickle.loads(s)
+>>> print t2
+[1, 2, 3]
+\end{verbatim}
+\afterverb
+%
+虽然新的对象和老的对象有相同的值，它们（通常）不是同一个对象：
+
+\beforeverb
+\begin{verbatim}
+>>> t1 == t2
+True
+>>> t1 is t2
+False
+\end{verbatim}
+\afterverb
+%
+换言之，pickling然后unpickling等效于复制一个对象。
+
+你可以使用{\tt pickle}在数据库中存储一个非字符串对象。事实上，这个组合非常常用，并有一个已经封装好的模块{\tt shelve}。
+
+\index{shelve模块}
+\index{模块!shelve}
+
+
+\begin{ex}
+
+\index{回文集合}
+\index{集合!回文}
+
+如果你做了章节~\ref{回文}中的练习，修改你的方案，创建一个数据库，将列表中的单词映射为使用同样字母的单词的列表。
+
+编写另一个程序，读取数据库并以人类适宜阅读的格式打印内容。
+\end{ex}
+
+
+\section{管道}
+
+\index{shell}
+\index{管道}
+
+大多数的操作系统提供一个命令行的接口，称为{\bf shell}。shell通常提供浏览文件系统和启动程序的命令。例如，在Unix系统中，你可以使用{\tt cd}改变目录，使用{\tt ls}显示一个目录的内容，通过输入{\tt firefox}来启动一个网页浏览器。
+
+\index{ls (Unix 命令)}
+\index{Unix 命令!ls}
+
+任何你在shell中可以启动的程序也可以在Python中通过使用{\bf 管道}来启动。一个管道是一个表示活动进程的对象。
+
+例如，Unix命令{\tt ls -l}将以详细格式显示当前目录下的内容。你可以使用{\tt os.popen}来启动{\tt ls}：
+
+\index{popen函数}
+\index{函数!popen}
+
+\beforeverb
+\begin{verbatim}
+>>> cmd = 'ls -l'
+>>> fp = os.popen(cmd)
+\end{verbatim}
+\afterverb
+%
+参数是一个包含shell命令的字符串。返回值是一个对象，就像打开一个文件一样。你可以使用{\tt readline}每次从输出读取一样，或者使用{\tt read}一次读取所有内容：
+
+\index{readline方法}
+\index{方法!readline}
+\index{read方法}
+\index{方法!read}
+
+\beforeverb
+\begin{verbatim}
+>>> res = fp.read()
+\end{verbatim}
+\afterverb
+%
+当你完成操作后，你像关闭一个文件一样关闭管道：
+
+\index{close方法}
+\index{方法!close}
+
+\beforeverb
+\begin{verbatim}
+>>> stat = fp.close()
+>>> print stat
+None
+\end{verbatim}
+\afterverb
+%
+返回值是{\tt ls}进程的最终状态，{\tt None}表示它正常结束（没有错误）。
+
+\index{文件!压缩}
+\index{压缩!文件}
+\index{Unix 命令!gunzip}
+\index{gunzip (Unix命令)}
+
+管道的一个常用用法是增量的读取一个压缩文件，即不需要一次解压整个文件。下面的函数读取一个压缩文件名作为参数，使用{\tt gunzip}来解压文件，并返回一个管道：
+
+\beforeverb
+\begin{verbatim}
+def open_gunzip(filename):
+    cmd = 'gunzip -c ' + filename
+    fp = os.popen(cmd)
+    return fp
+\end{verbatim}
+\afterverb
+%
+如果你每次从{\tt fp}读取一行，你不需要将解压的文件保存在内存或磁盘上。
+
+
+\section{编写模块}
+\label{模块}
+
+\index{模块，编写}
+\index{单词统计}
+
+任何包含Python代码的文件可以作为模块被导入。例如，假设你有文件{\tt wc.py}，内容如下：
+
+\beforeverb
+\begin{verbatim}
+def linecount(filename):
+    count = 0
+    for line in open(filename):
+        count += 1
+    return count
+
+print linecount('wc.py')
+\end{verbatim}
+\afterverb
+%
+如果你运行这个程序，它将读取自身，并打印行数，结果是7。你也可以这样导入模块：
+
+\beforeverb
+\begin{verbatim}
+>>> import wc
+7
+\end{verbatim}
+\afterverb
+%
+现在你有一个模块对象{\tt wc}：
+
+\index{模块对象}
+\index{对象!模块}
+
+\beforeverb
+\begin{verbatim}
+>>> print wc
+<module 'wc' from 'wc.py'>
+\end{verbatim}
+\afterverb
+%
+这里提供了一个称为\verb"linecount"的函数：
+
+\beforeverb
+\begin{verbatim}
+>>> wc.linecount('wc.py')
+7
+\end{verbatim}
+\afterverb
+%
+以上就是如何编写Python模块。
+
+这个例子中唯一的问题在于当你导入模块后，最后的测试代码被执行。通常当你导入一个模块，它定义新的函数，但并不执行它们。
+
+\index{import语句}
+\index{语句!import}
+
+
+作为模块的程序通常写成一下结构：
+
+\beforeverb
+\begin{verbatim}
+if __name__ == '__main__':
+    print linecount('wc.py')
+\end{verbatim}
+\afterverb
+%
+\verb"__name__"是一个程序开始时设置的内建变量。如果程序以脚本的形式运行，\verb"__name__"的值为\verb"__main__"，在这种情况下，测试代码将被执行。否则，如果是作为模块被导入，测试代码将被忽略。
+
+\begin{ex}
+将例子输入到文件{\tt wc.py}中，并以脚本形式运行。如果在Python解释器中运行{\tt import wc}，当模块被导入后，\verb"__name__"的值是什么？
+
+警告：当你再次导入一个已经导入的的模块，Python将什么也不错。它不会重新读取文件，即使文件发生了改变。
+
+\index{模块!重载}
+\index{reload函数}
+\index{函数!reload}
+如果你要重载一个模块，你可以使用内建函数{\tt reload}，但它可能会出错，因此最安全的方法是重启解释器然后重新导入模块。
+\end{ex}
+
+
+
+\section{调试}
+
+\index{调试}
+\index{空白}
+
+当你读写文件，你也许会遇到空白带来的问题。由于空格符、tab符和换行符通常是不可见的，这样的错误很难调试：
+
+\beforeverb
+\begin{verbatim}
+>>> s = '1 2\t 3\n 4'
+>>> print s
+1 2	 3
+ 4
+\end{verbatim}
+\afterverb
+
+\index{repr函数}
+\index{函数!repr}
+\index{字符串表示}
+
+内建函数{\tt repr}可以用来解决这个问题。它读取一个对象作为参数，并返回一个表示这个对象的字符串。对于字符串，它将空白符号用反斜杠序列表示：
+
+\beforeverb
+\begin{verbatim}
+>>> print repr(s)
+'1 2\t 3\n 4'
+\end{verbatim}
+\afterverb
+
+这个对调试很有用。
+
+你也许会遇到另一个问题，不同的操作系统使用不同的符号作为换行符。有的系统使用\verb"\n"，有的使用\verb"\r"，有的使用两者。如果你在不同系统中使用，这些差异会导致问题。
+
+\index{行结束符号}
+大多数系统提供了格式转换的程序。你可以在\url{wikipedia.org/wiki/Newline}中找到（并阅读更多相关内容）。当然你可以自己编写一个转换程序。
+
+
+\section{术语}
+
+\begin{description}
+
+\item[持久性：] 一个长期运行、并至少将一部分数据保存在永久性的储存设备上的程序。
+\index{持久性}
+
+\item[格式运算符：] 运算符{\tt \%}，参数为一个格式字符串和一个元组，生成一个按格式字符串规定的元组中元素的值的字符串。
+\index{格式运算符}
+\index{运算符!格式}
+
+\item[格式字符串：] 使用格式运算符，包含格式序列的字符串。
+\index{格式字符串}
+
+\item[格式序列：] 格式字符串中的字符序列，类似{\tt \%d}，指定了一个值的格式。
+\index{格式序列}
+
+\item[文本文件：] 保存在类似硬盘的永久储存设备上的字符序列。
+\index{文本文件}
+
+\item[目录：] 一个命名的文件的集合，也称为文件夹。
+\index{目录}
+
+\item[路径：] 用于识别文件的字符串。
+\index{路径}
+
+\item[相对路径：] 从当前目录开始的路径。
+\index{相对路径}
+
+\item[绝对路径：] 从文件系统顶部开始的路径。
+\index{绝对路径}
+
+\item[捕获：] 为了防止程序因为异常而终止，使用{\tt try}和{\tt except}语句来捕捉异常。
+\index{捕获}
+
+\item[数据库：] 一个类似字典使用键对应值的文件。
+\index{数据库}
+
+\end{description}
+
+
+\section{练习}
+
+\begin{ex}
+\label{urllib}
+
+\index{urllib模块}
+\index{模块!urllib}
+\index{URL}
+
+{\tt urllib}模块提供了操作URL和从互联网下载信息的方法。下面的例子从{\tt thinkpython.com}下载并打印一条秘密信息：
+
+\beforeverb
+\begin{verbatim}
+import urllib
+
+conn = urllib.urlopen('http://thinkpython.com/secret.html')
+for line in conn.fp:
+    print line.strip()
+\end{verbatim}
+\afterverb
+
+运行程序，运行结果将给你下一步指令。
+
+\index{秘密练习}
+\index{练习，秘密}
+
+\end{ex}
+
+\begin{ex}
+\label{和校验}
+
+\index{MP3}
+
+在一个有很多MP3文件的收藏中，有可能同一首歌有多个拷贝，以不同的名字保存在不同的目录下。这个练习的目的是找出这些拷贝。
+
+\begin{enumerate}
+
+\item 编写程序，递归地搜索一个目录和所有子目录，返回一个完整路径的后缀给定的（如{\tt .mp3}）的文件名列表。提示：{\tt os.path}提供了几个有用的操作文件和路径名的函数。
+
+\index{拷贝}
+\index{MD5算法}
+\index{算法!MD5}
+\index{和校验}
+
+\item 为了识别拷贝，你可以使用哈希函数，读取文件并生成一个针对内容的简短的概述。例如，MD5 (Message-Digest algorithm 5)读取一个任意长的“消息”并返回一个128比特的“校验和”。两个不同文件返回相同的校验和的概率非常小。
+
+你可以在\url{wikipedia.org/wiki/Md5}了解有关MD5的知识。在一个Unix系统上你可以使用{\tt md5sum}程序和Python中的管道来计算校验和。
+
+\index{管道}
+
+\end{enumerate}
+
+\end{ex}
+
+
+\begin{ex}
+
+\index{网络电影数据库（IMDb）}
+\index{IMDb （网络电影数据库）}
+\index{数据库}
+
+网络电影数据库（IMDb）是一个在线的电影信息收集的网站。它们的数据库可以以纯文本的格式获得，便于Python的读取。在这个练习中，你需要文件{\tt actors.list.gz}和{\tt actresses.list.gz}，它们可以从\url{www.imdb.com/interfaces#plain}下载。
+
+\index{纯文本}
+\index{文本!纯}
+\index{解析}
+
+我编写了一个程序，可以解析这些文件并分割为演员名、电影标题等。你可以在\url{thinkpython.com/code/imdb.py}下载。
+
+如果你已脚本方式运行{\tt imdb.py}，程序将读取{\tt actors.list.gz}并在每行答应演员-电影对。或者你可以{\tt import imdb}，调用函数\verb"process_file"来处理这些文件。参数为一个文件名，一个函数对象和一个可选的指定处理行数的数。下面给出一个例子：
+
+\beforeverb
+\begin{verbatim}
+import imdb
+
+def print_info(actor, date, title, role):
+    print actor, date, title, role
+
+imdb.process_file('actors.list.gz', print_info)
+\end{verbatim}
+\afterverb
+
+当你调用\verb"process_file"，它打开{\tt filename}，读取内容，并对文件中的每行调用\verb"print_info"。\verb"print_info"读取演员、日期、电影标题和角色作为参数，并打印这些信息。
+
+\begin{enumerate}
+
+\item 编写函数，读取{\tt actors.list.gz}和{\tt actresses.list.gz}，使用{\tt shelve}来构建一个数据库，将每个演员映射到他或她的电影列表。
+
+\index{shelve模块}
+\index{模块!shelve}
+
+\item 两个演员称为是“合演”的，如果他们至少一起演过一部电影。基于上一步建立的数据库，构建第二个数据库，将每个演员映射到他或她“合演”的演员列表。
+
+\index{Bacon, Kevin}
+\index{Kevin Bacon Game}
+
+ \item 编写程序，实现“Six Degrees of Kevin Bacon”，你可以在\url{wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon}中了解相关信息。这个问题的挑战在于你需要在关系图上找到最短路径。你可以在\url{wikipedia.org/wiki/Shortest_path_problem}里阅读最短路径算法相关的资料。
+
+\end{enumerate}
+
+\end{ex}
