@@ -1,1 +1,241 @@
-\chapter{迭代}
+\chapter{迭代器}
+\index{iteration 迭代器}
+
+\section{多重赋值}
+\index{statement!assignment}
+\index{mutiple assignment 多重赋值}
+
+你可能已经发现，给一个变量多次赋值是合法的。一次新的赋值使得已存在的变量指向一个新值（当然也就不指向原来的值）。
+
+\beforeverb
+\begin{verbatim}
+bruce = 5
+print bruce,
+bruce = 7
+print bruce
+\end{verbatim}
+\afterverb
+
+程序的输出是{\tt 5 7}，因为第一次{\tt bruce}被输出时，它的值是5，第二次是7。
+第一个{\tt print}语句末尾的逗号抑制了换行，这也是为什么两个输出在同一行的原因。
+
+\index{newline 换行}
+
+下图是多重赋值的状态图：
+
+\index{state diagram}
+\index{diagram!state}
+
+\beforefig
+\centerline{\includegraphics{figs/assign2.eps}}
+\afterfig
+
+对于多重赋值，很有必要分清赋值操作符和关系运算符中的等号。因为Python使用
+等于号({\tt =})来表示赋值。很容易，误把这样的语句{\tt a = b}当作判断相等的语句，
+实际不是的！\\
+
+\index{相等与赋值}
+
+
+第一，相等是对称关系，赋值不是。比如，在数学中，如果$a = 7$, 那么$7 =
+a$。但在Python中，语句{\tt a = 7}是合法的，{\tt 7 = a}是非法的。\\
+
+另外，在数学中，相等语句总是要么为真要么为假。如果，$a = b$,则，$a$总
+是等于$b$。在Python中，赋值语句可以使得两个变量相等，但是他们不总是保持相等：
+
+\beforeverb
+\begin{verbatim}
+a = 5
+b = a    # a and b are now equal
+a = 3    # a and b are no longer equal
+\end{verbatim}
+\afterverb
+%
+
+第三行改变了{\tt a}的值，但是没有改变{\tt b}的值。所以他们不再相等。
+
+尽管多重赋值通常是有益的，使用时也要小心。如果变量的值经常改变，代码
+会变得很脑阅读和调试。
+
+\section{更新变量}
+\label{update}
+
+\index{update 更新}
+\index{variable!updating}
+
+多重赋值的最常见的形式之一就是更新(update），变量的新值依赖于原有值。
+
+\beforeverb
+\begin{verbatim}
+x = x+1
+\end{verbatim}
+\afterverb
+
+含义是：获取{\tt x}的当前值，加一，然后用新值更新变量{\tt x}。
+
+如果试着更新一个不存在的变量，将会得到一个错误，因为Python在把值赋给
+{\tt x}之前会计算右边的值。
+
+\beforeverb
+\begin{verbatim}
+>>> x = x+1
+NameError: name 'x' is not defined
+\end{verbatim}
+\afterverb
+%
+
+在更新一个变量之前，必须得初始化（initialize）它，通常的做法就是一个
+简单的赋值。
+
+\index{initialization (before update) （更新前）初始化}
+
+\beforeverb
+\begin{verbatim}
+>>> x = 0
+>>> x = x+1
+\end{verbatim}
+\afterverb
+%
+
+仅仅通过加一来更新变量叫做增量 (increment)；减一叫做减量(decrement)。
+
+\index{increment  增量}
+\index{decrement 减量}
+
+\section{{\tt while 语句}}
+
+\index{statement!while}
+\index{while loop while循环}
+\index{loop!while}
+\index{iteration 迭代}
+
+计算机通常被用来自动完成重复性的任务。计算机很擅长于重复相同或相似的任务。人类却恰恰相反\footnote{太枯燥了，回顾一下小学时，老师天天要求抄生字......}。
+
+我们已经看到两个程序，{\tt countdown}和\verb"print_n"，它们使用递归
+实现重复，这也可以乘坐迭代{\bf iteration}。因为迭代是如此的常见，以致
+于Python提供了几个特有的方式来简化使用。其中之一就是我们在\ref{重复}
+部分看到的{\tt for}语句。我们不久将回来重新研究它。\\
+
+另外一个就是{\tt while}语句。这里是一个使用{\tt while}语句的{\tt coutdown}版本。
+
+\beforeverb
+\begin{verbatim}
+def countdown(n):
+    while n > 0:
+        print n
+        n = n-1
+    print 'Blastoff!'
+\end{verbatim}
+\afterverb
+
+我们几乎可以把{\tt while}语句当成英语来读了。含义是：当{\tt n}大于0时
+，显示{\tt n}的值，并把{\tt n}的值减1。当{\tt n}的值为0的时候，显示{\tt Blastoff!}。
+
+\index{flow of execution 执行流}
+
+更正式地，下面的是{\tt while}语句的执行流。
+
+\begin{enumerate}
+
+\item 计算条件的值，产生结果{\tt True}或者{\tt False}。
+
+\item 如果条件为假，退出{\tt while循环},继续执行下一条语句。
+
+\item 如果条件为真，执行语句体里的语句，然后回到步骤一。
+
+\end{enumerate}
+
+执行流的类型称作是循环(loop)的原因是因为第三步循环返回至第一步。
+
+\index{condition 条件}
+\index{loop 循环}
+\index{body 体}
+
+循环体应该改变一个或多个变量的值，使得最终条件为假，循环终止。否则，
+循环将永远重复，也就产生了无限循环(infinite loop)。计算机科学家的
+一个永远的谈资就是看到洗发水的说明"泡沫，漂洗，重复",是一个无限循环。
+
+\index{infinite loop 无限循环}
+\index{loop!infinite}
+
+在{\tt countdown}的例子里，我们可以证明循环一定会终止，因为我们知道
+{\tt n}的值是有限的，并且每一次循环{\tt n}的值都会减小，最终，{\tt n}的值肯定是0。在其他情况下，就不一定这么容易辨别了：
+
+beforeverb
+\begin{verbatim}
+def sequence(n):
+    while n != 1:
+        print n,
+        if n%2 == 0:        # n is even
+            n = n/2
+        else:               # n is odd
+            n = n*3+1
+\end{verbatim}
+\afterverb
+
+这个循环的条件是{\tt n != 1}，所以循环会一直执行到{\tt n}是{\tt 1}，
+此时条件为假。\\
+
+每一次循环，程序输出{\tt n}的值，然后检查是否为偶数或奇数。如果是偶数
+{\tt n}就除以2。如果为奇数，{\tt n}的值就被{\tt n*3+1}代替。比如，
+如果传递3给{\tt sequence}，产生的结果是3, 10, 5, 16, 8, 4, 2, 1。
+
+因为{\tt n}时增时减，没有一个明显的办法确定{\tt n}是否会为1，也就是
+程序是否会正常终止。对于某些特别的{\tt n}，我们可以证明终止。比如，
+如果{\tt n}的值是2的倍数，每次循环时{\tt n}的值，都是偶数直到为1。
+前面的例子从16开始都是这种情况。
+
+\index{Collatz conjecture Collatz猜想}
+
+困难的是我们是否可以证明对所有的正整数，程序都能终止。迄今为止\footnote{参看\url{wikipedia.org/wiki/Collatz_conjecture}.}没有人可以证明
+可以，也没有人证明不可以。
+
+\begin{ex}
+重写\ref{递归}部分的\verb"print_n"函数,要求使用迭代器，而不是递归。
+\end{ex}
+
+\section{{\tt break}语句}
+\index{break statement break语句}
+\index{statement!break}
+
+有时，直到执行到循环体里面的时候，才直到需要跳出循环。此时，我们可以
+使用{\tt break}语句跳出循环。
+
+比如，假设一直想从用户那里得到输入，直到用户输入{\tt done}。我们可以
+这么写：
+
+\beforeverb
+\begin{verbatim}
+while True:
+    line = raw_input('> ')
+    if line == 'done':
+        break
+    print line
+
+print 'Done!'
+\end{verbatim}
+\afterverb
+
+循环条件为{\tt True}，也就是永远为真，所以循环直到遇到break statement
+才终止执行。
+
+每次循环，用尖括号提示用户。如果用户输入{\tt done},{\tt break}语句
+终止了循环。否则，程序输出用户输入的内容，会到循环的顶部。下面是一个例子：
+
+\beforeverb
+\begin{verbatim}
+> not done
+not done
+> done
+Done!
+\end{verbatim}
+\afterverb
+%
+
+这种使用{\tt while}循环的方式很常见，因为我们可以在循环的任何地方检查
+条件(不仅仅是在顶部)，同时也积极的表达了结束的条件(当这个发生时，终止），而不是消极地("一直运行，直到这个发生")。
+
+\section{平方根}
+\index{square root}
+
+
