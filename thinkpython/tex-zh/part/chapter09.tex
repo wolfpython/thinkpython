@@ -1,1 +1,501 @@
-\chapter{实例学习：文字处理}
+\chapter{实例学习：字符处理}
+
+\section{读取单词表}
+\label{wordlist}
+
+我们本章的联系需要一个英语单词表。在网络上有数以万计的单词表，但是
+最适合我们的一个是贡献给公共域的单词表,它是由Grady Ward搜集整理作为Moby词典工程的一部分\footnote{\url{wikipedia.org/wiki/Moby_Project}.}。
+它由113，809个官方纵横组合字谜的单词组成，也就是在纵横组合字谜中和其他字谜游戏中存在的单词组成。在Moby的搜集中，文件名是{\tt 113089.fic}；我
+复制了这个文件，命名为{\tt words.txt}，并把它包含在了Swampy里了。
+
+\index{Swampy}
+\index{crosswords 纵横组合字谜}
+
+
+这个文件是纯文本文件，你可以用一个编辑器打开它，当然，你也可以用python
+来读取它。内置函数{\tt open}接受一个文件名作为参数，返回一个文件对象，
+用它可以读取文件。
+
+\index{oepn function open函数}
+\index{function!open}
+\index{plain text 纯文本文件}
+\index{text!plain}
+\index{object!file}
+\index{file object  文件对象}
+
+\beforeverb
+\begin{verbatim}
+>>> fin = open('words.txt')
+>>> print fin
+<open file 'words.txt', mode 'r' at 0xb7f4b380>
+\end{verbatim}
+\afterverb
+
+{\tt fin}是赋给用来输入的文件对象的常见名称。大开模式\verb"'r'"表明
+文件以只读方式大开(和\verb"'w'"以只写模式打开相反)。
+
+\index{redline method readline方法}
+\index{methods!readline}
+
+文件对象提供了多种方式来读取文件，其中就包括{\tt readline}，该函数从
+文件中读取字符知道遇到换行符，然后以字符串的形式返回结果:
+
+\beforeverb
+\begin{verbatim}
+>>> fin.readline()
+'aa\r\n'
+\end{verbatim}
+\afterverb
+%
+
+这个单词表的第一个单词是"aa,"是一种熔岩的名称。序列\verb"\r\n"代表两个
+空白字符，回车和换行，它们把这个单词下一行分隔开来。
+
+文件对象自己跟踪达到了文件的什么地方，所以当再次调用{\tt readline}函数时，就会得到下一个单词：
+
+\beforeverb
+\begin{verbatim}
+>>> fin.readline()
+'aah\r\n'
+\end{verbatim}
+\afterverb
+
+下一个单词是"aah,"---绝对合法的一个单词，不要以那么怪的眼神看我\footnote{译者：我没有笑话你的意思哦}。如果那个whitespace看上去很不给力，我们
+使用{\tt strip}函数剔除它：
+
+\index{strip method strip方法}
+\index{method!strip}
+
+\beforeverb
+\begin{verbatim}
+>>> line = fin.readline()
+>>> word = line.strip()
+>>> print word
+aahed
+\end{verbatim}
+\afterverb
+
+也可以在{\tt for}循环中使用文件对象。下面的程序对去{\tt word.txt}，打印每一个单词，一行一个：
+
+\index{open function open函数}
+\index{function!open}
+
+\beforeverb
+\begin{verbatim}
+fin = open('words.txt')
+for line in fin:
+    word = line.strip()
+    print word
+\end{verbatim}
+\afterverb
+
+\begin{ex}
+编写一个程序，读取{\tt words.txt}，打印包含超过20个字符的单词（不包括空白）。
+
+\index{whitespace 空格}
+
+\end{ex}
+
+\section{练习}
+
+下个部分有这些练习的答案。你至少得在参看答案之前尝试做一做每一道题。
+
+\begin{ex}
+
+1939年，Ernest Vincent Wright发表了一本50，000字的小说{\em Gadsby},在这本书中
+不包含字母“e“。"e"在英语中是非常常见的字母，所以这件事很难做到。
+
+事实上，如果不使用最常见的符号是很难想象那样的情况的。开始进展比较缓慢，但是
+谨慎地训练几个小时之后，你就会逐步的掌握要领。
+
+好的，进入正题！
+
+编写一个函数\verb"has_no_e"，如果给定的单词不含有字母"e"，返回{\tt True}。
+
+修改上一部分的程序，打印不含有"e"的单词，并计算不含有"e"的单词的百分比。
+
+\index{lipogram 避讳}
+
+\end{ex}
+
+\begin{ex}
+
+编写一个函数{\tt avoids}接受一个单词和一串“禁止”字母，如果单词没有使用禁止
+字母中的任何一个，返回{\tt True}
+
+修改你的程序提示用户输入一串禁止字母，然后打印不含有它们中任意一个的单词数目。你能找出由5个“禁止”字母组成的单词,不包括最小数目的单词吗？
+
+\end{ex}
+
+\begin{ex}
+编写一个函数\verb"uses_only"，接受一个单词和一串字母，如果单词仅仅包含列表
+字符串里的字母，返回{\tt True}。除了"Hoe alfalfa"你能用{\tt acefhlo}里的字母
+造一个句子吗？
+\end{ex}
+
+\begin{ex}
+
+编写一个函数\verb"uses_all",接受一个单词和一串字母，如果单词使用一串字母里
+的所有字母（至少一次），返回{\tt True}。有多少单词包含了全部的元音{\tt aeiou}？{\tt aeiouy}呢？
+\end{ex}
+
+
+\begin{ex}
+编写一个函数\verb"is_abecedarian",如果单词里的字母以字典顺序出现，返回{\tt True}。有多少{\tt abecedarian}式的单词？
+\end{ex}
+
+\index{abecedarian}
+
+\section{搜索}
+
+\index{search pattern 搜索模式}
+\index{pattern!search}
+
+
+
+
+
+
+前一部分的所有联系都有一个共同点：他们都可以通过一个可搜索模式来解决，我们
+在\ref{find}部分遇到过。最简单的例子是：
+
+\beforeverb
+\begin{verbatim}
+def has_no_e(word):
+    for letter in word:
+        if letter == 'e':
+            return False
+    return True
+\end{verbatim}
+\afterverb
+
+{\tt for}循环遍历{\tt word}中的每一个字母；如果不匹配，就进入下一个字母。
+如果我们正常退出循环，就意味着我们没有找到“e“，于是返回{\tt True}。
+
+\index{traversal 遍历}
+
+\index{generalization}
+
+{\tt avoids}是一个更一般的\verb"has_no_e"版本，但是有着相同的结构：
+
+\beforeverb
+\begin{verbatim}
+def avoids(word, forbidden):
+    for letter in word:
+        if letter in forbidden:
+            return False
+    return True
+\end{verbatim}
+\afterverb
+
+如果发现一个“禁止”字母，我们就返回{\tt False}；如果我们达到了循环的结尾，
+就返回{\tt True}。
+
+\verb"uses_only"和它类似，出了条件的意思是相反的。
+
+\beforeverb
+\begin{verbatim}
+def uses_only(word, available):
+    for letter in word: 
+        if letter not in available:
+            return False
+    return True
+\end{verbatim}
+\afterverb
+
+除了使用一串“禁止”字母，我们也可以使用可获得字母(avaliable)。如果我们在、
+{\tt word}中发现一个字母不再可获得字母中，就返回{\tt False}。
+
+\verb"uses_all"函数也类似，出了我们掉换了word 和一串字母的角色。
+\beforeverb
+\begin{verbatim}
+def uses_all(word, required):
+    for letter in required: 
+        if letter not in word:
+            return False
+    return True
+\end{verbatim}
+\afterverb
+
+我们没有遍历{\tt word}中的字母，循环遍历了“要求“的字母，如果任意一个“要求”
+字母没有出现在{\tt word}中，我们返回{\tt False}。
+
+\index{traversal 遍历}
+
+如果你想像一个计算机科学家一样思考，你可能已经认出\verb"uses_all"是前面已经
+解决过的问题的实例，你就会编写：
+
+\beforeverb
+\begin{verbatim}
+def uses_all(word, required):
+    return uses_only(required, word)
+\end{verbatim}
+\afterverb
+
+这是程序设计方法中的一个实例---叫做问题识别，含义是你认识到现在解决的问题
+是已经解决问题的一个实例，然后修改应用以前的解法。
+
+\index{problem recognition 问题识别}
+\index{development plan!problem recognition}
+
+\section{使用索引循环}
+
+\index{looping!with indices}
+\index{index!looping with}
+
+我用{\tt for}循环编写以前的函数，因为我只需要用到字符串里的字符；我没有必要
+使用索引来解决问题。
+
+对于\verb"is_abecedarian"我们必须要比较相邻的字母，{\tt for}循环就有点力不
+从心了。
+
+
+
+
+\beforeverb
+\begin{verbatim}
+def is_abecedarian(word):
+    previous = word[0]
+    for c in word:
+        if c < previous:
+            return False
+        previous = c
+    return True
+\end{verbatim}
+\afterverb
+
+另外一种方法就是使用递归：
+
+\beforeverb
+\begin{verbatim}
+def is_abecedarian(word):
+    if len(word) <= 1:
+        return True
+    if word[0] > word[1]:
+        return False
+    return is_abecedarian(word[1:])
+\end{verbatim}
+\afterverb
+
+也还可以使用{\tt while}循环：
+
+\beforeverb
+\begin{verbatim}
+def is_abecedarian(word):
+    i = 0
+    while i < len(word)-1:
+        if word[i+1] < word[i]:
+            return False
+        i = i+1
+    return True
+\end{verbatim}
+\afterverb
+
+
+循环从{\tt i = 0}开始，以{\tt i = len(word) -1}收尾。每次循环时，比较第$i$
+(你可以把它当成当前的字符)和$i+1$字符（你可以把它当作第二个字符）。
+
+如果下一个字符小于当前的字符（字典顺序是在前），字母次序就被打断了，我们
+返回{\tt False}。
+
+如果我们到达了循环的末尾并且没有发现错误，这个{\tt word}“通过“了测试。
+为了让自己信服循环正确的结束了，考虑这样一个例子\verb"'flossy'"。这个单词
+的长度是6，所以最后一次循环执行的时候{\tt i} 是4---正好是倒数第二个字符的索引。
+在最后一次迭代中，程序比较倒数第二个字符和最后一个字符---这就是我们希望的~。
+
+\index{palindrome 回文}
+
+下面是一个\verb"is_palindrome"的版本(参看练习\ref{回文}) ,函数使用了两个
+索引；一个从头部开始，逐步递增，另外一个从尾部开始，逐步递减。
+
+
+\beforeverb
+\begin{verbatim}
+def is_palindrome(word):
+    i = 0
+    j = len(word)-1
+
+    while i<j:
+        if word[i] != word[j]:
+            return False
+        i = i+1
+        j = j-1
+
+    return True
+\end{verbatim}
+\afterverb
+
+或者，你也注意到了这又是已解决问题的一个实例，你或许会这么写：
+
+\beforeverb
+\begin{verbatim}
+def is_palindrome(word):
+    return is_reverse(word, word)
+\end{verbatim}
+\afterverb
+
+\index{problem recognition 问题识别}
+\index{development plan!problem recognition}
+
+我认为你做了练习\ref{is_reverse}。
+
+\section{调试}
+
+\index{debugging 调试}
+\index{testing!is hard}
+\index{program testing 程序测试}
+
+测试程序是一种“折磨”。本章的函数相对来说比较容易测试，因为你可以手动的检查
+输出结果。尽管如此，某些地方还是很难甚至不可能选择一个合适的单词表来测试
+所有可能的错误。\\
+
+
+拿\verb"has_no_e"做例子，有两种明显的情况需要测试：含有"e"的单词应该返回{\tt False}；不含有的返回{\tt True}。对于这两种情况，应该都没有任何错误。\\
+
+
+在这两中情况下又有一些不太明显的子情况。在含有“e“的单词中，我们应该测试
+"e"在单词前，在单词尾，在中间的某个地方。也应该测试长单词，短单词，和非常
+短的单词，像空字符串。空字符串是特殊情况中的一个例子，也是非常不明显的情况，而错误恰恰经常藏身此处。
+
+\index{special case 特别情况}
+
+除了测试你自己想出的情况，你也可以用单词表来测试，比如使用{\tt word.txt}。
+通过查看输出，你就可以抓住错误，但是小心：你或许能抓住一种错误（本不该包括
+的单词被包括了）但不是另外一种(本该包含的单词没有被包含）。
+
+一般说来，测试能帮助我们发现bugs,但是产生好的测试案例不是一件容易的事，
+而且即使你测试了，你也不能保证你的程序就是正确的。
+
+\index{testing!and absence of bugs}
+
+一位传奇式的计算机科学家这么说过：
+
+\begin{quote}
+程序测试能够发现bugs是存在的，但是永远发现不了bugs不存在。
+
+---Edsger W.Dijkstra
+\end{quote}
+
+\index{Dijkstra, Edsger}
+
+\section{术语表}
+
+\begin{description}
+
+\item [file object 文件对象：] 代表打开文件的数值。
+\index{file object 文件对象}
+\index{object!file}
+
+\item [problem recognition 问题识别：]通过把问题阐释成已经解决问题的一个
+实例来解决问题的方法。
+\index{problem recognition 问题识别}
+
+\item [special case 特殊情况:]非典型的或不明显的测试例子（很难完美解决）。
+\index{special case 特殊情况}
+
+\end{description}
+
+\section{练习}
+
+\begin{ex}
+
+
+\index{Car Talk 汽车谈话}
+\index{Puzzler 难题}
+\index{double letters }
+
+这个问题是基于广播节目{\em Car Talk}播发的一个难题\footnote{\url{www.cartalk.com/content/puzzler/transcripts/200725}.}:
+
+\begin{quote}
+
+ 给我一个含有三个连续的双字母单词，我能给你几个几乎符合条件的单词，但是不是
+ 完全符合。比如，单词{\tt committee}，c-o-m-m-i-t-t-e-e。如果没有了$i$在那里，会更完美；Mississippi也是:M-i-s-s-i-s-s-i-p-p-i。如果能够去掉这些$i$,
+ 结果就很完美。有一个单词有三个连续的双字母，据我所知，只有这一个。当然，
+ 也有可能有500多个，但是我只能想到这一个。那么这个单词是什么？
+ \end{quote}
+
+ 编写一个程序，寻找它。你可以参看我的答案\url{thinkpython.com/code/cartalk.py}.
+
+\end{ex}
+
+
+
+\begin{ex}
+下面的也是一个{\em Car Talk}难题\footnote{\url{www.cartalk.com/content/puzzler/transcripts/200803}.}:
+
+\index{Car Talk}
+\index{Puzzler 难题}
+\index{odometer 里程表}
+\index{palindrome 回文}
+
+
+\begin{quote}
+“有一天，我驾车在高速公路上行使，我偶然看到了我的里程表。像大多数的里程表
+一样，它显示了六个数字，全部是里数。比如，如果我的小汽车行使额300，000里，
+我将会看到3-0-0-0-0-0。\\
+
+“现在，我那天看到的却是非常的有意思。我注意到后四个数字是回文的；也就是说
+从前往后读和从后往前读是一样的。比如，5-4-4-5是回文，所以我的里程表可能显示3-1-5-4-4-5。\\
+
+“行使了一里之后，后五位数是回文的了。比如，可能是3-6-5-4-5-6。再行使一里后
+中间的四位又是回文的了。你或许猜到了，一公里后，六位数字是回文的了！\\
+
+“问题是，当我第一次看里程表的时候，显示的是什么？”
+\end{quote}
+
+编写一个Python程序，测试所有的六位数，打印任何满足条件的数字。你可以参看我的答案\url{thinkpython.com/code/cartalk.py}.
+
+\end{ex}
+
+\begin{ex}
+
+下面的又是一个{\em Car Talk}难题，你可以用搜索来解决它\footnote{\url{www.cartalk.com/content/puzzler/transcripts/200813}}:
+
+\index{Car Talk}
+\index{Puzzler  难题}
+\index{palindrome 回文}
+
+\begin{quote}
+“最近，我拜访了妈妈。我们认识到组成我年龄的两位数倒过来时是她的年龄。
+比如，如果她是73，我就是37。我们想知道这种事发生的频率是多少？但是我们
+转移到了另外一个话题，我们也就没有得到答案。\\
+
+“当我会到家的时候，我计算出组成我们年龄的两位数已经有六次是像上面那样
+了。我也计算出，如果幸运的话，几年后又会发生了，如果我们真的幸运的话，
+在那之后，还会一次。也就是说，总共会有8次。现在的问题是，我今年多大了？”
+
+\end{quote}
+
+编写一个Python程序，搜索这个难题的答案。Hint:你或许会发现字符串方法{\tt zfill}对你有些帮助。
+
+可以参看我的答案\url{thinkpython.com/code/cartalk.py}.
+
+\end{ex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
