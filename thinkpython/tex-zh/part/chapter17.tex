@@ -1,1 +1,732 @@
 \chapter{类和方法}
+
+\section{面向对象特点}
+
+\index{object-oriented programming 面向对象编程}
+
+Python是一门面向对象的编程语言，意味着它提供很多特点支持面向对象编程。
+
+完整的定义面向对象编程不是一件容易的事，但是我们已经看到它的一些特点：
+
+\begin{itemize}
+
+\item 程序由对象定义和函数定义组成，大多数的计算都在操作对象过程中进行。
+
+\item 每个对象定义都和现实世界的一些对象或者概念符合，操作对象的函数和现实世界对象的交互方式相一致。
+
+\end{itemize}
+
+比如，在\ref{time}章节的{\tt Time}类和人们记录日期的方式相同，我们
+定义的函数和人们处理时间的方式相一致。类似地，{\tt Point}和{\tt Rectangle}类和数学意义上的点和矩形相一致。\\
+
+迄今为止，我们没有很好的利用Python提供的特点进行面向对象编程。这些特点不是强制使用；大多数特点为我们已经解决的问题提供了可供选择的语法。但是
+杂很多情况下，可替代的方案更精简准确地表示程序的结构。\\
+
+比如，在{\tt Time}程序中，类定义和紧跟其后的函数定义没有什么明显的联系。
+仔细看看，就会发现，每个函数都接受了至少一个{\tt Time}对象作为参数。
+
+\index{method 方法}
+\index{function 函数}
+
+这个发现激发了方法的出现；方法就是和一个特定的类结合在一起的函数。
+我们已经于遇到了字符串，列表，字典和元组的方法。这一章，我们为自定义
+类型定义方法。
+
+\index{syntax 语法}
+\index{semantics 语义}
+
+方法在语义上就是函数，但是有来嗯个语法上的不同：
+
+\begin{itemize}
+
+\item 方法定义在类体里，使得方法和类的关系更为明显。
+
+\item 调用方法的语法和函数不同。
+\end{itemize}
+
+在接下来的几个部分里，我们把前两章的函数拿过来，把它们转换成方法。
+转换的方法是机械的，仅仅跟着一系列的步骤做就行了。如果，你很熟连把一种形式转换成另外一种形式，你将会更好的选择你想要的方式。
+
+\section{Printing objects}
+\label{print_time}
+
+\index{object!printing}
+
+在\ref{time}章，我们定义了一个{\tt Time}类，在练习\ref{printtime},你写了一个函数\verb"print_time":
+
+\beforeverb
+\begin{verbatim}
+class Time(object):
+    """represents the time of day.
+       attributes: hour, minute, second"""
+
+def print_time(time):
+    print '%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second)
+\end{verbatim}
+\afterverb
+
+调用这个函数，你必须给函数传递一个{\tt Time}对象作为参数：
+
+\beforeverb
+\begin{verbatim}
+>>> start = Time()
+>>> start.hour = 9
+>>> start.minute = 45
+>>> start.second = 00
+>>> print_time(start)
+09:45:00
+\end{verbatim}
+\afterverb
+
+要把\verb"print_time"转换成方法，我们所要做的就是把函数定义移到类定义
+里。注意缩进。
+
+\index{indentation 缩进}
+
+\beforeverb
+\begin{verbatim}
+class Time(object):
+    def print_time(time):
+        print '%.2d:%.2d:%.2d' % (time.hour, time.minute, time.second)
+\end{verbatim}
+\afterverb
+
+现在有两种方式调用\verb"print_time"。地一种方式是使用函数语法(不常见):
+
+\index{fucntion syntax 函数语法}
+\index{dot notation 点记法}
+
+\beforeverb
+\begin{verbatim}
+>>> Time.print_time(start)
+09:45:00
+\end{verbatim}
+\afterverb
+
+这种方法里，{\tt Time}是类名，\verb"print_time"是方法名。{\tt start}作为参数被传递。
+
+第二种（更简洁）方式是使用方法语法：
+
+\index{method syntax 方法语法}
+
+\beforeverb
+\begin{verbatim}
+>>> start.print_time()
+09:45:00
+\end{verbatim}
+\afterverb
+在这种方式里，\verb"print_time"是方法名，{\tt start}是方法被调用的对象，叫做主体。就像句子的主语是句子的主体一样，方法调用的主体方法的主体。
+
+\index{subject 主体}
+
+在方法内部，主体赋给第一个参数，这个例子里是{\tt start}被赋给{\tt time}。
+
+\index{self (parameter name)}
+\index{parameter!self}
+
+习惯上，方法的第一个参数是{\tt self}，所以更常见的是把\verb"print_time"写成这样:
+
+\beforeverb
+\begin{verbatim}
+class Time(object):
+    def print_time(self):
+        print '%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second)
+\end{verbatim}
+\afterverb
+%
+
+这个习惯的原因是一个隐喻：
+
+\index{metaphor, method invocation 隐喻，方法调用}
+
+\begin{itemize}
+
+\item 函数调用的语法，\verb"print_time(start)"，意味着函数是主体。好像这样，“嗨，\verb"print_time" ！这里有一个对象需要你输出。“
+
+\item 在面向对象编程中，对象是主体。方法调用\verb"start.print_time()"是这样的，“嗨，{\tt start}！ 请打印自己。"
+
+\end{itemize}
+
+这个方式上的转变更加的礼貌，但是，你看不出有什么更有利的地方，在我们
+遇到的例子里，确实是这样的。但是，有时候，把函数的责任调到对象身上使得函数更加实用，也更容一维护和复用。
+
+\begin{ex}
+\label{convert}
+
+把\verb"time_to_int"函数（\ref{prototype}部分）改成方法。把\verb"int_to_time"函数改成方法是不恰当的，至少我们清楚要调用对象。
+\end{ex}
+
+\section{另外一个例子}
+
+\index{increment 增量}
+
+下面是{\tt increment}（\ref{增量}）被改写为方法的一个版本：
+
+\beforeverb
+\begin{verbatim}
+# inside class Time:
+
+    def increment(self, seconds):
+        seconds += self.time_to_int()
+        return int_to_time(seconds)
+\end{verbatim}
+\afterverb
+
+这个版本假定\verb"time_to_int"(练习\ref{转换})也是被写成了方法。必须
+要提一下，这个是一个纯函数，不是一个改变版。
+
+下面的是调用{\tt increment}的方式：
+
+\beforeverb
+\begin{verbatim}
+>>> start.print_time()
+09:45:00
+>>> end = start.increment(1337)
+>>> end.print_time()
+10:07:17
+\end{verbatim}
+\afterverb
+
+主体{\tt start}被赋给第一个参数{\tt self}。参数{\tt 1337},被赋给第二个参数{\tt seconds}。
+
+这个方法是令人迷惑的，特别是当发生错误时。比如，如果传递两个参数调用{\tt increment}，
+会得到：
+
+\index{exception!TypeError}
+\index{TypeError}
+
+\beforeverb
+\begin{verbatim}
+>>> end = start.increment(1337, 460)
+TypeError: increment() takes exactly 2 arguments (3 given)
+\end{verbatim}
+\afterverb
+%
+
+错误信息乍看起来是令人迷惑的，因为在括号里明明只有2个参数。但是主体
+也是被认为是参数，所有一用有3个参数。
+
+\section{更复杂的一个例子}
+
+\verb"is_after"(联系\ref{is_after}）稍微有点复杂，因为它接受两个Time对象作为参数。此时，习惯上把第一个参数当作哦{\tt self}，第二个参数作为其他：
+
+\index{other (parameter name)}
+\index{patameter!other}
+
+\beforeverb
+\begin{verbatim}
+# inside class Time:
+
+    def is_after(self, other):
+        return self.time_to_int() > other.time_to_int()
+\end{verbatim}
+\afterverb
+
+使用这个方法，必须使用一个对象作为主体，另外一个对象作为参数：
+
+\beforeverb
+\begin{verbatim}
+>>> end.is_after(start)
+True
+\end{verbatim}
+\afterverb
+
+有趣的是这个几乎完全可以像英语一样读：“end is after start?"
+
+\section{初始方法}
+
+\index{init method 初始方法}
+\index{method!init}
+
+初始方法(简称"initialization"）是一个特殊的方法当一个对象实例化的时候。全名是\verb"__init__"（两个下划线,然后是{\tt init}，最后又是两个下划线)。{\tt Time}类的初始方法可以这么写：
+
+\beforeverb
+\begin{verbatim}
+# inside class Time:
+
+    def __init__(self, hour=0, minute=0, second=0):
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+\end{verbatim}
+\afterverb
+%
+
+\verb"__init__"的参数和类的属性拥有相同的名称是很常见的。语句
+
+\beforeverb
+\begin{verbatim}
+        self.hour = hour
+\end{verbatim}
+\afterverb
+
+存储了{\tt hour}的值作为{\tt self}的属性。
+
+\index{optional parameter 可选择参数}
+\index{parameter!optional}
+\index{default value 缺省值}
+\index{override 覆盖}
+
+参数是可选的，如果调用{\tt Time}。而不指定参数，就会得到一个缺省值。
+
+\beforeverb
+\begin{verbatim}
+>>> time = Time()
+>>> time.print_time()
+00:00:00
+\end{verbatim}
+\afterverb
+
+如果提供了一个参数，就会覆盖{\tt hour}:
+
+\beforeverb
+\begin{verbatim}
+>>> time = Time (9)
+>>> time.print_time()
+09:00:00
+\end{verbatim}
+\afterverb
+%
+如果提供两个参数，就会覆盖{\tt hour}和{'\tt minute}。
+
+\beforeverb
+\begin{verbatim}
+>>> time = Time(9, 45)
+>>> time.print_time()
+09:45:00
+\end{verbatim}
+\afterverb
+
+
+如果提供三个参数，就会覆盖所有的三个缺省值。
+
+\begin{ex}
+\index{Point class Point类}
+\index{class!Point}
+
+为{\tt Point}类编写一个初始化方法,接受{\tt x}和{\tt y}作为可选择参数，并且把他们赋给对应的属性。
+\end{ex}
+
+\section{\_\_str\_\_方法}
+
+\index{str method@\_\_str\_\_方法}
+\index{method!\_\_str\_\_}
+
+\verb"__str__"像\verb"__init__"一样，是一个特殊的方法，返回一个字符串化的对象。
+
+\index{string representation}
+
+比如，这里是Time 对象的一个{\tt str}方法：
+
+\beforeverb
+\begin{verbatim}
+# inside class Time:
+
+    def __str__(self):
+        return '%.2d:%.2d:%.2d' % (self.hour, self.minute, self.second)
+\end{verbatim}
+\afterverb
+%
+
+当{\tt print}一个对象时，Python调用{\tt str}方法：
+
+\index{print statement print语句}
+\index{statement!print}
+
+\beforeverb
+\begin{verbatim}
+>>> time = Time(9, 45)
+>>> print time
+09:45:00
+\end{verbatim}
+\afterverb
+
+当我编写新类的时候，我几乎都要从编写\verb"__init__"（使得更容易实例化对象）和\verb"__str__"（使得调试更方便）方法开始。
+
+\begin{ex}
+为{\tt Point}编写一个{\tt str}方法。创建一个Point对象，并打印它。
+\end{ex}
+
+\section{运算符重载}
+\label{operator overloading 运算符重载}
+
+通过定义其他的特殊方法，可以指明用户自定义类型的操作符的行为。比如，你为{\tt Time}类定义了一个方法\verb"__add__"方法，就可以在Time对象间
+使用{\tt +}运算符。
+
+下面是可能的定义：
+
+\index{add method add方法}
+\index{method!add}
+
+\beforeverb
+\begin{verbatim}
+# inside class Time:
+
+    def __add__(self, other):
+        seconds = self.time_to_int() + other.time_to_int()
+        return int_to_time(seconds)
+\end{verbatim}
+\afterverb
+
+下面演示的是如何使用它：
+
+\beforeverb
+\begin{verbatim}
+>>> start = Time(9, 45)
+>>> duration = Time(1, 35)
+>>> print start + duration
+11:20:00
+\end{verbatim}
+\afterverb
+
+当在Time对象间应用{\tt +}运算符时，Python调用\verb"__add__"。当打印结果的时候，Python调用\verb"__str__"。安静的表面蕴藏着无限的内容！
+
+\index{operator overloading 运算符重载}
+
+改变运算符的行为，适应自定义类型叫做运算符重载。Python中的每一个运算符都有一个对应的特殊方法，像\verb"__add__"。欲之详情参阅\url{docs.python.org/ref/specialnames.html}.
+
+\begin{ex}
+为Point类编写一个{\tt add}方法。
+\end{ex}
+
+\section{基于类型的调度}
+
+前一部分，我们相加了两个对象，但我们也想把一个整数加到Time对象上。下下面是\verb"__add__"的一个版本，检查{\tt other}的类型，然后
+调用\verb"add_time"或{\tt increment}：
+
+\beforeverb
+\begin{verbatim}
+# inside class Time:
+
+    def __add__(self, other):
+        if isinstance(other, Time):
+            return self.add_time(other)
+        else:
+            return self.increment(other)
+
+    def add_time(self, other):
+        seconds = self.time_to_int() + other.time_to_int()
+        return int_to_time(seconds)
+
+    def increment(self, seconds):
+        seconds += self.time_to_int()
+        return int_to_time(seconds)
+\end{verbatim}
+\afterverb
+
+内置函数{\tt isinstance}接受一个值和一个类对象，如果值是类的对象，返回在{\tt True}。
+
+\index{isinstance function isinstance函数}
+\index{function!isinstance}
+
+如果{\tt other}是一个时间对象，\verb"__add__"调用\verb"add_time"，否则，函数认为参数是一个整数，调用{\tt increment}。这种操作叫做基于类型的调度，因为程序依据参数的类型分派不同的操作。
+
+\index{type-based dispathch 基于类型的调度}
+\index{dispatch ,type-based}
+
+下面是一个使用{\tt +}运算符的例子，传递了不同类型的参数。
+
+\beforeverb
+\begin{verbatim}
+>>> start = Time(9, 45)
+>>> duration = Time(1, 35)
+>>> print start + duration
+11:20:00
+>>> print start + 1337
+10:07:17
+\end{verbatim}
+\afterverb
+%
+
+不幸的是，这个加法的实现不是可交换的，如果第一个操作数是整数，会得到：
+\index{commutativity 可交换}
+
+\beforeverb
+\begin{verbatim}
+>>> print 1337 + start
+TypeError: unsupported operand type(s) for +: 'int' and 'instance'
+\end{verbatim}
+\afterverb
+
+
+问题在于，不是要求Time对象去加一个整数，Python要求整数加一个Time对象
+，当然，Python不知道如何做。有一个很巧妙的解决办法：特殊方法\verb"__radd__"，代表"右边相加"。当Time对象出现在{\tt +}的右边时，这个方法被调用。下面是定义：
+
+\index{radd method radd方法}
+\index{method!radd}
+
+\beforeverb
+\begin{verbatim}
+# inside class Time:
+
+    def __radd__(self, other):
+        return self.__add__(other)
+\end{verbatim}
+\afterverb
+%
+下面是使用方式：
+
+\beforeverb
+\begin{verbatim}
+>>> print 1337 + start
+10:07:17
+\end{verbatim}
+\afterverb
+%
+
+\begin{ex}
+
+为Point类编写一个函数{\tt add},要求可以适用于操作数是Point对象或者是元组:
+
+\begin{itemize}
+
+\item 如果第二个操作数是点，方法返回新的点，坐标$X$等于操作数的$X$坐标之和，$y$也是。
+
+\item 如果第二个操作数是元组，方法把元组的第一个元素加到$X$上，第二个加到$y$上，返回新的点。
+
+\end{itemize}
+\end{ex}
+
+\section{多态}
+
+基于类型的调度当必要时是非常有用的，但是并不总是很有必要。通常不必要
+根据不同的类型编写不同的函数。
+
+\index{type-based dispatch 基于类型的调度}
+\index{dispatch!type-based}
+
+我们为字符串编写的很多函数都是适用于任何线性数据结构。比如，
+在\ref{histogram}部分，我们使用{\tt histogram}统计每个字符在单词中出现的次数。
+
+\beforeverb
+\begin{verbatim}
+def histogram(s):
+    d = dict()
+    for c in s:
+        if c not in d:
+            d[c] = 1
+        else:
+            d[c] = d[c]+1
+    return d
+\end{verbatim}
+\afterverb
+
+这个函数也适用于列表，元组甚至是字典，只要{\tt s}的元素是散乱的，他们就可以作为{\tt d}的关键字\footnote{译注：这句话有待商榷，关键字必须是unmutable}。
+
+\beforeverb
+\begin{verbatim}
+>>> t = ['spam', 'egg', 'spam', 'spam', 'bacon', 'spam']
+>>> histogram(t)
+{'bacon': 1, 'egg': 1, 'spam': 4}
+\end{verbatim}
+\afterverb
+
+能够适用于不同类型的函数叫做多态。多态促进了代码的复用。比如，内置函数{\tt sum}，求序列元素的和，对于元素支持相加的序列都是适用的。
+
+\index{polymorphism 多态}
+
+Time对象也提供了{\tt add}方法，所以{\tt sum}函数也使用。
+
+\beforeverb
+\begin{verbatim}
+>>> t1 = Time(7, 43)
+>>> t2 = Time(7, 41)
+>>> t3 = Time(7, 37)
+>>> total = sum([t1, t2, t3])
+>>> print total
+23:01:00
+\end{verbatim}
+\afterverb
+
+总的来说，如果函数里定义的操作适用于给定的类型，那么函数就使用于那种类型。
+
+最好的多态就是不自主的而产生的---你发现你写的函数适用于你没有打算适用的类型！
+
+\section{调试}
+\index{debugging 调试}
+
+在程序运行时，给对象增加属性是合法的，但是如果你是一个类型论的坚持者，
+使相同类型的对象拥有不同的属性是不可靠的习惯。最好的是在初始化方法里初始化所有的对象属性。
+
+\index{init method init方法}
+\index{attribute!initializating}
+
+
+如果不确定对象时候拥有一个特定的属性，可以使用内置函数{\tt hasattr}（参看\ref{hasattr})。
+
+\index{hasattr function hasattr函数}
+\index{function!hasattr}
+\index{dict attribute@\_\_dict\_\_ attribute}
+\index{attribute!\_\_dict\_\_}
+
+另外一种访问对象属性的方式是通过\verb"__dict__"方法，以字典的形式显示属性名(作为字符串)和值。
+
+\beforeverb
+\begin{verbatim}
+>>> p = Point(3, 4)
+>>> print p.__dict__
+{'y': 4, 'x': 3}
+\end{verbatim}
+\afterverb
+%
+
+从调试的角度看，经常使用它是个不错的调试方式。
+
+\beforeverb
+\begin{verbatim}
+def print_attributes(obj):
+    for attr in obj.__dict__:
+        print attr, getattr(obj, attr)
+\end{verbatim}
+\afterverb
+
+\verb"print_attribute"遍历对象字典的所有项，打印对应的名称及其值。
+
+\index{traversal!dictionary}
+\index{dictionary!traversal}
+
+内置函数{\tt getattr}，接受一个对象和属性名，返回属性的值。
+
+\index{getattr function getattr函数}
+\index{function!getattr}
+
+\section{术语表}
+
+\begin{description}
+
+\item [object-oriented language 面向对象语言：] 提供用户自定义类型和
+方法语法等特点的语言，有利于面向对象编程。
+\index{object-oriented language 面向对象语言}
+
+\item [object-oriented programming 面向对象编程：]一种编程风格，倡导
+数据和操作封装在类及其方法里。
+\index{object-oriented programming 面向对象编程}
+
+\item [method 方法：] 定义在类里的函数，通过类的实例调用。
+\index{method 方法}
+
+\item [subject 主体：]方法被调用的对象。
+\index{subject 主体}
+
+\item [operator overloading 运算符重载：]改变像{\tt +}之类运算符的行为，使得适用于用户自定义类型。
+\index{overloading 重载}
+\index{operator!overloading}
+
+\item [type-based dispatch 基于类型的调度：]一种编程模式，检查操作数
+类型，然后调用不同的函数。
+\index{type-based dispatch 基于类型的调度}
+
+\item[polymorphism 多态：] 函数适用于不同类型的数据。
+
+\index{polymorphism 多态}
+
+\end{description}
+
+\section{练习}
+
+\begin{ex}
+
+\index{default value!avouding mutable}
+\index{mutable object, as default value}
+\index{worst bug 最糟糕的bug}
+\index{bug!worst}
+
+这个练习是对Python中最常见也是最难发现的错误之一的一个警告。
+
+\begin{enumerate}
+
+\index{Kangaroo class Kangaroo类}
+\index{class!Kangaroo}
+
+\item 编写一个类{\tt Kangaroo}，要求拥有下面的方法：
+
+\begin{enumerate}
+
+\item \verb"__init__"方法，初始化一个属性\verb"pouch_contents"为空列表。
+
+\item \verb"put_in_pouch"，接受一个任意类型的对象，加到\verb"pouch_contens"上。
+
+\item \verb"__str__"方法，返回字符串化的Kangaroo对象和袋鼠袋子里的东西。
+
+\end{enumerate}
+
+测试你的代码：
+创建两个{\tt Kangaroo}对象，分别赋给{\tt kanga}和{\tt roo}，把{\tt roo}加到{\tt kanga}的袋子里。
+
+\item 下载\url{thinkpython.com/code/BadKangaroo.py}。解答里包含了前一个
+问题的解答，但是有一个很大的bug。找出并改正它。
+
+如果你卡壳了，可以下载\url{thinkpython.com/code/GoodKangaroo.py},它解释了问题的所在并且给出了完整的解答。
+
+\index{aliasing 别名}
+\index{embedded object 嵌套对象}
+\index{object!embedded}
+\end{enumerate}
+\end{ex}
+
+
+\begin{ex}
+
+\index{Visual module}
+\index{module!Visual}
+\index{vpython module}
+\index{module!vpython}
+
+Visual是Python的一个模块，提供了3D图形。通常在安装Python的时候，默认
+是不安装它的，你可以从软件仓库里下载，如果那里没有，从这儿\url{vpython.org}。
+
+下面的例子，创建了一个3D空间，宽，长，高均为256单元，中心被设定在 点
+$(128,128,128)$，绘制了一个蓝色的地球。
+
+\beforeverb
+\begin{verbatim}
+from visual import *
+
+scene.range = (256, 256, 256)
+scene.center = (128, 128, 128)
+
+color = (0.1, 0.1, 0.9)          # mostly blue
+sphere(pos=scene.center, radius=128, color=color)
+\end{verbatim}
+\afterverb
+
+{\tt color}是RGB元组，也就是是哦，元组的元素是从0.0--1.0的RGB值（参看
+\url{wikipedia.org/wiki/RGB_color_model})。
+
+如果运行这个代码，你将会看到一个黑色背景和蓝色地球的窗口。如果上下拖拉中间的按钮，可以放大缩小图像。也拖拉右边的按钮旋转图形，但是只能显示一个地球，很难找出区别：
+
+\beforeverb
+\begin{verbatim}
+t = range(0, 256, 51)
+for x in t:
+    for y in t:
+        for z in t:
+            pos = x, y, z
+            sphere(pos=pos, radius=10, color=color)
+\end{verbatim}
+\afterverb
+
+
+\begin{enumerate}
+
+\item 把代码存储在脚本里，确保能够运行。
+
+\item 修改程序，使得立方里的每个地球的颜色和它的位置相对应。注意：
+坐标的范围是0--255,RGB元组的范围是0.0--1.0。
+
+\index{color list}
+\index{available colors}
+
+\item 下载\url{thinkpython.com/code/color_list.py}。使用汉说
+\verb"read_colors"，产生你系统上可使用的颜色列表---颜色名和对应的RGB值。对于每一个颜色，在与RGB值对应的位置绘制一个地球。
+
+\end{enumerate}
+
+可以参看我的解答\url{thinkpython.com/code/color_space.py}.
+
+\end{ex}
+
+
+
+
+
