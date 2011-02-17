@@ -1,1 +1,380 @@
 \chapter{类和函数}
+\label{ 时间}
+
+
+\section{时间}
+
+作为用户定义类型的另一个例子，我们将定义一个{\tt Time}类，记录当前时间，类的定义如下：
+
+\index{用户定义类型}
+\index{类型!用户定义}
+\index{Time类}
+\index{类!Time}
+
+\beforeverb
+\begin{verbatim}
+class Time(object):
+    """represents the time of day.
+       attributes: hour, minute, second"""
+\end{verbatim}
+\afterverb
+%
+我们可以创建一个新的{\tt Time}对象，并对时、分和秒进行赋值：
+
+\beforeverb
+\begin{verbatim}
+time = Time()
+time.hour = 11
+time.minute = 59
+time.second = 30
+\end{verbatim}
+\afterverb
+%
+{\tt Time}对象的状态图如下：
+
+\index{状态图}
+\index{图!状态}
+\index{对象图}
+\index{图!对象}
+
+\beforefig
+\centerline{\includegraphics{figs/time.eps}}
+\afterfig
+
+\begin{ex}
+\label{printtime}
+编写函数\verb"print_time"，参数为一个时间对象，以{\tt 时：分：秒}的格式打印时间。提示：格式字符串\verb"'%.2d'"使用至少两位打印一个整数，如果需要则在前面添零。
+\end{ex}
+
+\begin{ex}
+\label{is_after}
+
+\index{布尔函数}
+编写布尔函数\verb"is_after"，读取两个时间对象{\tt t1}和{\tt t2}，如果{\tt t1}在{\tt t2}之后则返回{\tt True}，否则返回{\tt False}。挑战：不使用{\tt if}语句。
+\end{ex}
+
+
+\section{纯函数}
+
+\index{原型和补丁}
+\index{开发方案!原型和补丁}
+在下面几个章节中，我们将编写两个函数，实现时间相加的功能。它们将展示两种函数：纯函数和修改。同时将给出一个我称为{\bf 原型和补丁}的开发计划，即对于一个复杂的问题，从简单的原型开始，增量地处理其中的复杂问题。
+
+下面给出\verb"add_time"的一个简单原型：
+
+\beforeverb
+\begin{verbatim}
+def add_time(t1, t2):
+    sum = Time()
+    sum.hour = t1.hour + t2.hour
+    sum.minute = t1.minute + t2.minute
+    sum.second = t1.second + t2.second
+    return sum
+\end{verbatim}
+\afterverb
+%
+这个函数创建一个新的{\tt Time}对象，初始化其属性并作为引用返回给一个新的对象。这被称为{\bf 纯函数}，因为它不改变任何作为参数的对象，除了返回一个值它没有其他作用，类似显示一个值或读取用户输入。
+
+\index{纯函数}
+\index{函数类型!纯}
+
+我创建了两个时间对象来测试这个函数，{\tt start}包含了一个电影开始的时间，如{\em Monty Python and the Holy Grail}，{\tt duration}包含了电影的时间长度，是1小时35分钟。
+
+\index{Monty Python and the Holy Grail}
+
+\verb"add_time"给出电影结束的时间。
+
+\beforeverb
+\begin{verbatim}
+>>> start = Time()
+>>> start.hour = 9
+>>> start.minute = 45
+>>> start.second =  0
+
+>>> duration = Time()
+>>> duration.hour = 1
+>>> duration.minute = 35
+>>> duration.second = 0
+
+>>> done = add_time(start, duration)
+>>> print_time(done)
+10:80:00
+\end{verbatim}
+\afterverb
+%
+{\tt 10:80:00}不是你所想要的结果。问题在于这个函数没有处理分钟和秒钟加起来超过60的情况。当这个情况发生时，我们需要将多余的秒钟“进位”到分钟，将多余的分钟“进位”到小时。
+
+\index{进位，加法}
+
+下面给出一个改进的版本：
+
+\beforeverb
+\begin{verbatim}
+def add_time(t1, t2):
+    sum = Time()
+    sum.hour = t1.hour + t2.hour
+    sum.minute = t1.minute + t2.minute
+    sum.second = t1.second + t2.second
+
+    if sum.second >= 60:
+        sum.second -= 60
+        sum.minute += 1
+
+    if sum.minute >= 60:
+        sum.minute -= 60
+        sum.hour += 1
+
+    return sum
+\end{verbatim}
+\afterverb
+%
+虽然这个函数是正确的，但是它开始变得冗长。我们之后会看见一个精简的版本。
+
+
+\section{修改函数}
+\label{增量}
+
+\index{修改函数}
+\index{函数类型!修改}
+
+有时让函数修改参数对象是很有用的。这中情况下，修改对调用者是可见的。这样工作的函数被称为{\bf 修改函数}。
+
+\index{increment}
+
+{\tt increment}是将一定秒数加到一个{\tt 时间}对象，可以写成一个修改函数。下面是一个草稿：
+
+\beforeverb
+\begin{verbatim}
+def increment(time, seconds):
+    time.second += seconds
+
+    if time.second >= 60:
+        time.second -= 60
+        time.minute += 1
+
+    if time.minute >= 60:
+        time.minute -= 60
+        time.hour += 1
+\end{verbatim}
+\afterverb
+%
+第一行执行基本的操作，后面几行处理我们之前遇到过的特殊情况。
+
+\index{特殊情况}
+
+这个函数对吗？如果参数{\tt seconds}大于60会怎么样？
+
+在这种情况下，进位一次是不够的，我们需要不断进位直到{\tt time.second}小于60。一个解决方案是使用{\tt while}语句替换{\tt if}语句。这能是函数工作正常，但不是很有效率。
+
+\begin{ex}
+编写一个正确的{\tt increment}，不使用任何循环。
+\end{ex}
+
+任何修改函数可以做的都可以使用纯函数来实现。事实上有的编程语言只允许纯函数。有些证据证明使用纯函数的程序相比使用修改函数的程序开发更快捷，错误更少。但是修改函数更加方便使用，而函数的编程效率相对较低。
+
+通常，我推荐你使用纯函数，除非修改函数有明显的优势。这个称为{\bf 函数式编程风格}。
+
+\index{函数式编程风格}
+
+
+\begin{ex}
+编写纯函数版本的{\tt increment}，创建一个新的时间对象并返回，而不是修改参数。
+\end{ex}
+
+
+\section{原型与计划}
+\label{原型}
+
+\index{原型和补丁}
+\index{开发计划!原型和补丁}
+\index{有计划的开发}
+\index{开发计划!有计划的}
+我在展示的开发计划被称为“原型和补丁”。对于每个函数，我编写实现基本功能的原型并进行测试，并对错误打补丁。
+
+这个方法会很有效率，尤其是对问题没有一个深入的认识。但是增量的修改会使得代码变得不必要的复杂，因为需要处理不同的特殊情况，同时由于你很难知道是否找到了所有的错误，代码也不可靠。
+
+另一种是{\bf 有计划的开发}，从高层次分析问题将会简化程序的设计。在这个例子中，对问题的分析在于认识到时间对象是3个60进制的数（参考\url{wikipedia.org/wiki/Sexagesimal}。）！{\tt 秒}是“第1列”，{\tt minute}是“第60列”，{\tt 小时}是“第360列”。
+
+\index{六十进制}
+
+当我们编写\verb"add_time"和{\tt increment}，我们完成了基60的加法，这也是为什么我们需要从一列到另一列进位。
+
+\index{进位，加法}
+
+这个观察给出了解决整个问题的另一个方法，我们可以将时间对象转换为整数，并利用计算机进行整数计算。
+
+下面的函数将时间转换为整数：
+
+\beforeverb
+\begin{verbatim}
+def time_to_int(time):
+    minutes = time.hour * 60 + time.minute
+    seconds = minutes * 60 + time.second
+    return seconds
+\end{verbatim}
+\afterverb
+%
+下面的函数将整数转换为时间（回忆{\tt divmod}将第一个参数除以第二个参数，并返回商和余数的元组）。
+
+\index{divmod}
+
+\beforeverb
+\begin{verbatim}
+def int_to_time(seconds):
+    time = Time()
+    minutes, time.second = divmod(seconds, 60)
+    time.hour, time.minute = divmod(minutes, 60)
+    return time
+\end{verbatim}
+\afterverb
+%
+你也许需要一些思考，并运行一些测试来确保这些函数工作正常。一个测试方法是对许多{\tt x}值检查\verb"time_to_int(int_to_time(x)) == x"。这是一个强壮型检查的例子。
+
+\index{强壮型检查}
+
+当你确信它们是正确的，你可以使用它们重写\verb"add_time"：
+
+\beforeverb
+\begin{verbatim}
+def add_time(t1, t2):
+    seconds = time_to_int(t1) + time_to_int(t2)
+    return int_to_time(seconds)
+\end{verbatim}
+\afterverb
+%
+这个版本比原来的简洁，同时也更容易验证。
+
+\begin{ex}
+使用\verb"time_to_int"和\verb"int_to_time"重写{\tt increment}。
+\end{ex}
+
+有时候，60进制和10进制的相互转换比处理时间更难。基数转换相对更抽象，我们的直觉更擅长处理时间。
+
+但是如果我们将时间看成60进制的数，并编写转换函数（\verb"time_to_int"和\verb"int_to_time"），我们使得程序更简短，更适合阅读和调试，以及更可靠。
+
+同时也方便以后增加新的特性。例如，想象将两个时间相减，得到两者之间的间隔。最直观的方法是实现借位减法。使用转换函数可以更简单，也更容易正确。
+
+\index{借位减法}
+\index{借位，减法}
+\index{普遍化}
+
+讽刺的是有时候将问题复杂化（或普遍化）实际简化了问题（因为特殊情况变少，同时出错概率减小）。
+
+
+\section{调试}
+\index{调试}
+
+一个时间对象被称为是良好组织的，如果{\tt 分钟}和{\tt 秒钟}位于0到60（包括0但不包括60），{\tt hours}是正的，{\tt 小时}和{\tt 分钟}是整数，但我们可以允许{\tt 秒钟}有小数部分。
+
+\index{约束}
+
+类似这些要求被称为{\bf 约束}，它们应该始终为真。换言之，如果它们非真，则有些地方就有错误。
+
+编写程序检查约束可以帮助你检查错误并找出原因。例如，你可以编写函数\verb"valid_time"，读取一个时间对象作为参数，如果违反了约束则返回{\tt False}：
+
+\beforeverb
+\begin{verbatim}
+def valid_time(time):
+    if time.hours < 0 or time.minutes < 0 or time.seconds < 0:
+        return False
+    if time.minutes >= 60 or time.seconds >= 60:
+        return False
+    return True
+\end{verbatim}
+\afterverb
+%
+在每个函数的开头你可以检查参数来保证它们是有效的：
+
+\index{raise语句}
+\index{语句!raise}
+
+\beforeverb
+\begin{verbatim}
+def add_time(t1, t2):
+    if not valid_time(t1) or not valid_time(t2):
+        raise ValueError, 'invalid Time object in add_time'
+    seconds = time_to_int(t1) + time_to_int(t2)
+    return int_to_time(seconds)
+\end{verbatim}
+\afterverb
+%
+或者你可以使用{\tt assert}语句，它将检查一个给定的约束，如果检查失败则会发出一个异常错误。
+
+\index{assert语句}
+\index{语句!assert}
+
+\beforeverb
+\begin{verbatim}
+def add_time(t1, t2):
+    assert valid_time(t1) and valid_time(t2)
+    seconds = time_to_int(t1) + time_to_int(t2)
+    return int_to_time(seconds)
+\end{verbatim}
+\afterverb
+%
+{\tt assert}语句很有用，它们区分普通的条件判断和异常检查。
+
+
+\section{术语}
+
+\begin{description}
+
+\item[原型和补丁：] 一种开发计划，包括编写程序的草稿、测试、修改发现的错误。
+\index{原型和补丁}
+
+\item[有计划的开发：] 一种开发计划，包括从高层次对程序进行分析，相对增量开发或原型开发有更多的计划。
+\index{有计划的开发}
+
+\item[纯函数：] 不修改作为参数的对象的函数。
+\index{纯函数}
+
+\item[修改函数：] 修改一个或多个作为参数的对象的函数。
+\index{修改函数}
+
+\item[函数式编程风格：] 一种程序设计模式，将大多数函数设计为纯函数。
+\index{函数时编程风格}
+
+\item[约束：] 在程序执行时必须始终为真的条件。
+\index{约束}
+
+\end{description}
+
+
+\section{练习}
+
+\begin{ex}
+编写函数\verb"mul_time"，参数为一个时间对象和一个数，返回一个新的时间对象，其值是原时间和数的乘积。
+
+使用\verb"mul_time"编写一个函数，参数为一个时间对象和一个数值，时间对象表示完成一个比赛所用的时间，数值表示距离，返回一个时间对象，其意义是平均速度（英里每单位时间）。
+
+\index{跑步速度}
+
+\end{ex}
+
+\begin{ex}
+
+\index{Date类}
+\index{类!Date}
+编写日期对象的类定义，含有属性{\tt 日}，{\tt 月}和{\tt 年}。编写函数\verb"increment_date"，参数为一个日期对象{\tt date}和一个整数{\tt n}，返回值为一个新的日期对象，对应{\tt date}后的{\tt n}天。提示：“2月没有30天...”挑战：你的函数在闰年工作正常吗？参考\url{wikipedia.org/wiki/Leap_year}。
+
+\end{ex}
+
+
+\begin{ex}
+
+\index{datetime模块}
+\index{模块!datetime}
+
+{\tt datetime}模块提供了类似本章节中的日期和时间对象，{\tt date}和{\tt time}，它们提供了丰富的方法和运算符，阅读\url{docs.python.org/lib/datetime-date.html}中的文档。
+
+\begin{enumerate}
+
+\item 使用{\tt datetime}模块编写程序，读取一个日期，打印这个日期所在的周。
+
+\index{生日}
+
+\item 编写程序，读如一个生日，打印用户的年龄，以及多少天、小时、分钟和秒钟后是下一个生日。
+\end{enumerate}
+
+\end{ex}
+
