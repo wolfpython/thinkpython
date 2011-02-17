@@ -1,1 +1,932 @@
 \chapter{实例学习：数据结构的实例}
+
+\section{单词频率分析}
+\label{analysis}
+
+按照惯例，在参考我的答案之前，最好尝试自己做下面的练习。
+
+\begin{ex}
+编写程序，读取文件，把每行分解为一个个单词，并从单词中去除掉空白和标点符号
+。然后把单词转换成大写形式。
+
+\index{string module string模块}
+\index{module!string}
+
+Hint:{\tt string}模块提供{\tt whitespace}字符串，包含了空格，制表，换行等等
+字符，{\tt punctuation}字符串包含标点符号。让我们看看，是否可以让Python
+“诅咒”：
+
+\beforeverb
+\begin{verbatim}
+>>> import string
+>>> print string.punctuation
+!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+\end{verbatim}
+\afterverb
+
+并且，可能会使用字符串方法{\tt strip},{\tt replace}和{\tt translate}.
+
+\index{strip method strip方法}
+\index{method!strip}
+\index{replace method replace 方法}
+\index{method!strip}
+\index{translate method translate方法}
+\index{method!translate}
+
+\end{ex}
+
+
+
+\begin{ex}
+\index{Project Gutenberg}
+
+打开古腾堡工程的首页(\url{gutenberg.net}),下载你最喜欢的过了版权期的文本书籍。
+
+\index{plain text 纯文本文件}
+\index{text!plain 完全的}
+
+修改程序，读取下载的书籍，略过文件开头的头信息，像以前一样处理剩余的单词。
+
+然后修改程序，统计书中单词的数目，和每个单词出现的次数。
+
+\index{word frequency 单词频率}
+\index{frequency!word 单词}
+
+输出书中不同单词的数目。 比较不同时期，不同作者的书籍。哪个作者使用的词汇量
+最大？
+\end{ex}
+
+\begin{ex}
+修改前一个练习的程序，输出书中使用频率最大的20个单词。
+\end{ex}
+
+
+\begin{ex}
+修改前面程序，读取单词列表（参看\ref{wordlist}部分），输出书中所有不在单词列表
+的单词。他们中有多少是排版错误？有多少是常见的单词，有多少是生僻单词？
+\end{ex}
+
+\section{随机数字}
+
+\index{random number 随机数字}
+\index{number 数字，random 随机}
+\index{deterministic}
+\index{pseudorandom  伪随机}
+
+给定同样的输入，大多数的计算机程序每次产生同样的输出，所以，他们是确定的。
+确定性通常是一件好事儿，因为我们希望同样的计算产生同样的结果。对于某些程序，
+我们却希望产生不可确定的结果。游戏就是一个很显然的例子，但是远远不止这一个例子。
+
+编写一个真正具有不确定性的程序不是一件容易的事儿。但是，有一些方法可以使它看上
+去是不确定的。一种是使用产生伪随机数算法。伪随机数字并不是真正的随即，因为
+他们是通过确定的计算产生的，但是如果仅仅观察数字，是不可能把他们和真正随机数区分开来。
+
+
+\index{random module random模块}
+\index{module!random}
+
+{\tt random}模块提供了可以产生伪随机数的函数（我们一下都用“随机数”来代称)。
+
+\index{random function random函数}
+\index{function!random}
+
+
+{\tt random}函数返回一个从0.0到1.0的随机浮点数(包括0.0,但是不包括1.0)。每次
+，调用{\tt random}，就会的到一个随机数。看下面的循环：
+
+\beforeverb
+\begin{verbatim}
+import random
+
+for i in range(10):
+    x = random.random()
+    print x
+\end{verbatim}
+\afterverb
+
+{\tt randint}函数接受一个{\tt low}和{\tt high}参数，返回{\tt low}和{\tt
+	high}之间的一个整数(包括两者)。
+
+
+\index{randint function randint函数}
+\index{function!randint}
+
+\beforeverb
+\begin{verbatim}
+>>> random.randint(5, 10)
+5
+>>> random.randint(5, 10)
+9
+\end{verbatim}
+\afterverb
+
+要想随机地从一个序列中选取元素，可以使用{\tt choice}：
+
+\index{choice function choice函数}
+\index{fucntion!choice}
+
+\beforeverb
+\begin{verbatim}
+>>> t = [1, 2, 3]
+>>> random.choice(t)
+2
+>>> random.choice(t)
+3
+\end{verbatim}
+\afterverb
+
+{\tt random}模块还提供了从连续分布中产生随机数函数，包括，高斯函数，指数函数，
+$\gamma$ 分布，等等。
+
+\begin{ex}
+\index{histogram!random choice}
+
+ 编写函数\verb"choose_from_hist"，接受一个直方图（在\ref{histogram}部分定义的），
+ 然后从直方图里随机返回一个数，和对应的频率。比如：
+
+ \beforeverb
+\begin{verbatim}
+>>> t = ['a', 'a', 'b']
+>>> h = histogram(t)
+>>> print h
+{'a': 2, 'b': 1}
+\end{verbatim}
+\afterverb
+
+函数必须是{\tt 'a'}及频率$2/3$,和\verb"'b'"及频率$1/3$。
+
+\end{ex}
+
+
+
+\section{单词频率直方图}
+
+下面的程序读取文件，建立文件中单词的频率直方图。
+
+\index{histogram!word frequencies}
+
+\beforeverb
+\begin{verbatim}
+import string
+
+def process_file(filename):
+    h = dict()
+    fp = open(filename)
+    for line in fp:
+        process_line(line, h)
+    return h
+
+def process_line(line, h):
+    line = line.replace('-', ' ')
+    
+    for word in line.split():
+        word = word.strip(string.punctuation + string.whitespace)
+        word = word.lower()
+
+        h[word] = h.get(word, 0) + 1
+
+hist = process_file('emma.txt')
+\end{verbatim}
+\afterverb
+%
+
+程序读取{\tt emma.txt}---是简.奥斯汀的小说《爱玛》。
+
+\index{Austin,Jane}
+
+\verb"process_file"循环遍历获取文件的每行，然后传递给\verb"process_line"。
+直方图{\tt h}作为累加器使用。
+
+\index{accumulator!histogram}
+\index{traversal}
+
+\verb"process_line"先使用字符串方法{\tt replace}把连字符替换为空格,然后使用
+{\tt split}把每行分隔为字符串列表。接着，遍历单词列表，使用{\tt strip}和
+{\tt lower}剔除标点并把字符串转换为小写形式。(这里说“转换“是简略的说法。记得
+		我们说过字符串是不可变的，所以方法{\tt strip}和{\tt
+		lower}等返回新的字符串。)
+
+最后，\verb"process_line"通过创建新的项或者增加已存在项的值，更新直方图，
+
+\index{update!histogram}
+
+要计算文件中单词的总数，可以计算直方图的频数之和：
+
+\beforeverb
+\begin{verbatim}
+def total_words(h):
+    return sum(h.values())
+\end{verbatim}
+\afterverb
+%
+
+单词量等于字典项的数目:
+
+\beforeverb
+\begin{verbatim}
+def different_words(h):
+    return len(h)
+\end{verbatim}
+\afterverb
+%
+
+下面是输出结果的代码：
+
+\beforeverb
+\begin{verbatim}
+print 'Total number of words:', total_words(hist)
+print 'Number of different words:', different_words(hist)
+\end{verbatim}
+\afterverb
+%
+
+结果为：
+
+\beforeverb
+\begin{verbatim}
+Total number of words: 161073
+Number of different words: 7212
+\end{verbatim}
+\afterverb
+%
+
+\section{最常用单词}
+
+\index{DSU pattern}
+\index{pattern!DSU}
+
+若要找出最常用的单词，我们可以应用DSU模式；\verb"most_common"接受一个
+直方图，返回(单词－频数)列表，频数由小到大顺序排序。
+
+\beforeverb
+\begin{verbatim}
+def most_common(h):
+    t = []
+    for key, value in h.items():
+        t.append((value, key))
+
+    t.sort(reverse=True)
+    return t
+\end{verbatim}
+\afterverb
+%
+
+下面是通过循环实现输出最常用的十个单词代码：
+
+\beforeverb
+\begin{verbatim}
+t = most_common(hist)
+print 'The most common words are:'
+for freq, word in t[0:10]:
+    print word, '\t', freq
+\end{verbatim}
+\afterverb
+%
+
+《爱玛》中，最常用的十个单词是：
+
+\beforeverb
+\begin{verbatim}
+The most common words are:
+to      5242
+the     5204
+and     4897
+of      4293
+i       3191
+a       3130
+it      2529
+her     2483
+was     2400
+she     2364
+\end{verbatim}
+\afterverb
+%
+
+\section{可变参数}
+\index{optional parameter 可变参数}
+\index{parameter!optional 可选的}
+
+我们已经遇到接受可变参数\footnote{译注：英文为optional argument,直译为可选择的参数
+，英文侧重于每一个参数，而中文翻译侧重为参数整体}的内置函数和方法。我们也是可以自定义带有可变参数的函数。比如，下面是输出直方图中最常见单词的函数：
+
+\beforeverb
+\begin{verbatim}
+def print_most_common(hist, num=10)
+    t = most_common(hist)
+    print 'The most common words are:'
+    for freq, word in t[0:num]:
+        print word, '\t', freq
+\end{verbatim}
+\afterverb
+
+第一个参数是必须的；第二个参数是可选的。{\tt num}的缺省值是10。
+
+\index{default value 缺省值}
+\index{value!default 缺省}
+
+如果只提供一个参数：
+
+\beforeverb
+\begin{verbatim}
+print_most_common(hist)
+\end{verbatim}
+\afterverb
+
+{\tt num}就是缺省值。如果提供两个参数：
+
+\beforeverb
+\begin{verbatim}
+print_most_common(hist, 20)
+\end{verbatim}
+\afterverb
+
+{\tt num}使用传递来的参数。换句话说，可选参数覆盖了缺省值。
+
+\index{override 覆盖}
+
+如果函数拥有可变参数，所有必需参数必须首先赋值，最后才能是可选参数。
+
+
+\section{字典减法}
+\index{dictionary!subtraction}
+\index{subtraction!dictionary}
+
+从书中找出不在单词列表{\tt words.txt}的单词，可以看做是集合减法运算；也就是
+说，我们从一个集合(书中单词)找出不在另一个集合的单词(单词表里)。
+
+{\tt subtract}接受{\tt d1}和{\tt d2}两个字典，返回一个包含所有不在{\tt d2}里
+的{\tt d1}中的单词为关键字构成的字典。这里，我们不必关心关键字值大小，所以
+我们把关键字值设为None。
+
+\beforeverb
+\begin{verbatim}
+def subtract(d1, d2):
+    res = dict()
+    for key in d1:
+        if key not in d2:
+            res[key] = None
+    return res
+\end{verbatim}
+\afterverb
+
+发现书中不在{\tt words.txt}中单词，我们可以使用\verb"process_file"为{\tt
+	words.txt}
+	建立一个直方图，然后相减：
+
+\beforeverb
+\begin{verbatim}
+words = process_file('words.txt')
+diff = subtract(hist, words)
+
+print "The words in the book that aren't in the word list are:"
+for word in diff.keys():
+    print word,
+\end{verbatim}
+\afterverb
+
+下面是处理《爱玛》后的结果：
+
+\beforeverb
+\begin{verbatim}
+The words in the book that aren't in the word list are:
+ rencontre jane's blanche woodhouses disingenuousness 
+friend's venice apartment ...
+\end{verbatim}
+\afterverb
+
+有些单词是事物（人，动物，地名）名字。有些，像“rencontre"不是很常见。但是
+有些常见的单词没有包含在单词列表中。
+
+\begin{ex}
+
+\index{set 集合}
+\index{type!set 集合}
+
+Python提供了{\tt
+	set}数据结构，拥有一些常见的集合原算。阅读官方文档（\url{docs.python.org/lib/types-set.html}）,
+	编写程序使用集合减法，查找书中不在单词列表里的单词。
+
+\end{ex}
+
+
+
+\section{随机单词}
+\label{randomwords}
+
+
+\index{histogram!random choice}
+
+要从直方图中随机选取一个单词，最简单的算法是依据每个单词的频数，创建一个列表
+，列表中每个单词出现的次数等于频数。
+
+\beforeverb
+\begin{verbatim}
+def random_word(h):
+    t = []
+    for word, freq in h.items():
+        t.extend([word] * freq)
+
+    return random.choice(t)
+\end{verbatim}
+\afterverb
+%
+
+
+
+表达式{\tt [word] * freq}创建一个列表，列表包含了{\tt freq}个字符串{\tt
+	word}。
+{\tt extend}方式和{\tt append}方法类似，除了它的参数是一个序列。
+
+
+\begin{ex}
+\label{randhist}
+
+\index{algorithm 算法}
+
+
+这个算法是有效的，但是不是很高效。每次，随机选择一个单词，就会重新创建一个
+列表（近乎和原书一样大小）。一个显著的改进方案是只创建一次列表，然后
+多次选择，然而列表还是很大。
+
+一个替代方案：
+
+\begin{enumerate}
+
+\item 使用{\tt keys}获取书中单词列表。
+
+\item 创建一个包含单词频数累计和的列表（参看练习\ref{cumulative})。最后一项
+是书中单词的总数目，$n$。
+
+\item 随机选择1到$n$，内的任意整数。使用二分搜索（参看练习\ref{bisection})，查找
+插入随机数的索引。
+
+\item 使用索引查找单词列表里对应的单词。
+
+\end{enumerate}
+
+编写程序使用此算法从书中随机生成一个单词。
+
+\end{ex}
+
+
+\section{马尔可夫分析}
+
+\index{Markov analysis 马尔可夫分析}
+
+ 如果从书中随机选择单词，只能得到词汇，但不能得到句子。
+
+ \beforeverb
+\begin{verbatim}
+this the small regard harriet which knightley's it most things
+\end{verbatim}
+\afterverb
+%
+
+连续的随机单词没有什么意义，因为这些连续的单词之间并没有什么语义上的关系。
+比如，在真正的句子中，“the”后面通常跟着形容词或名词，不会跟着动词或副词。
+
+检测这些联系的方法之一是马尔可夫分析\footnote{这个实例分析源自Kernighan and
+	Pike, {\em The Practice of Programming}, 1999
+		的一个例子}，它刻划了，对于给定的一系列单词的下一个单词
+		的可能性。比如，歌曲{\em Eric ,the Half a Bee}：
+
+\begin{quote}
+Half a bee, philosophically, \\
+Must, ipso facto, half not be. \\
+But half the bee has got to be \\
+Vis a vis, its entity. D'you see? \\
+\\
+But can a bee be said to be \\
+Or not to be an entire bee \\
+When half the bee is not a bee \\
+Due to some ancient injury? \\
+\end{quote}
+
+在歌词中，”bee“，总是跟在短语”half the“后面，但是短语”the bee“的后面跟着
+”has“或“is“。
+
+\index{prefix 前缀}
+\index{suffix 后缀}
+\index{mapping 映射}
+
+马尔可夫分析的结果是从前缀(像“half the“和“the bee“）到所有可能的后缀（像
+		“has“和“is“）的映射。
+
+
+\index{random text }
+\index{text!random}
+
+
+给定这个映射，就可以产生一篇随即文本---从任何前缀开始，然后随机选取可能的
+后缀。接着，可以结合当前前缀的后部分和后缀形成一个新的前缀，如此反复。
+
+比如，从前缀“Half a“开始，下一个单词必须是“bee“，因为前缀仅仅在歌词中出现
+一次。下一个前缀是“a bee“，所以下一个后缀可能是"philosophically","be"或者
+"due“。
+
+在这个例子中，前缀的长度总是为2，但是你可以使用任何长度的前缀。前缀的长度称为，
+分析的“阶“。
+
+
+\begin{ex}
+马尔可夫分析：
+
+\begin{enumerate}
+
+\item
+编写程序读取文档内容，然后进行马尔可夫分析。结果为从前缀到可能后缀
+集合\footnote{译注：collection，不是set}的映射(字典)。集合可以是列表，元组或者字典，这个完全由你自己做主。可以使用长度为2的前缀测试程序，但是必须编写
+程序使得很容易尝试其他长度的前缀。
+
+\item 向之前的程序添加一个函数，依据马尔可夫分析随机生成一段文本。下面是一个
+使用前缀长度为2的例子：
+
+\begin{quote}
+He was very clever, be it sweetness or be angry, ashamed or only
+amused, at such a stroke. She had never thought of Hannah till you
+were never meant for me?" "I cannot make speeches, Emma:" he soon cut
+it all himself.
+\end{quote}
+
+对于这个例子，我把标点附加在单词后面。从句法上看，结果大多正确，但是不是全部符合规范。从语义上看，情况亦如此。
+
+如果增加前缀的长度，情况会如何？随机生成的文本会更有意义吗？
+
+\index{mash-up 混合}
+
+\item 一旦程序可以工作，或许想尝试一下混合的效果：
+如果分析两本或者更多的书籍，随机产生的文本将会以一种有趣的现象混合了不同
+作者的词汇和短语。
+
+\end{enumerate}
+\end{ex}
+
+\section{数据结构}
+
+\index{data structure 数据结构}
+
+使用马尔可夫分析生成随机文本非常有意思，但是这个练习有一个要点：数据结构的
+选择。前面的练习，必须选择：
+
+\begin{itemize}
+
+\item 如何表示前缀。
+\item 如何表示可能后缀的集合\footnote{译注：collection}。
+\item 如何表示从前缀到后缀集合的映射。
+\end{itemize}
+
+恩，最后一个是很简单的，我们至今学到的映射数据类型是字典，所以自然选择它了。
+
+对于前缀，最明显的选择就是使用字符串，字符串列表，或者字符串元组。对于后缀，
+一种选择是列表，另外一种是直方图（字典)。
+
+\index{implementation 实现}
+
+应该如何选择数据结构呢？第一步，思考要为数据结构实现的操作。对于前缀，我们需要能够
+从前部删除单词，添加到后部。比如，如果当前的前缀是"Half a“，下面一个单词是
+"bee"，需要能够形成下一个前缀“a bee“。
+
+\index{tuple!as key in dictionary}
+
+ 第一个想到的可能是列表，因为列表很容易实现添加和删除元素，但是我们需要能够
+ 把前缀作为字典的关键字使用，所以排除列表。对于元组，不能实现添加和删除，但是
+ 可以使用“＋”运算符构建新的元组。
+
+ \beforeverb
+\begin{verbatim}
+def shift(prefix, word):
+    return prefix[1:] + (word,)
+\end{verbatim}
+\afterverb
+%
+
+{\tt shift}接受单词元组，{\tt prefix}和一个字符串{\tt word}，创建一个新的元组，
+包含{\tt prefix}中除第一个以外的全部单词，{\tt word}被添加到新元组的尾部。
+
+对于后缀集合，我们需要的操作包括添加一个新后缀（或者增加已存在后缀的频数），
+和随机选择一个后缀。
+
+添加一个新后缀对于列表实现或者直方图实现都是很容易的。从列表中随机选择一个
+元素也是很容易的；但要从直方图中选择，就不是很高效（参看练习\ref{randhist}).。
+
+
+迄今为止，我们已经谈论的大多是容易实现，但是还有其他的因素在选择数据结构时。
+一种是运行时间。有时， 理论上，希望一种数据结构比其他的要快。比如，
+我提到，{\tt in}操作符，至少在元素数目很大时，用于字典比列表要快。
+
+
+ 但是，通常我们之前并不知道哪种实现快？一种方式是实现两种，测试一下哪个更好。
+ 这种方式叫做基准程序。一个更实用的方法是选择最容易实现的数据结构，看看
+ 对于要实现的应用程序是否足够快。如果是，没有必要再实现其它数据结构。如果不是
+ ，有其他的程序，像{\tt profile}模块，可以确定程序中花费时间最长的部分。
+
+ \index{benchmarking 基准程序}
+ \index{profile module profile模块}
+ \index{module!profile}
+
+另外一种需要考虑的因素是存储空间。比如，使用直方图存储后缀集合需要极小
+的空间，因为只需要存储每个单词一次，无论它在文本中出现多少次。某种情况下，节省
+存储空间安也可使得运行速度变快。极端地来说，如果你使用完内存，程序根本
+无法运行。但是，对于很多应用程序，空间在运行后是次要考虑因素。
+
+最后思考一下：此探讨中，我隐示地说明，在分析和生成阶段使用同一个数据结构。
+但是，因为是分离的阶段，所以，可能使用一种数据结构分析，然后转换为另外一种数据结构生成。如果生成的时间超过转换的时间，这种方式也是不错的选择。
+
+
+
+\section{调试}
+\index{debugging 调试}
+
+当调试程序时，特别是调试一个极难“对付”的bug时，我们可以尝试下面的四种方法：
+
+\begin{description}
+
+\item [阅读：]重新检查代码，确保程序表达了自己的意愿。
+
+\item [运行：]修改程序，运行不同版本的程序。通常，如果在适当的位置，输出
+了预计的东西，问题就很明显，但可能有时候，需要花些时间构建脚手架。
+
+\item [反思：]花些时间反思！到底是出现了什么错误：语法，运行时，还是语义
+粗我？可以从错误信息中或者程序输出得到什么信息？什么错误可能导致遇到错误？
+问题出现前，最后一次改动是什么？
+
+\item [“退后”：]有时候，最好的办法就是恢复改变，直到程序能工作，并且很
+容易理解。然后，就可以重建构建程序。
+
+\end{description}
+
+初级程序员有时只专注于一种方法，忽略了其他的方法。每种方法都有失效的时候。
+
+\index{typographical error  印刷错误}
+
+比如，如果问题粗出在印刷错误上，阅读程序会有帮助，但如果是概念性误解，就
+毫无帮助了。如果自己都不理解自己的程序，就算是读上百遍，也看不到什么错误。
+因为错误在大脑里。
+
+\index{experimental debugging 实验性调试}
+
+做实验是很有效的，特别是运行简单的测试。但是，如果在实验时，不加思考，不阅读
+自己的程序，很可能会落入“瞎猫碰死耗子编程”模式\footnote{译注：random walk 
+	programming}---随意做出改变，直到程序得出正确的结果的过程。
+	毋需说，“瞎猫碰死耗子编程”是费时，费力的。
+
+\index{random walk programming 瞎猫碰死耗子编程}
+\index{development plan!random walk programming}
+
+必须花费时间思考。调试就像做科学实验。必须首先假设出现了什么问题。如果有
+两种或多种可能性，那就测试一下，排除一个。
+
+
+适当的休息一下，有助于思考。探讨也是。如果向其他人（甚至是自己）解释问题，
+有时就会在在问问题的过程中，得到答案。
+
+但是，如果程序有太多的错误，或者要调试的代码太大，太复杂，甚至最好的调试
+技巧都会失败。有时，最好的办法就是退后，简化程序，直到程序能够运行，并且
+很容易理解（至少自己能够理解）。
+
+初级程序员通常不情愿退后，因为，他们不能忍受删除一行代码（尽管它是错误的）。
+如果实在心有不舍，把程序复制一份，然后退后。这样，随后就可以一点点的粘贴回来
+
+
+发现一个隐藏的bug需要阅读，运行，反思，有时还需要退后。如果有一种方式行不通，
+使用其它的方法。
+
+\section{术语表}
+
+\begin{description}
+
+\item [deterministic 确定的：]给定相同的输入，程序每次运行时，做同样的事情，
+给出同样的输出。
+\index{deterministic 确定的}
+
+\item [pseudorandom 伪随机：]由确定性程序生产，表面上是随机的数字序列。
+\index{pseudorandom 伪随机}
+
+\item [default value 缺省值:]如果没有参数提供，由可选参数提供的值。
+\index{default value 缺省值}
+
+\item [override 覆盖:]使用参数代替缺省值。
+\index{override 覆盖}
+
+\item [benchmarking
+基准程序：]实现候选的数据结构，给定一定的输入进行测试的过程。
+
+\index{benchmarking 基准程序}
+
+\end{description}
+
+
+\section{练习}
+
+\begin{ex}
+
+\index{word frequency 单词频数}
+\index{frequency!word}
+\index{Zipf's law}
+
+单词的“等级”就是在依照频数排序的单词列表里的位置：最常见的单词是得等级1，此常见
+单词是等级2，等等。
+
+Zipf法则用自然语言描述了单词等级和频数之间的关系\footnote{参看\url{wikipedia.org/wiki/Zipf's_law}.}。特别地，它预测了等级为$r$的单词的$f$频数：
+
+\[ f = c r^{-s} \]
+$s$和$c$是依赖于语言和文本的参数。如果，对等式两边取对数，得到：
+
+\index{logarithm 对数}
+
+\[ \log f = \log c - s \log r \]
+
+如果绘制$\log f$--$\log r$，图像，就会得到一条斜率为$-s$,截距为$\log c$的
+直线。
+
+编写程序，读取文件，计算单词频数，按频数降序排列，每行打印一个单词，和
+对应$\log f$和$\log r$。使用绘图程序绘制结果，并且检查看看是否形成直线。
+你能够估测$s$的值吗？
+\end{ex}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
