@@ -18,8 +18,10 @@ PDFFLAGS = -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress \
 
 all:	book.tex
 	xelatex book
-	makeindex book
+	makeindex book.idx
 	xelatex book
+	make clean
+
 #	dvips -t letter -Ppdf -o thinkpython.ps book
 #	dvips -T 6.75in,9.25in -Ppdf -o thinkpython.ps book
 #	dvips -t b5 -Ppdf -o thinkpython.ps book
@@ -53,7 +55,7 @@ distrib:
 	chmod -R o+r $(DEST)/*
 
 clean:
-	rm -f *~ *.aux *.log *.dvi *.idx *.ilg *.ind *.toc *.pdf
+	rm -f *~ *.aux *.log *.dvi *.idx *.ilg *.ind *.toc
 
 
 
