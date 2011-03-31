@@ -24,7 +24,7 @@ all:	book.tex
 #	dvips -T 6.75in,9.25in -Ppdf -o thinkpython.ps book
 #	dvips -t b5 -Ppdf -o thinkpython.ps book
 #	dvips -T 7in,10in -Ppdf -o thinkpython.ps book
-	gv thinkpython.ps
+#	gv thinkpython.ps
 
 html:	book.tex header.html footer.html
 	rm -rf html
